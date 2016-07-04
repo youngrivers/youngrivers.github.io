@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html lang="zh-Hans">
 <head>
 
     <!--[if lt IE 9]>
@@ -162,16 +162,16 @@
                         
                             <li><a href="/tags/">标签云</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
+                            <li><a href="/about/">Demo</a></li>
                         
                         </ul>
                     </nav>
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="mailto:401712228@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                                <a class="fa GitHub" href="https://github.com/youngrivers" title="GitHub"></a>
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
                             
@@ -182,7 +182,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
                     </div>
                 </section>
                 
@@ -237,7 +237,7 @@
                 
                     <li><a href="/tags/">标签云</a></li>
                 
-                    <li><a href="/about/">关于我</a></li>
+                    <li><a href="/about/">Demo</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -245,9 +245,9 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="mailto:401712228@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                                <a class="fa GitHub" target="_blank" href="https://github.com/youngrivers" title="GitHub"></a>
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
                             
@@ -294,16 +294,16 @@
 <p><li>Win10 64bit</li></p>
 <p><li>node v4.4.7</li></p>
 <p><li>npm 1.2.19</li></p>
-<p><li>Git Bash||Git Shell</li><br><br>Hexo安装，要用全局安装，加-g参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure></p>
+<p><li>Git Bash||Git Shell</li><br><br>使用Git安装Hexo，要用全局安装，加-g参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure></p>
 <p>查看hexo的版本</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo version</div></pre></td></tr></table></figure>
 <p>安装好后，我们就可以使用Hexo创建项目了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init blog</div></pre></td></tr></table></figure>
 <p>进入目录，并启动Hexo服务器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd blog</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
 <p>我们看到当前在目录下，出现了一个文件夹，包括初始化的文件。<br>这时端口4000被打开了，我们能过浏览器打开地址，<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 。<br>停止调试后即可发布！</p>
-<h2 id="发布到项目到github"><a href="#发布到项目到github" class="headerlink" title="发布到项目到github"></a>发布到项目到github</h2><p>hexo的静态博客框架博客，是只包含html, javascript, css文件的网站，没有动态的脚本。虽然我们是用Node进行的开发，但博客的发布后就与Node无关了。在发布之前，我们要通过一条命令，把所有的文章都做静态化处理，就是生成对应的html, javascript, css，使得所有的文章都是由静态文件组成的。<br>安装hexo-deployer-git。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>我们把这个博客发布到github。<br>在github中创建一个项目youngrivers.github.io，项目地址：<a href="https://github.com/youngrivers/youngrivers.github.io" target="_blank" rel="external">https://github.com/youngrivers/youngrivers.github.io</a><br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br>首先要确定_config.yml的deploy:后面有一个空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com/youngrivers/youngrivers.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<h2 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h2><h3 id="创建静态文件"><a href="#创建静态文件" class="headerlink" title="创建静态文件"></a>创建静态文件</h3><p>hexo的静态博客框架博客，是只包含html, javascript, css文件的网站，没有动态的脚本。虽然我们是用Node进行的开发，但博客的发布后就与Node无关了。在发布之前，我们要通过一条命令，把所有的文章都做静态化处理，就是生成对应的html, javascript, css，使得所有的文章都是由静态文件组成的。<br>安装hexo-deployer-git。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
 <p>静态化命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure></p>
+<h3 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h3><p>我们把这个博客发布到github。<br>在github中创建一个项目youngrivers.github.io，项目地址：<a href="https://github.com/youngrivers/youngrivers.github.io" target="_blank" rel="external">https://github.com/youngrivers/youngrivers.github.io</a><br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br>首先要确定_config.yml的deploy:后面有一个空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com/youngrivers/youngrivers.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
 <p>在本地目录下，会生成一个public的目录，里面包括了所有静态化的文件。<br>然后，通过命令进行部署。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure></p>
 <p>这时我们的博客就创建好了</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.fens.me/hexo-blog-github/" target="_blank" rel="external">张丹</a><br><a href="https://github.com/hexojs/hexo/issues/1154" target="_blank" rel="external">Hexo3.0</a></p>
@@ -321,7 +321,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
     </div>
 
       
@@ -360,7 +360,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/03/hello-world/">Hello World</a>
+      <a class="article-title" href="/2016/07/03/hello-world/">Yelee主题说明</a>
     </h1>
   
 
@@ -370,16 +370,110 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+              <p align="center"><br>    <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank"><br>        <img src="http://moxfive.github.io/resources/yelee-mockup.jpg"><br>    </a><br></p>
 
+<p>&emsp;&emsp;Theme <strong>Yelee</strong> relies on <a href="https://github.com/litten/hexo-theme-yilia">Hexo-Theme-Yilia</a>, thanks for the author <a href="https://github.com/litten">Litten</a>. Fix some bugs, change lots of styles, add several features. And then I made the theme. Yelee is mainly designed for fluent text reading. I change styles and add functions, meanwhile, try hard to keep this theme simple, stupid and clear. Theme DEMO: <a href="http://moxfive.xyz">MOxFIVE’s Blog</a></p>
+<p align="center"><br>    <img src="https://img.shields.io/badge/Hexo-v3.1%2B-blue.svg"><br>    <img src="https://img.shields.io/badge/IE-8%2B-red.svg"><br>    <a href="https://github.com/MOxFIVE/hexo-theme-yelee/releases" target="_blank"><br>        <img src="https://img.shields.io/github/release/MOxFIVE/hexo-theme-yelee.svg"><br>    </a><br></p>
+
+<p align="center"><br>    <a href="http://moxfive.xyz" target="_blank"><br>        <img src="http://moxfive.github.io/resources/yelee-qrcode.png"><br>    </a><br></p>
+
+<p><h3 align="center"><br>    <a href="http://MOxFIVE.coding.me/yelee" target="_blank"><br>        Yelee 主题使用说明 [简中]<br>    </a><br>    <br><br>    <a href="https://github.com/MOxFIVE/yelee" target="_blank"><br>        文档 GitHub 仓库<br>    </a><br></h3></p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/MOxFIVE/hexo-theme-yelee.git themes/yelee</div></pre></td></tr></table></figure>
+<p>Change theme field in Hexo root’s _config.yml file.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: yelee</div></pre></td></tr></table></figure>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd themes/yelee</div><div class="line">git pull</div></pre></td></tr></table></figure>
+<h3 id="New-Features-DEMO"><a href="#New-Features-DEMO" class="headerlink" title="New Features DEMO"></a>New Features <a href="http://moxfive.xyz/yelee/new-features.html">DEMO</a></h3><table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:center">En</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Flexible table of contents</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Transparent &amp; Random background</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Scrolling button</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Copyright info.</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">Post navigation button</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">Site counter</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">i18n, multi-language</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">Local Site Search</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">Load Comment dynamically</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><h4 id="Internationalization"><a href="#Internationalization" class="headerlink" title="Internationalization"></a>Internationalization</h4><p>Use internationalization to present your site in different languages.</p>
+<p><a href="https://hexo.io/docs/internationalization.html">https://hexo.io/docs/internationalization.html</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Hexo Configuration</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/configuration.html</span></div><div class="line"></div><div class="line"><span class="comment"># Site</span></div><div class="line"><span class="attr">language:</span> en</div></pre></td></tr></table></figure>
+<h5 id="Available-Languages"><a href="#Available-Languages" class="headerlink" title="Available Languages"></a>Available Languages</h5><table>
+<thead>
+<tr>
+<th>Code</th>
+<th style="text-align:center">-</th>
+<th style="text-align:center">-</th>
+<th style="text-align:center">Contributor(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>en</strong></td>
+<td style="text-align:center">English</td>
+<td style="text-align:center">英语</td>
+<td style="text-align:center">MOxFIVE</td>
+</tr>
+<tr>
+<td><strong>zh-Hans</strong></td>
+<td style="text-align:center">Chinese (Simplified)</td>
+<td style="text-align:center">大陆简体</td>
+<td style="text-align:center">MOxFIVE</td>
+</tr>
+<tr>
+<td><strong>zh-Hant-HK</strong></td>
+<td style="text-align:center">Chinese (Traditional)</td>
+<td style="text-align:center">港澳繁體</td>
+<td style="text-align:center">MOxFIVE</td>
+</tr>
+<tr>
+<td><strong>zh-Hant-TW</strong></td>
+<td style="text-align:center">Chinese (Traditional)</td>
+<td style="text-align:center">台灣正體</td>
+<td style="text-align:center">MOxFIVE</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Any Contribution is Welcome！</strong></p>
+</blockquote>
+<h4 id="0-Post-Excerpt"><a href="#0-Post-Excerpt" class="headerlink" title="0. Post Excerpt"></a>0. Post Excerpt</h4><p>There are two ways to show excerpt in homepage.</p>
+<ul>
+<li>a:
+          
       
     </div>
     
@@ -388,6 +482,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2016/07/03/hello-world/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
