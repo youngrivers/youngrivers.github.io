@@ -15,21 +15,39 @@
 
 
 
-<meta name="description" content="wedefefsef">
+<meta name="description" content="js邮箱地址跳转
+    
+    
+        var hash={
+            &apos;qq.com&apos;: &apos;http://mail.qq.com&apos;,
+            &apos;gmail.com&apos;: &apos;http://mail.google.com&apos;,
+            &apos;sina.com&apos;: &apos;http://mail.sina.com.cn&apos;,">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Youngrivers Blog">
 <meta property="og:url" content="http://yoursite.com/about/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="wedefefsef">
-<meta property="og:updated_time" content="2016-07-03T18:00:01.319Z">
+<meta property="og:site_name" content="Youngrivers Blog">
+<meta property="og:description" content="js邮箱地址跳转
+    
+    
+        var hash={
+            &apos;qq.com&apos;: &apos;http://mail.qq.com&apos;,
+            &apos;gmail.com&apos;: &apos;http://mail.google.com&apos;,
+            &apos;sina.com&apos;: &apos;http://mail.sina.com.cn&apos;,">
+<meta property="og:updated_time" content="2016-07-04T16:11:40.029Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="wedefefsef">
+<meta name="twitter:title" content="Youngrivers Blog">
+<meta name="twitter:description" content="js邮箱地址跳转
+    
+    
+        var hash={
+            &apos;qq.com&apos;: &apos;http://mail.qq.com&apos;,
+            &apos;gmail.com&apos;: &apos;http://mail.google.com&apos;,
+            &apos;sina.com&apos;: &apos;http://mail.sina.com.cn&apos;,">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Youngrivers Blog" type="application/atom+xml">
 
 
 
@@ -56,7 +74,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Hexo</title>
+<title>Youngrivers Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -163,6 +181,8 @@
                         
                             <li><a href="/about/">Demo</a></li>
                         
+                            <li><a href="/about.html">我的简历</a></li>
+                        
                         </ul>
                     </nav>
                     <nav class="header-nav">
@@ -242,6 +262,8 @@
                 
                     <li><a href="/about/">Demo</a></li>
                 
+                    <li><a href="/about.html">我的简历</a></li>
+                
                 <div class="clearfix"></div>
                 </ul>
             </nav>
@@ -268,7 +290,7 @@
   
     <div class="article-meta">
       <a href="/about/index.html" class="article-date">
-      <time datetime="2016-07-03T18:00:01.328Z" itemprop="datePublished">2016-07-04</time>
+      <time datetime="2016-07-04T16:11:40.036Z" itemprop="datePublished">2016-07-05</time>
 </a>
 
 
@@ -301,16 +323,57 @@
 
 
           
-        <!DOCTYPE html>
+        <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="utf-8">
+    <title>js邮箱地址跳转</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        var hash={
+            'qq.com': 'http://mail.qq.com',
+            'gmail.com': 'http://mail.google.com',
+            'sina.com': 'http://mail.sina.com.cn',
+            '163.com': 'http://mail.163.com',
+            '126.com': 'http://mail.126.com',
+            'yeah.net': 'http://www.yeah.net/',
+            'sohu.com': 'http://mail.sohu.com/',
+            'tom.com': 'http://mail.tom.com/',
+            'sogou.com': 'http://mail.sogou.com/',
+            '139.com': 'http://mail.10086.cn/',
+            'hotmail.com': 'http://www.hotmail.com',
+            'live.com': 'http://login.live.com/',
+            'live.cn': 'http://login.live.cn/',
+            'live.com.cn': 'http://login.live.com.cn',
+            '189.com': 'http://webmail16.189.cn/webmail/',
+            'yahoo.com.cn': 'http://mail.cn.yahoo.com/',
+            'yahoo.cn': 'http://mail.cn.yahoo.com/',
+            'eyou.com': 'http://www.eyou.com/',
+            '21cn.com': 'http://mail.21cn.com/',
+            '188.com': 'http://www.188.com/',
+            'foxmail.coom': 'http://www.foxmail.com'
+        };
+
+        $(function(){
+            $(".mail").each(function() {
+                var url = $(this).text().split('@')[1];
+                for (var j in hash){
+                    $(this).attr("href", hash[url]);
+                }
+            });
+        })
+    </script>
 </head>
+
 <body>
-wedefefsef
+<a href="#" target="_blank" class="mail">laike@qq.com</a> <br>
+<a href="#" target="_blank" class="mail">laike@gmail.com</a> <br>
+<a href="#" target="_blank" class="mail">laike@sina.com</a> <br>
+<a href="#" target="_blank" class="mail">laike@163.com</a> <br>
+<a href="#" target="_blank" class="mail">laike@souhu.com</a> <br>
+<a href="#" target="_blank" class="mail">laike@hotmail.com</a>
 </body>
-</html>
+</html> 
       
     </div>
     
@@ -338,7 +401,7 @@ wedefefsef
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"　| Hexo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -352,19 +415,24 @@ wedefefsef
 
 
     
-        <section class="youyan" id="comments">
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="about/index.html" data-title="" data-url="http://yoursite.com/about/index.html"></div>
     <script>
+        var duoshuoQuery = {short_name:"youngrivers"};
         var loadComment = function(){
             var d = document, s = d.createElement('script');
-            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=null';
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
             (d.head || d.body).appendChild(s);
         }
+
+        
     </script>
     
     <script> loadComment(); </script>
 
-    <div id="uyan_frame"></div>
-</section>
+</div>
     
 
 
