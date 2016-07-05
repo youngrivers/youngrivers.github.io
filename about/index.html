@@ -15,34 +15,13 @@
 
 
 
-<meta name="description" content="js邮箱地址跳转
-    
-    
-        var hash={
-            &apos;qq.com&apos;: &apos;http://mail.qq.com&apos;,
-            &apos;gmail.com&apos;: &apos;http://mail.google.com&apos;,
-            &apos;sina.com&apos;: &apos;http://mail.sina.com.cn&apos;,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Youngrivers Blog">
 <meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Youngrivers Blog">
-<meta property="og:description" content="js邮箱地址跳转
-    
-    
-        var hash={
-            &apos;qq.com&apos;: &apos;http://mail.qq.com&apos;,
-            &apos;gmail.com&apos;: &apos;http://mail.google.com&apos;,
-            &apos;sina.com&apos;: &apos;http://mail.sina.com.cn&apos;,">
-<meta property="og:updated_time" content="2016-07-04T16:11:40.029Z">
+<meta property="og:updated_time" content="2016-07-03T18:11:47.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Youngrivers Blog">
-<meta name="twitter:description" content="js邮箱地址跳转
-    
-    
-        var hash={
-            &apos;qq.com&apos;: &apos;http://mail.qq.com&apos;,
-            &apos;gmail.com&apos;: &apos;http://mail.google.com&apos;,
-            &apos;sina.com&apos;: &apos;http://mail.sina.com.cn&apos;,">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -51,7 +30,7 @@
 
 
 
-    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="shortcut icon" href="/img/favicon.png">
 
 
 
@@ -179,9 +158,9 @@
                         
                             <li><a href="/tags/">标签云</a></li>
                         
-                            <li><a href="/about/">Demo</a></li>
+                            <li><a href="http://www.171i.pw/IFE2016TASK1/">Demo</a></li>
                         
-                            <li><a href="/about.html">我的简历</a></li>
+                            <li><a href="http://htmlpreview.github.io/?https://github.com/youngrivers/myWeb/blob/master/index.html">我的简历</a></li>
                         
                         </ul>
                     </nav>
@@ -205,7 +184,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
                     </div>
                 </section>
                 
@@ -260,9 +239,9 @@
                 
                     <li><a href="/tags/">标签云</a></li>
                 
-                    <li><a href="/about/">Demo</a></li>
+                    <li><a href="http://www.171i.pw/IFE2016TASK1/">Demo</a></li>
                 
-                    <li><a href="/about.html">我的简历</a></li>
+                    <li><a href="http://htmlpreview.github.io/?https://github.com/youngrivers/myWeb/blob/master/index.html">我的简历</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -290,7 +269,7 @@
   
     <div class="article-meta">
       <a href="/about/index.html" class="article-date">
-      <time datetime="2016-07-04T16:11:40.036Z" itemprop="datePublished">2016-07-05</time>
+      <time datetime="2016-07-03T18:11:47.212Z" itemprop="datePublished">2016-07-04</time>
 </a>
 
 
@@ -323,57 +302,7 @@
 
 
           
-        <!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>js邮箱地址跳转</title>
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript">
-        var hash={
-            'qq.com': 'http://mail.qq.com',
-            'gmail.com': 'http://mail.google.com',
-            'sina.com': 'http://mail.sina.com.cn',
-            '163.com': 'http://mail.163.com',
-            '126.com': 'http://mail.126.com',
-            'yeah.net': 'http://www.yeah.net/',
-            'sohu.com': 'http://mail.sohu.com/',
-            'tom.com': 'http://mail.tom.com/',
-            'sogou.com': 'http://mail.sogou.com/',
-            '139.com': 'http://mail.10086.cn/',
-            'hotmail.com': 'http://www.hotmail.com',
-            'live.com': 'http://login.live.com/',
-            'live.cn': 'http://login.live.cn/',
-            'live.com.cn': 'http://login.live.com.cn',
-            '189.com': 'http://webmail16.189.cn/webmail/',
-            'yahoo.com.cn': 'http://mail.cn.yahoo.com/',
-            'yahoo.cn': 'http://mail.cn.yahoo.com/',
-            'eyou.com': 'http://www.eyou.com/',
-            '21cn.com': 'http://mail.21cn.com/',
-            '188.com': 'http://www.188.com/',
-            'foxmail.coom': 'http://www.foxmail.com'
-        };
-
-        $(function(){
-            $(".mail").each(function() {
-                var url = $(this).text().split('@')[1];
-                for (var j in hash){
-                    $(this).attr("href", hash[url]);
-                }
-            });
-        })
-    </script>
-</head>
-
-<body>
-<a href="#" target="_blank" class="mail">laike@qq.com</a> <br>
-<a href="#" target="_blank" class="mail">laike@gmail.com</a> <br>
-<a href="#" target="_blank" class="mail">laike@sina.com</a> <br>
-<a href="#" target="_blank" class="mail">laike@163.com</a> <br>
-<a href="#" target="_blank" class="mail">laike@souhu.com</a> <br>
-<a href="#" target="_blank" class="mail">laike@hotmail.com</a>
-</body>
-</html> 
+        
       
     </div>
     
