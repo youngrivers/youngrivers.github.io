@@ -162,7 +162,7 @@
                         
                             <li><a href="/tags/">标签云</a></li>
                         
-                            <li><a href="http://www.171i.pw/IFE2016TASK1/">Demo</a></li>
+                            <li><a href="http://youngrivers.github.io/IFE2016TASK1/">Demo</a></li>
                         
                             <li><a href="http://htmlpreview.github.io/?https://github.com/youngrivers/myWeb/blob/master/index.html">我的简历</a></li>
                         
@@ -188,7 +188,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
                     </div>
                 </section>
                 
@@ -243,7 +243,7 @@
                 
                     <li><a href="/tags/">标签云</a></li>
                 
-                    <li><a href="http://www.171i.pw/IFE2016TASK1/">Demo</a></li>
+                    <li><a href="http://youngrivers.github.io/IFE2016TASK1/">Demo</a></li>
                 
                     <li><a href="http://htmlpreview.github.io/?https://github.com/youngrivers/myWeb/blob/master/index.html">我的简历</a></li>
                 
@@ -546,7 +546,36 @@
 <h3 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h3><p>我们把这个博客发布到github。<br>在github中创建一个项目youngrivers.github.io，项目地址：<a href="https://github.com/youngrivers/youngrivers.github.io" target="_blank" rel="external">https://github.com/youngrivers/youngrivers.github.io</a><br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br>首先要确定_config.yml的deploy:后面有一个空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com/youngrivers/youngrivers.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
 <p>在本地目录下，会生成一个public的目录，里面包括了所有静态化的文件。<br>然后，通过命令进行部署。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure></p>
 <p>这时我们的博客就创建好了</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.fens.me/hexo-blog-github/" target="_blank" rel="external">张丹</a><br><a href="https://github.com/hexojs/hexo/issues/1154" target="_blank" rel="external">Hexo3.0</a></p>
+<p>##hexo帮助文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g #安装</div><div class="line">npm update hexo -g #升级</div><div class="line">hexo init #初始化</div><div class="line">hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。</div><div class="line">hexo server -s #静态模式</div><div class="line">hexo server -p 5000 #更改端口</div><div class="line">hexo server -i 192.168.1.1 #自定义 IP</div><div class="line">hexo clean #清除缓存 网页正常情况下可以忽略此条命令</div><div class="line">hexo generate #使用 Hexo 生成静态文件快速而且简单</div><div class="line">hexo generate --watch #监视文件变动</div><div class="line">hexo new &quot;文件名&quot; #新建md文件</div><div class="line">hexo new page pageName #新建一个题为“pageName”的页面</div><div class="line">hexo version #查看Hexo版本</div><div class="line">hexo g -d # 等价于 hexo generate --deploy ：生成静态文件并部署</div><div class="line">hexo s -d # 等价于 hexo deploy --generate ：开启预览并部署到Github</div><div class="line">npm uninstall hexo-cli -g #卸载Hexo</div></pre></td></tr></table></figure></p>
+<p>##Markdown语法</p>
+<ol>
+<li><p>标题设置（让字体变大，和word的标题意思一样）<br>在Markdown当中设置标题，有两种方式：<br>第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。<br>第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）</p>
+</li>
+<li><p>块注释（blockquote）<br>通过在文字开头添加“&gt;”表示块注释。（当&gt;和文字之间添加五个blank时，块注释的文字会有变化。）</p>
+</li>
+<li><p>斜体<br>将需要设置为斜体的文字两端使用1个“*”或者“_”夹起来</p>
+</li>
+<li><p>粗体<br>将需要设置为斜体的文字两端使用2个“*”或者“_”夹起来</p>
+</li>
+<li><p>无序列表<br>在文字开头添加(<em>, +, and -)实现无序列表。但是要注意在(</em>, +, and -)和文字之间需要添加空格。（建议：一个文档中只是用一种无序列表的表示方式）</p>
+</li>
+<li><p>有序列表<br>使用数字后面跟上句号。（还要有空格）</p>
+</li>
+<li><p>链接（Links）<br>Markdown中有两种方式，实现链接，分别为内联方式和引用方式。<br>内联方式：This is an <a href="http://example.com/" target="_blank" rel="external">example link</a>.<br>引用方式：<br>I get 10 times more traffic from <a href="http://google.com/" title="Google" target="_blank" rel="external">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search" target="_blank" rel="external">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search" target="_blank" rel="external">MSN</a>.</p>
+</li>
+</ol>
+<ol>
+<li>图片（Images）<br>图片的处理方式和链接的处理方式，非常的类似。<br>内联方式：<img src="/path/to/img.jpg" alt="alt text" title="Title"><br>引用方式：<br><img src="/path/to/img.jpg" alt="alt text" title="Title"></li>
+</ol>
+<ol>
+<li><p>代码（HTML中所谓的Code）<br>实现方式有两种：<br>第一种：简单文字出现一个代码框。使用<code>&lt;blockquote&gt;</code>。（<code>不是单引号而是左上角的ESC下面~中的</code>）<br>第二种：大片文字需要实现代码框。使用Tab和四个空格。</p>
+</li>
+<li><p>脚注（footnote）<br>实现方式如下：<br>hello<a href="hi">^hello</a></p>
+</li>
+</ol>
+<ol>
+<li>下划线<br>在空白行下方添加三条“-”横线。（前面讲过在文字下方添加“-”，实现的2级标题）<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><a href="http://blog.fens.me/hexo-blog-github/" target="_blank" rel="external">张丹</a><br><a href="https://github.com/hexojs/hexo/issues/1154" target="_blank" rel="external">Hexo3.0</a></li>
+</ol>
 
       
     </div>
@@ -561,7 +590,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
     </div>
 
       
