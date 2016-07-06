@@ -69,7 +69,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: undefined
+        search: true
     }
 </script>
 
@@ -101,6 +101,13 @@
 
         
 
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
 
 
@@ -173,7 +180,7 @@
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
                             
-                                <a class="fa 知乎" href="https://www.zhihu.com/people/youngrivers" title="知乎"></a>
+                                <a class="fa Email" href="mailto:401712228@qq.com" title="Email"></a>
                             
                                 <a class="fa QQ" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
                             
@@ -184,7 +191,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yelee/">Yelee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
                     </div>
                 </section>
                 
@@ -207,7 +214,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">专注于前端</div>
+                    <div id="js-aboutme">专注于前端/持之以恒/不放弃治疗</div>
                 </section>
                 
             </div>
@@ -255,7 +262,7 @@
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
                             
-                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/youngrivers" title="知乎"></a>
+                                <a class="fa Email" target="_blank" href="mailto:401712228@qq.com" title="Email"></a>
                             
                                 <a class="fa QQ" target="_blank" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
                             
@@ -304,12 +311,12 @@
     <!-- Tag Cloud Page -->
     <hr>
 <br>
-<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/秘籍/">秘籍</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a><span class="category-list-count">1</span></li></ul>
+<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/秘籍/">秘籍</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a><span class="category-list-count">2</span></li></ul>
 
 <p class="count"></p>
 
 <div class="tags">
-    <a href="/tags/Git/" style="font-size: 25.5px; color: #404040">Git</a> <a href="/tags/Markdown/" style="font-size: 16px; color: #808080">Markdown</a> <a href="/tags/gh-pages/" style="font-size: 25.5px; color: #404040">gh-pages</a> <a href="/tags/github/" style="font-size: 35px; color: #000">github</a> <a href="/tags/hexo/" style="font-size: 16px; color: #808080">hexo</a>
+    <a href="/tags/Git/" style="font-size: 25.5px; color: #404040">Git</a> <a href="/tags/Markdown/" style="font-size: 16px; color: #808080">Markdown</a> <a href="/tags/Yelee/" style="font-size: 16px; color: #808080">Yelee</a> <a href="/tags/gh-pages/" style="font-size: 25.5px; color: #404040">gh-pages</a> <a href="/tags/github/" style="font-size: 35px; color: #000">github</a> <a href="/tags/hexo/" style="font-size: 25.5px; color: #404040">hexo</a>
 </div>
 <style>
     .category-list li{

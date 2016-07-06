@@ -15,19 +15,16 @@
 
 
 
-<meta name="description" content="SVN与Git的最主要的区别SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。
-Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的">
+<meta name="description" content="Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git的安装及使用技巧">
 <meta property="og:url" content="http://yoursite.com/2016/07/04/x3/index.html">
 <meta property="og:site_name" content="Youngrivers Blog">
-<meta property="og:description" content="SVN与Git的最主要的区别SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。
-Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的">
-<meta property="og:updated_time" content="2016-07-05T15:49:01.392Z">
+<meta property="og:description" content="Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。">
+<meta property="og:updated_time" content="2016-07-06T16:37:49.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的安装及使用技巧">
-<meta name="twitter:description" content="SVN与Git的最主要的区别SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。
-Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的">
+<meta name="twitter:description" content="Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -75,7 +72,7 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: undefined
+        search: true
     }
 </script>
 
@@ -107,6 +104,13 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
 
         
 
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
 
 
@@ -179,7 +183,7 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
                             
-                                <a class="fa 知乎" href="https://www.zhihu.com/people/youngrivers" title="知乎"></a>
+                                <a class="fa Email" href="mailto:401712228@qq.com" title="Email"></a>
                             
                                 <a class="fa QQ" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
                             
@@ -190,7 +194,7 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yelee/">Yelee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
                     </div>
                 </section>
                 
@@ -213,7 +217,7 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">专注于前端</div>
+                    <div id="js-aboutme">专注于前端/持之以恒/不放弃治疗</div>
                 </section>
                 
             </div>
@@ -261,7 +265,7 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
                             
-                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/youngrivers" title="知乎"></a>
+                                <a class="fa Email" target="_blank" href="mailto:401712228@qq.com" title="Email"></a>
                             
                                 <a class="fa QQ" target="_blank" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
                             
@@ -365,7 +369,7 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
         <p><span>本文标题:</span><a href="/2016/07/04/x3/">Git的安装及使用技巧</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
         <p><span>发布时间:</span>2016-07-04, 23:49:38</p>
-        <p><span>最后更新:</span>2016-07-05, 23:49:01</p>
+        <p><span>最后更新:</span>2016-07-07, 00:37:49</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/07/04/x3/" title="Git的安装及使用技巧">http://yoursite.com/2016/07/04/x3/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/07/04/x3/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -484,7 +488,7 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x5/">github静态页面创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x4/">github的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x3/">Git的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x2/">Windows下使用hexo在github上创建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/03/hello-world/">Yelee主题说明</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x5/">github静态页面创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x4/">github的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x3/">Git的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x2/">Windows下使用hexo在github上创建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/03/x1/">Yelee主题说明</a></li></ul>
 
 
 

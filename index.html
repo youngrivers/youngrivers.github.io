@@ -73,7 +73,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: undefined
+        search: true
     }
 </script>
 
@@ -105,6 +105,13 @@
 
         
 
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
 
 
@@ -177,7 +184,7 @@
                             
                                 <a class="fa RSS" href="/atom.xml" title="RSS"></a>
                             
-                                <a class="fa 知乎" href="https://www.zhihu.com/people/youngrivers" title="知乎"></a>
+                                <a class="fa Email" href="mailto:401712228@qq.com" title="Email"></a>
                             
                                 <a class="fa QQ" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
                             
@@ -188,7 +195,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yelee/">Yelee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
                     </div>
                 </section>
                 
@@ -211,7 +218,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">专注于前端</div>
+                    <div id="js-aboutme">专注于前端/持之以恒/不放弃治疗</div>
                 </section>
                 
             </div>
@@ -259,7 +266,7 @@
                             
                                 <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
                             
-                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/youngrivers" title="知乎"></a>
+                                <a class="fa Email" target="_blank" href="mailto:401712228@qq.com" title="Email"></a>
                             
                                 <a class="fa QQ" target="_blank" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
                             
@@ -426,46 +433,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="SVN与Git的最主要的区别"><a href="#SVN与Git的最主要的区别" class="headerlink" title="SVN与Git的最主要的区别"></a>SVN与Git的最主要的区别</h2><p>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。</p>
-<p>Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。</p>
-<h2 id="Git搭建和使用"><a href="#Git搭建和使用" class="headerlink" title="Git搭建和使用"></a>Git搭建和使用</h2><h3 id="Git服务端"><a href="#Git服务端" class="headerlink" title="Git服务端"></a>Git服务端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#安装git</span></div><div class="line">sudo apt-get install git</div><div class="line">yum install git</div><div class="line"></div><div class="line"><span class="comment">#创建一个git用户，用来运行git服务</span></div><div class="line">sudo adduser git</div><div class="line"></div><div class="line"><span class="comment">#创建证书使用公钥免密码登录(可选)</span></div><div class="line">ssh-keygen -t rsa</div><div class="line">vi ~/.ssh/authorized_keys</div><div class="line"></div><div class="line"><span class="comment">#初始化Git仓库</span></div><div class="line">sudo git init --bare sample.git</div><div class="line">sudo chown -R git:git sample.git</div><div class="line"></div><div class="line"><span class="comment">#禁用shell登录</span></div><div class="line">vi /etc/passwd</div><div class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</div><div class="line"></div><div class="line"><span class="comment">#在客户端上克隆远程仓库</span></div><div class="line">git <span class="built_in">clone</span> git@server:/srv/sample.git</div></pre></td></tr></table></figure>
-<p>管理公钥推荐使用Gitosis<br>Gitosis - <a href="https://github.com/res0nat0r/gitosis" target="_blank" rel="external">GitHub - res0nat0r/gitosis: Manage git repositories, provide access to them over SSH, with tight access control and not needing shell accounts.</a><br>Gitosis配置手记 - <a href="http://debugo.com/gitosis/" target="_blank" rel="external">http://debugo.com/gitosis/</a><br>管理权限推荐使用Gitolite<br>Gitolite - <a href="https://github.com/sitaramc/gitolite" target="_blank" rel="external">GitHub - sitaramc/gitolite: Hosting git repositories – Gitolite allows you to setup git hosting on a central server, with very fine-grained access control and many (many!) more powerful features</a></p>
-<h3 id="Git客服端"><a href="#Git客服端" class="headerlink" title="Git客服端"></a>Git客服端</h3><blockquote>
-<p>Git客户端可以按个人习惯来选择，遵守团队协作中的Git规范标准才是更重要的</p>
-</blockquote>
-<p><a href="https://git-scm.com/" target="_blank" rel="external">Git</a><br><a href="https://tortoisegit.org/" target="_blank" rel="external">TortoiseGit</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#以最基本的Git命令行为例，先下载Git</span></div><div class="line">https://git-scm.com/download/</div><div class="line"></div><div class="line"><span class="comment">#配置git提交用户名和邮箱，定义别名方便区分</span></div><div class="line">git config --global user.name <span class="string">"你的姓名"</span></div><div class="line">git config --global user.email <span class="string">"you@example.com"</span></div><div class="line"></div><div class="line"><span class="comment">#克隆仓库</span></div><div class="line">git <span class="built_in">clone</span> <span class="built_in">cap</span>@172.28.70.243:/<span class="built_in">cap</span>/cap.git</div><div class="line"></div><div class="line">$ git <span class="built_in">clone</span> <span class="built_in">cap</span>@172.28.70.243:/<span class="built_in">cap</span>/cap.git</div><div class="line">Cloning into <span class="string">'cap'</span>...</div><div class="line">warning: You appear to have cloned an empty repository.</div><div class="line">Checking connectivity... done.</div><div class="line"></div><div class="line"><span class="comment">#测试推送</span></div><div class="line">touch README</div><div class="line">git add README</div><div class="line">git commit -m <span class="string">"add readme"</span></div><div class="line">git push origin master</div><div class="line"></div><div class="line">Counting objects: 3, done.</div><div class="line">Writing objects: 100% (3/3), 199 bytes | 0 bytes/s, done.</div><div class="line">Total 3 (delta 0), reused 0 (delta 0)</div><div class="line">To <span class="built_in">cap</span>@172.28.70.243:/<span class="built_in">cap</span>/cap.git</div><div class="line">* [new branch] master -&gt; master</div></pre></td></tr></table></figure>
-<h2 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h2><p><strong>符号约定</strong></p>
-<ul>
-<li><code>&lt;xxx&gt;</code> 自定义内容</li>
-<li><code>[xxx]</code> 可选内容</li>
-<li><code>[&lt;xxx&gt;]</code>自定义可选内容</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#初始设置</span></div><div class="line">git config --global user.name <span class="string">"&lt;用户名&gt;"</span> <span class="comment">#设置用户名</span></div><div class="line">git config --global user.email <span class="string">"&lt;电子邮件&gt;"</span> <span class="comment">#设置电子邮件</span></div><div class="line"></div><div class="line"><span class="comment">#本地操作</span></div><div class="line">git add [-i] <span class="comment">#保存更新，-i为逐个确认。</span></div><div class="line">git status <span class="comment">#检查更新。</span></div><div class="line">git commit [<span class="_">-a</span>] -m <span class="string">"&lt;更新说明&gt;"</span> <span class="comment">#提交更新，-a为包含内容修改和增删，-m为说明信息，也可以使用 -am。</span></div><div class="line"></div><div class="line"><span class="comment">#远端操作</span></div><div class="line">git <span class="built_in">clone</span> &lt;git地址&gt; <span class="comment">#克隆到本地。</span></div><div class="line">git fetch <span class="comment">#远端抓取。</span></div><div class="line">git merge <span class="comment">#与本地当前分支合并。</span></div><div class="line">git pull [&lt;远端别名&gt;] [&lt;远端branch&gt;] <span class="comment">#抓取并合并,相当于第2、3步</span></div><div class="line">git push [<span class="_">-f</span>] [&lt;远端别名&gt;] [&lt;远端branch&gt;] <span class="comment">#推送到远端，-f为强制覆盖</span></div><div class="line">git remote add &lt;别名&gt; &lt;git地址&gt; <span class="comment">#设置远端别名</span></div><div class="line">git remote [-v] <span class="comment">#列出远端，-v为详细信息</span></div><div class="line">git remote show &lt;远端别名&gt; <span class="comment">#查看远端信息</span></div><div class="line">git remote rename &lt;远端别名&gt; &lt;新远端别名&gt; <span class="comment">#重命名远端</span></div><div class="line">git remote rm &lt;远端别名&gt; <span class="comment">#删除远端</span></div><div class="line">git remote update [&lt;远端别名&gt;] <span class="comment">#更新分支列表</span></div><div class="line"></div><div class="line"><span class="comment">#分支相关</span></div><div class="line">git branch [-r] [<span class="_">-a</span>] <span class="comment">#列出分支，-r远端 ,-a全部</span></div><div class="line">git branch &lt;分支名&gt; <span class="comment">#新建分支</span></div><div class="line">git branch -b &lt;分支名&gt; <span class="comment">#新建并切换分支</span></div><div class="line">git branch <span class="_">-d</span> &lt;分支名&gt; <span class="comment">#删除分支</span></div><div class="line">git checkout &lt;分支名&gt; <span class="comment">#切换到分支</span></div><div class="line">git checkout -b &lt;本地branch&gt; [-t &lt;远端别名&gt;/&lt;远端分支&gt;] <span class="comment">#-b新建本地分支并切换到分支, -t绑定远端分支</span></div><div class="line">git merge &lt;分支名&gt; <span class="comment">#合并某分支到当前分支</span></div></pre></td></tr></table></figure>
-<p>Git常用命令 - <a href="http://gityuan.com/2015/06/27/git-notes/" target="_blank" rel="external">http://gityuan.com/2015/06/27/git-notes/</a></p>
-<ul>
-<li>workspace: 本地的工作目录。（记作A）</li>
-<li>index：缓存区域，临时保存本地改动。（记作B）</li>
-<li>local repository: 本地仓库，只想最后一次提交HEAD。（记作C）</li>
-<li>remote repository：远程仓库。（记作D）</li>
-</ul>
-<blockquote>
-<p>以下所有的命令的功能说明，都采用上述的标记的A、B、C、D的方式来阐述。</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#初始化</span></div><div class="line">git init //创建</div><div class="line">git <span class="built_in">clone</span> /path/to/repository //检出</div><div class="line">git config --global user.email <span class="string">"you@example.com"</span> //配置email</div><div class="line">git config --global user.name <span class="string">"Name"</span> //配置用户名</div><div class="line"></div><div class="line"><span class="comment">#操作</span></div><div class="line">git add &lt;file&gt; // 文件添加，A → B</div><div class="line">git add . // 所有文件添加，A → B</div><div class="line"></div><div class="line">git commit -m <span class="string">"代码提交信息"</span> //文件提交，B → C</div><div class="line">git commit --amend //与上次commit合并, *B → C</div><div class="line"></div><div class="line">git push origin master //推送至master分支, C → D</div><div class="line">git pull //更新本地仓库至最新改动， D → A</div><div class="line">git fetch //抓取远程仓库更新， D → C</div><div class="line"></div><div class="line">git <span class="built_in">log</span> //查看提交记录</div><div class="line">git status //查看修改状态</div><div class="line">git diff//查看详细修改内容</div><div class="line">git show//显示某次提交的内容</div><div class="line"></div><div class="line"><span class="comment">#撤销操作</span></div><div class="line">git reset &lt;file&gt;//某个文件索引会回滚到最后一次提交， C → B</div><div class="line">git reset//索引会回滚到最后一次提交， C → B</div><div class="line">git reset --hard // 索引会回滚到最后一次提交， C → B → A</div><div class="line"></div><div class="line">git checkout // 从index复制到workspace， B → A</div><div class="line">git checkout -- files // 文件从index复制到workspace， B → A</div><div class="line">git checkout HEAD -- files // 文件从<span class="built_in">local</span> repository复制到workspace， C → A</div><div class="line"></div><div class="line"><span class="comment">#分支相关</span></div><div class="line">git checkout -b branch_name //创建名叫“branch_name”的分支，并切换过去</div><div class="line">git checkout master //切换回主分支</div><div class="line">git branch <span class="_">-d</span> branch_name // 删除名叫“branch_name”的分支</div><div class="line">git push origin branch_name //推送分支到远端仓库</div><div class="line">git merge branch_name // 合并分支branch_name到当前分支(如master)</div><div class="line">git rebase //衍合，线性化的自动， D → A</div><div class="line"></div><div class="line"><span class="comment">#冲突处理</span></div><div class="line">git diff //对比workspace与index</div><div class="line">git diff HEAD //对于workspace与最后一次commit</div><div class="line">git diff &lt;<span class="built_in">source</span>_branch&gt; &lt;target_branch&gt; //对比差异</div><div class="line">git add &lt;filename&gt; //修改完冲突，需要add以标记合并成功</div><div class="line"></div><div class="line"><span class="comment">#其他</span></div><div class="line">gitk //开灯图形化git</div><div class="line">git config color.ui <span class="literal">true</span> //彩色的 git 输出</div><div class="line">git config format.pretty oneline //显示历史记录时，每个提交的信息只显示一行</div><div class="line">git add -i //交互式添加文件到暂存区</div></pre></td></tr></table></figure>
-<h2 id="Git使用规范"><a href="#Git使用规范" class="headerlink" title="Git使用规范"></a>Git使用规范</h2><p>Git 使用规范流程 - Git 使用规范流程<br>团队中的 Git 实践 - <a href="https://ourai.ws/posts/working-with-git-in-team/" target="_blank" rel="external">https://ourai.ws/posts/working-with-git-in-team/</a><br>构家网 git 团队协作使用规范 v2 - <a href="http://wenku.baidu.com/view/e1430d1b7f1922791788e81e" target="_blank" rel="external">http://wenku.baidu.com/view/e1430d1b7f1922791788e81e</a></p>
-<blockquote>
-<p>Git使用规范提醒</p>
-</blockquote>
-<ul>
-<li>使用Git过程中，必须通过创建分支进行开发，坚决禁止在主干分支上直接开发。review的同事有责任检查其他同事是否遵循分支规范。</li>
-<li>在Git中，默认是不会提交空目录的，如果想提交某个空目录到版本库中，需要在该目录下新建一个 .gitignore 的空白文件，就可以提交了</li>
-<li>把外部文件纳入到自己的 Git 分支来的时候一定要记得是先比对，确认所有修改都是自己修改的，然后再纳入。不然，容易出现代码回溯</li>
-<li>多人协作时，不要各自在自己的 Git 分支开发，然后发文件合并。正确的方法应该是开一个远程分支，然后一起在远程分支里协作。不然，容易出现代码回溯（即别人的代码被覆盖的情况）</li>
-<li>每个人提交代码是一定要 git diff 看提交的东西是不是都是自己修改的。如果有不是自己修改的内容，很可能就是代码回溯</li>
-<li>review 代码的时候如果看到有被删除掉的代码，一定要确实是否是写代码的同事自己删除的。如果不是，很可能就是代码回溯<h2 id="Git扩展阅读"><a href="#Git扩展阅读" class="headerlink" title="Git扩展阅读"></a>Git扩展阅读</h2><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a><br><a href="https://www.zhihu.com/question/20401926/answer/97256184" target="_blank" rel="external">知乎的回答</a></li>
-</ul>
-
+              Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。 
+          
       
     </div>
     
@@ -482,6 +451,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2016/07/04/x3/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -528,55 +501,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Hexo介绍"><a href="#Hexo介绍" class="headerlink" title="Hexo介绍"></a>Hexo介绍</h2><p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。<br>发布时，Hexo可以部署在自己的Node服务器上面，也可以部署github上面。对于个人用户来说，部署在github上好处颇多，不仅可以省去服务器的成本，还可以减少各种系统运维的麻烦事(系统管理、备份、网络)。所以，基于github的个人站点，正在开始流行起来….<br>Hexo的官方网站：<a href="http://hexo.io/" target="_blank" rel="external">http://hexo.io/</a> ，也是基于Github构建的网站。</p>
-<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><p>系统环境：</p>
-<p><ul></ul></p>
-<p><li>Win10 64bit</li></p>
-<p><li>node v4.4.7</li></p>
-<p><li>npm 1.2.19</li></p>
-<p><li>Git Bash||Git Shell</li><br><br>使用Git安装Hexo，要用全局安装，加-g参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure></p>
-<p>查看hexo的版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo version</div></pre></td></tr></table></figure>
-<p>安装好后，我们就可以使用Hexo创建项目了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init blog</div></pre></td></tr></table></figure>
-<p>进入目录，并启动Hexo服务器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd blog</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
-<p>我们看到当前在目录下，出现了一个文件夹，包括初始化的文件。<br>这时端口4000被打开了，我们能过浏览器打开地址，<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 。<br>停止调试后即可发布！</p>
-<h2 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h2><h3 id="创建静态文件"><a href="#创建静态文件" class="headerlink" title="创建静态文件"></a>创建静态文件</h3><p>hexo的静态博客框架博客，是只包含html, javascript, css文件的网站，没有动态的脚本。虽然我们是用Node进行的开发，但博客的发布后就与Node无关了。在发布之前，我们要通过一条命令，把所有的文章都做静态化处理，就是生成对应的html, javascript, css，使得所有的文章都是由静态文件组成的。<br>安装hexo-deployer-git。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>静态化命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure></p>
-<h3 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h3><p>我们把这个博客发布到github。<br>在github中创建一个项目youngrivers.github.io，项目地址：<a href="https://github.com/youngrivers/youngrivers.github.io" target="_blank" rel="external">https://github.com/youngrivers/youngrivers.github.io</a><br>编辑全局配置文件：_config.yml，找到deploy的部分，设置github的项目地址。<br>首先要确定_config.yml的deploy:后面有一个空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com/youngrivers/youngrivers.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>在本地目录下，会生成一个public的目录，里面包括了所有静态化的文件。<br>然后，通过命令进行部署。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure></p>
-<p>这时我们的博客就创建好了</p>
-<p>##hexo帮助文档<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g #安装</div><div class="line">npm update hexo -g #升级</div><div class="line">hexo init #初始化</div><div class="line">hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。</div><div class="line">hexo server -s #静态模式</div><div class="line">hexo server -p 5000 #更改端口</div><div class="line">hexo server -i 192.168.1.1 #自定义 IP</div><div class="line">hexo clean #清除缓存 网页正常情况下可以忽略此条命令</div><div class="line">hexo generate #使用 Hexo 生成静态文件快速而且简单</div><div class="line">hexo generate --watch #监视文件变动</div><div class="line">hexo new &quot;文件名&quot; #新建md文件</div><div class="line">hexo new page pageName #新建一个题为“pageName”的页面</div><div class="line">hexo version #查看Hexo版本</div><div class="line">hexo g -d # 等价于 hexo generate --deploy ：生成静态文件并部署</div><div class="line">hexo s -d # 等价于 hexo deploy --generate ：开启预览并部署到Github</div><div class="line">npm uninstall hexo-cli -g #卸载Hexo</div></pre></td></tr></table></figure></p>
-<p>##Markdown语法</p>
-<ol>
-<li><p>标题设置（让字体变大，和word的标题意思一样）<br>在Markdown当中设置标题，有两种方式：<br>第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。<br>第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）</p>
-</li>
-<li><p>块注释（blockquote）<br>通过在文字开头添加“&gt;”表示块注释。（当&gt;和文字之间添加五个blank时，块注释的文字会有变化。）</p>
-</li>
-<li><p>斜体<br>将需要设置为斜体的文字两端使用1个“*”或者“_”夹起来</p>
-</li>
-<li><p>粗体<br>将需要设置为斜体的文字两端使用2个“*”或者“_”夹起来</p>
-</li>
-<li><p>无序列表<br>在文字开头添加(<em>, +, and -)实现无序列表。但是要注意在(</em>, +, and -)和文字之间需要添加空格。（建议：一个文档中只是用一种无序列表的表示方式）</p>
-</li>
-<li><p>有序列表<br>使用数字后面跟上句号。（还要有空格）</p>
-</li>
-<li><p>链接（Links）<br>Markdown中有两种方式，实现链接，分别为内联方式和引用方式。<br>内联方式：This is an <a href="http://example.com/" target="_blank" rel="external">example link</a>.<br>引用方式：<br>I get 10 times more traffic from <a href="http://google.com/" title="Google" target="_blank" rel="external">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search" target="_blank" rel="external">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search" target="_blank" rel="external">MSN</a>.</p>
-</li>
-</ol>
-<ol>
-<li>图片（Images）<br>图片的处理方式和链接的处理方式，非常的类似。<br>内联方式：<img src="/path/to/img.jpg" alt="alt text" title="Title"><br>引用方式：<br><img src="/path/to/img.jpg" alt="alt text" title="Title"></li>
-</ol>
-<ol>
-<li><p>代码（HTML中所谓的Code）<br>实现方式有两种：<br>第一种：简单文字出现一个代码框。使用<code>&lt;blockquote&gt;</code>。（<code>不是单引号而是左上角的ESC下面~中的</code>）<br>第二种：大片文字需要实现代码框。使用Tab和四个空格。</p>
-</li>
-<li><p>脚注（footnote）<br>实现方式如下：<br>hello<a href="hi">^hello</a></p>
-</li>
-</ol>
-<ol>
-<li>下划线<br>在空白行下方添加三条“-”横线。（前面讲过在文字下方添加“-”，实现的2级标题）<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><a href="http://blog.fens.me/hexo-blog-github/" target="_blank" rel="external">张丹</a><br><a href="https://github.com/hexojs/hexo/issues/1154" target="_blank" rel="external">Hexo3.0</a></li>
-</ol>
-
+              Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。
+          
       
     </div>
     
@@ -594,6 +520,10 @@
     </div>
 
       
+        <p class="article-more-link">
+          <a href="/2016/07/04/x2/#more">阅读全文 >></a>
+        </p>
+      
       <div class="clearfix"></div>
     </div>
     
@@ -610,10 +540,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-x1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/03/hello-world/" class="article-date">
+      <a href="/2016/07/03/x1/" class="article-date">
       <time datetime="2016-07-03T13:37:03.405Z" itemprop="datePublished">2016-07-03</time>
 </a>
 
@@ -629,7 +559,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/03/hello-world/">Yelee主题说明</a>
+      <a class="article-title" href="/2016/07/03/x1/">Yelee主题说明</a>
     </h1>
   
 
@@ -639,109 +569,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p align="center"><br>    <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank"><br>        <img src="http://moxfive.github.io/resources/yelee-mockup.jpg"><br>    </a><br></p>
-
-<p>&emsp;&emsp;Theme <strong>Yelee</strong> relies on <a href="https://github.com/litten/hexo-theme-yilia">Hexo-Theme-Yilia</a>, thanks for the author <a href="https://github.com/litten">Litten</a>. Fix some bugs, change lots of styles, add several features. And then I made the theme. Yelee is mainly designed for fluent text reading. I change styles and add functions, meanwhile, try hard to keep this theme simple, stupid and clear. Theme DEMO: <a href="http://moxfive.xyz">MOxFIVE’s Blog</a></p>
-<p align="center"><br>    <img src="https://img.shields.io/badge/Hexo-v3.1%2B-blue.svg"><br>    <img src="https://img.shields.io/badge/IE-8%2B-red.svg"><br>    <a href="https://github.com/MOxFIVE/hexo-theme-yelee/releases" target="_blank"><br>        <img src="https://img.shields.io/github/release/MOxFIVE/hexo-theme-yelee.svg"><br>    </a><br></p>
-
-<p align="center"><br>    <a href="http://moxfive.xyz" target="_blank"><br>        <img src="http://moxfive.github.io/resources/yelee-qrcode.png"><br>    </a><br></p>
-
-<p><h3 align="center"><br>    <a href="http://MOxFIVE.coding.me/yelee" target="_blank"><br>        Yelee 主题使用说明 [简中]<br>    </a><br>    <br><br>    <a href="https://github.com/MOxFIVE/yelee" target="_blank"><br>        文档 GitHub 仓库<br>    </a><br></h3></p>
-<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/MOxFIVE/hexo-theme-yelee.git themes/yelee</div></pre></td></tr></table></figure>
-<p>Change theme field in Hexo root’s _config.yml file.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: yelee</div></pre></td></tr></table></figure>
-<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd themes/yelee</div><div class="line">git pull</div></pre></td></tr></table></figure>
-<h3 id="New-Features-DEMO"><a href="#New-Features-DEMO" class="headerlink" title="New Features DEMO"></a>New Features <a href="http://moxfive.xyz/yelee/new-features.html">DEMO</a></h3><table>
-<thead>
-<tr>
-<th style="text-align:center">-</th>
-<th style="text-align:center">En</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Flexible table of contents</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Transparent &amp; Random background</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Scrolling button</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">Copyright info.</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">Post navigation button</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">Site counter</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">i18n, multi-language</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">Local Site Search</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">Load Comment dynamically</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><h4 id="Internationalization"><a href="#Internationalization" class="headerlink" title="Internationalization"></a>Internationalization</h4><p>Use internationalization to present your site in different languages.</p>
-<p><a href="https://hexo.io/docs/internationalization.html">https://hexo.io/docs/internationalization.html</a></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Hexo Configuration</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/configuration.html</span></div><div class="line"></div><div class="line"><span class="comment"># Site</span></div><div class="line"><span class="attr">language:</span> en</div></pre></td></tr></table></figure>
-<h5 id="Available-Languages"><a href="#Available-Languages" class="headerlink" title="Available Languages"></a>Available Languages</h5><table>
-<thead>
-<tr>
-<th>Code</th>
-<th style="text-align:center">-</th>
-<th style="text-align:center">-</th>
-<th style="text-align:center">Contributor(s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>en</strong></td>
-<td style="text-align:center">English</td>
-<td style="text-align:center">英语</td>
-<td style="text-align:center">MOxFIVE</td>
-</tr>
-<tr>
-<td><strong>zh-Hans</strong></td>
-<td style="text-align:center">Chinese (Simplified)</td>
-<td style="text-align:center">大陆简体</td>
-<td style="text-align:center">MOxFIVE</td>
-</tr>
-<tr>
-<td><strong>zh-Hant-HK</strong></td>
-<td style="text-align:center">Chinese (Traditional)</td>
-<td style="text-align:center">港澳繁體</td>
-<td style="text-align:center">MOxFIVE</td>
-</tr>
-<tr>
-<td><strong>zh-Hant-TW</strong></td>
-<td style="text-align:center">Chinese (Traditional)</td>
-<td style="text-align:center">台灣正體</td>
-<td style="text-align:center">MOxFIVE</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>Any Contribution is Welcome！</strong></p>
-</blockquote>
-<h4 id="0-Post-Excerpt"><a href="#0-Post-Excerpt" class="headerlink" title="0. Post Excerpt"></a>0. Post Excerpt</h4><p>There are two ways to show excerpt in homepage.</p>
-<ul>
-<li>a:
+              1. 透明化的随机背景 2. 沉浸式目录 3. 方便的跳转定位 4. 迷你文章列表 5. 本地站内实时搜索 6.文末版权信息...
           
       
     </div>
@@ -749,11 +577,19 @@
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Yelee/">Yelee</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    </div>
+
       
         <p class="article-more-link">
-          <a href="/2016/07/03/hello-world/#more">阅读全文 >></a>
+          <a href="/2016/07/03/x1/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
