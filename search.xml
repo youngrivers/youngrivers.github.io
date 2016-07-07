@@ -4,19 +4,23 @@
   
     
     <entry>
-      <title><![CDATA[github静态页面创建]]></title>
+      <title><![CDATA[Github静态页面创建]]></title>
       <url>http://yoursite.com/2016/07/05/x5/</url>
-      <content type="html"><![CDATA[<h2 id="github介绍"><a href="#github介绍" class="headerlink" title="github介绍"></a>github介绍</h2><h3 id="github安装"><a href="#github安装" class="headerlink" title="github安装"></a>github安装</h3>]]></content>
+      <content type="html"><![CDATA[<h2 id="github静态页面创建"><a href="#github静态页面创建" class="headerlink" title="github静态页面创建"></a>github静态页面创建</h2><p>一般采用的有下面4种方法</p>
+<h3 id="WordPress"><a href="#WordPress" class="headerlink" title="WordPress"></a>WordPress</h3><p>markdown静态文件生成</p>
+<h3 id="Jekyll"><a href="#Jekyll" class="headerlink" title="Jekyll"></a>Jekyll</h3><p>PHP动态解析</p>
+<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>node-js编译</p>
+<h3 id="gh-pages"><a href="#gh-pages" class="headerlink" title="gh-pages"></a>gh-pages</h3><p>github分支</p>
+<h2 id="如何使用gh-pages创建页面"><a href="#如何使用gh-pages创建页面" class="headerlink" title="如何使用gh-pages创建页面"></a>如何使用gh-pages创建页面</h2><h3 id="可以在github页面中的setting项里的GitHub-Pages选择默认的Launch创建即可"><a href="#可以在github页面中的setting项里的GitHub-Pages选择默认的Launch创建即可" class="headerlink" title="可以在github页面中的setting项里的GitHub Pages选择默认的Launch创建即可"></a>可以在github页面中的setting项里的GitHub Pages选择默认的Launch创建即可</h3><h3 id="也可以创建gh-pages的分支"><a href="#也可以创建gh-pages的分支" class="headerlink" title="也可以创建gh-pages的分支"></a>也可以创建gh-pages的分支</h3><p>在上述gh-pages里的分支修改代码发布即可</p>
+<h2 id="github扩展"><a href="#github扩展" class="headerlink" title="github扩展"></a>github扩展</h2><p><a href="http://www.imooc.com/learn/390" target="_blank" rel="external">搬进github</a><br><a href="http://justcoding.iteye.com/blog/1959737" target="_blank" rel="external">使用Jekyll搭建bok</a></p>
+]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Github入门]]></title>
       <url>http://yoursite.com/2016/07/05/x4/</url>
-      <content type="html"><![CDATA[<h2 id="初识Github"><a href="#初识Github" class="headerlink" title="初识Github"></a>初识Github</h2><p>GitHub可以托管各种git库，并提供一个web界面，但与其它像 SourceForge或Google Code这样的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull request”机制向项目负责人申请代码合并。已经有人将GitHub称为代码玩家的MySpace。</p>
-<pre><code>在GitHub进行分支就像在Myspace（或Facebook…）进行交友一样，在社会关系图的节点中不断的连线。
-
-GitHub 使用 git 分布式版本控制系统，而 git 最初是 Linus Torvalds 为帮助Linux开发而创造的，它针对的是 Linux 平台，因此 git 和 Windows 从来不是最好的朋友，因为它一点也不像 Windows。GitHub 发布了GitHub for Windows，为 Windows 平台开发者提供了一个易于使用的 Git 图形客户端。
-</code></pre><h3 id="GitHub-For-Windows"><a href="#GitHub-For-Windows" class="headerlink" title="GitHub For Windows"></a>GitHub For Windows</h3><p>GitHub for Windows 是一个 Metro 风格应用程序，集成了自包含版本的 Git，bash 命令行 shell，PowerShell 的 posh-git 扩展。GitHub 为 Windows 用户提供了一个基本的图形前端去处理大部分常用版本控制任务，可以创建版本库，向本地版本库递交补丁，在本地和远程版本库之间同步。微软也通过CodePlex向开发者提供 git 版本控制系统，而 GitHub 创造了一个更具有吸引力的 Windows 版本。</p>
+      <content type="html"><![CDATA[<h2 id="初识Github"><a href="#初识Github" class="headerlink" title="初识Github"></a>初识Github</h2><p>GitHub可以托管各种git库，并提供一个web界面，但与其它像 SourceForge或Google Code这样的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull request”机制向项目负责人申请代码合并。已经有人将GitHub称为代码玩家的MySpace。<br>在GitHub进行分支就像在Myspace（或Facebook…）进行交友一样，在社会关系图的节点中不断的连线。<br>GitHub 使用 git 分布式版本控制系统，而 git 最初是 Linus Torvalds 为帮助Linux开发而创造的，它针对的是 Linux 平台，因此 git 和 Windows 从来不是最好的朋友，因为它一点也不像 Windows。GitHub 发布了GitHub for Windows，为 Windows 平台开发者提供了一个易于使用的 Git 图形客户端。</p>
+<h3 id="GitHub-For-Windows"><a href="#GitHub-For-Windows" class="headerlink" title="GitHub For Windows"></a>GitHub For Windows</h3><p>GitHub for Windows 是一个 Metro 风格应用程序，集成了自包含版本的 Git，bash 命令行 shell，PowerShell 的 posh-git 扩展。GitHub 为 Windows 用户提供了一个基本的图形前端去处理大部分常用版本控制任务，可以创建版本库，向本地版本库递交补丁，在本地和远程版本库之间同步。微软也通过CodePlex向开发者提供 git 版本控制系统，而 GitHub 创造了一个更具有吸引力的 Windows 版本。</p>
 <p>GitHub上已自动配置的Mac笔记本电脑，一个工具，可以转换设置Linux或Windows机器。</p>
 <p>BOXEN是GitHub的自动化工具，设置和配置的Mac笔记本电脑软件开发[3]或其他类型的工作，正在使用他们的开发人员，律师，设计师，付货人，等。我们的想法是准备系统以自动方式和作为无差错尽可能用最少的干预工作。根据GitHub上，与一个新的开发机器上，他的Mac系统成立，并准备在30分钟内提交代码。</p>
 <p>BOXEN的基础上收集了大量的几十个木偶模块，使设置的各种软件，如卡桑德拉，MongoDB中，Java软件中，Python和Ruby开发中，节点，JS，nginx的，Skype公司，甚至MINECRAFT。虽然机器上配备了一个预配置，每个用户都可以调整它的配置应有的作用。</p>
