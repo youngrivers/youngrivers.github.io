@@ -15,12 +15,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Youngrivers Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Git/index.html">
+<meta name="description" content="2011年，twitter的“一小撮”工程师为了提高他们内部的分析和管理能力，用业余时间为他们的产品构建了一套易用、优雅、灵活、可扩展的前端工具集--BootStrap。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玩转Bootstrap">
+<meta property="og:url" content="http://yoursite.com/2016/07/09/x6/index.html">
 <meta property="og:site_name" content="Youngrivers Blog">
+<meta property="og:description" content="2011年，twitter的“一小撮”工程师为了提高他们内部的分析和管理能力，用业余时间为他们的产品构建了一套易用、优雅、灵活、可扩展的前端工具集--BootStrap。">
+<meta property="og:updated_time" content="2016-07-08T21:57:56.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Youngrivers Blog">
+<meta name="twitter:title" content="玩转Bootstrap">
+<meta name="twitter:description" content="2011年，twitter的“一小撮”工程师为了提高他们内部的分析和管理能力，用业余时间为他们的产品构建了一套易用、优雅、灵活、可扩展的前端工具集--BootStrap。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -52,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Tag: Git | Youngrivers Blog</title>
+<title>玩转Bootstrap | Youngrivers Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -62,9 +66,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
-        isTag: true,
+        isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -264,60 +268,196 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-x6" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/07/04/x3/" class="archive-article-date">
-      <time datetime="2016-07-04T15:49:38.259Z" itemprop="datePublished">07-04</time>
+    <div class="article-meta">
+      <a href="/2016/07/09/x6/" class="article-date">
+      <time datetime="2016-07-08T16:02:09.736Z" itemprop="datePublished">2016-07-09</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/04/x3/">Git的安装及使用技巧</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      玩转Bootstrap
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/秘籍/">秘籍</a>
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Bootstrap到底是什么？"><a href="#Bootstrap到底是什么？" class="headerlink" title="Bootstrap到底是什么？"></a>Bootstrap到底是什么？</h2><p>2011年，twitter的“一小撮”工程师为了提高他们内部的分析和管理能力，用业余时间为他们的产品构建了一套易用、优雅、灵活、可扩展的前端工具集–BootStrap。Bootstrap由MARK OTTO和Jacob Thornton所设计和建立，在github上开源之后，迅速成为该站上最多人watch&amp;fork的项目。大量工程师踊跃为该项目贡献代码，社区惊人地活跃，代码版本进化非常快速，官方文档质量极其高(可以说是优雅)，同时涌现了许多基于Bootstrap建设的网站：界面清新、简洁;要素排版利落大方。</p>
+<h3 id="GitHub上这样介绍-bootstrap"><a href="#GitHub上这样介绍-bootstrap" class="headerlink" title="GitHub上这样介绍 bootstrap"></a>GitHub上这样介绍 bootstrap</h3><ul>
+<li>简单灵活可用于架构流行的用户界面和交互接口的html、css、javascript工具集。</li>
+<li>基于html5、css3的bootstrap，具有大量的诱人特性：友好的学习曲线，卓越的兼容性，响应式设计，12列格网，样式向导文档。</li>
+<li>自定义JQuery插件，完整的类库，基于Less等。</li>
+</ul>
+<h2 id="全局样式"><a href="#全局样式" class="headerlink" title="全局样式"></a>全局样式</h2><p>在制作Web页面时，前端人员都习惯为网站设置一个全局样式（reset.css）。那么在Bootstrap框架中也不例外。Bootstrap框架的核心是轻量的CSS基础代码库，他并没有一味的重置样式，而是注重各浏览器基础表现，降低开发难度。大部分前端人员都具有归零的思想，但实际你会发现，归零之后的样式在开发过程中会存在着潜在的问题，例如，在全局样式表中将em变成一个普通标记，明明应该是斜体，怎么就没效果了呢？</p>
+<p>Bootstrap框架在这一部分做了一定的变更，不再一味追求归零，而是更注重重置可能产生问题的样式（如，body,form的margin等），保留和坚持部分浏览器的基础样式，解决部分潜在的问题，提升一些细节的体验，具体说明如下：</p>
+<pre><code>移除body的margin声明
+设置body的背景色为白色
+为排版设置了基本的字体、字号和行高
+设置全局链接颜色，且当链接处于悬浮“:hover”状态时才会显示下划线样式
+</code></pre><p>其实Bootstrap的全局样式采用了“normalize.css”，但并没有一味的全部使用此重置样式，而是在此基础上进行了一些改良，让其更适合Bootstrap的设计思想。</p>
+<p>你可以通过“normalize.less”（LESS版本）或“_normalize.scss”（Sass版本）进行深入的了解。</p>
+<h3 id="可以在github页面中的setting项里的GitHub-Pages选择默认的Launch创建即可"><a href="#可以在github页面中的setting项里的GitHub-Pages选择默认的Launch创建即可" class="headerlink" title="可以在github页面中的setting项里的GitHub Pages选择默认的Launch创建即可"></a>可以在github页面中的setting项里的GitHub Pages选择默认的Launch创建即可</h3><h3 id="也可以创建gh-pages的分支"><a href="#也可以创建gh-pages的分支" class="headerlink" title="也可以创建gh-pages的分支"></a>也可以创建gh-pages的分支</h3><p>在上述gh-pages里的分支修改代码发布即可</p>
+<h2 id="github扩展"><a href="#github扩展" class="headerlink" title="github扩展"></a>github扩展</h2><p><a href="http://getbootstrap.com/" target="_blank" rel="external">bootstrap官网</a><br><a href="http://www.imooc.com/learn/141" target="_blank" rel="external">玩转Bootstrap（基础）</a></p>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/07/09/x6/">玩转Bootstrap</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
+        <p><span>发布时间:</span>2016-07-09, 00:02:09</p>
+        <p><span>最后更新:</span>2016-07-09, 05:57:56</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/07/09/x6/" title="玩转Bootstrap">http://yoursite.com/2016/07/09/x6/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/07/09/x6/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/07/05/x5/">
+                    Github静态页面创建
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bootstrap到底是什么？"><span class="toc-number">1.</span> <span class="toc-text">Bootstrap到底是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub上这样介绍-bootstrap"><span class="toc-number">1.1.</span> <span class="toc-text">GitHub上这样介绍 bootstrap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局样式"><span class="toc-number">2.</span> <span class="toc-text">全局样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#可以在github页面中的setting项里的GitHub-Pages选择默认的Launch创建即可"><span class="toc-number">2.1.</span> <span class="toc-text">可以在github页面中的setting项里的GitHub Pages选择默认的Launch创建即可</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#也可以创建gh-pages的分支"><span class="toc-number">2.2.</span> <span class="toc-text">也可以创建gh-pages的分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github扩展"><span class="toc-number">3.</span> <span class="toc-text">github扩展</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script>
+    yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+</script>
+
+
 
     
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"玩转Bootstrap　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/07/09/x6/" data-title="玩转Bootstrap" data-url="http://yoursite.com/2016/07/09/x6/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"youngrivers"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/07/05/x5/" title="下一篇: Github静态页面创建">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/09/x6/">玩转Bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x5/">Github静态页面创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x4/">Github入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x3/">Git的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x2/">Windows下使用hexo在github上创建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/03/x1/">Yelee主题说明</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
