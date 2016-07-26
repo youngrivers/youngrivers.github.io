@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="Sass 是采用 Ruby 语言编写的一款 CSS 预处理语言，它诞生于2007年，是最大的成熟的 CSS 预处理语言。最初它是为了配合 HAML（一种缩进式 HTML 预编译器）而设计的，因此有着和 HTML 一样的缩进式风格。">
+<meta name="description" content="分析一下javascript的prototype(原型)及封装继承,了解严格模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入理解-1">
 <meta property="og:url" content="http://yoursite.com/2016/07/23/x16/index.html">
 <meta property="og:site_name" content="Youngrivers Blog">
-<meta property="og:description" content="Sass 是采用 Ruby 语言编写的一款 CSS 预处理语言，它诞生于2007年，是最大的成熟的 CSS 预处理语言。最初它是为了配合 HAML（一种缩进式 HTML 预编译器）而设计的，因此有着和 HTML 一样的缩进式风格。">
-<meta property="og:updated_time" content="2016-07-25T06:44:13.057Z">
+<meta property="og:description" content="分析一下javascript的prototype(原型)及封装继承,了解严格模式">
+<meta property="og:updated_time" content="2016-07-26T15:30:17.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入理解-1">
-<meta name="twitter:description" content="Sass 是采用 Ruby 语言编写的一款 CSS 预处理语言，它诞生于2007年，是最大的成熟的 CSS 预处理语言。最初它是为了配合 HAML（一种缩进式 HTML 预编译器）而设计的，因此有着和 HTML 一样的缩进式风格。">
+<meta name="twitter:description" content="分析一下javascript的prototype(原型)及封装继承,了解严格模式">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -187,7 +187,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular2/">Angular2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bower/">Bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CLI/">CLI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grunt/">Grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TortoiseSVN/">TortoiseSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yelee/">Yelee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular2/">Angular2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bower/">Bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CLI/">CLI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grunt/">Grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TortoiseSVN/">TortoiseSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yelee/">Yelee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li></ul>
                     </div>
                 </section>
                 
@@ -312,7 +312,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="http://www.imooc.com/view/277" target="_blank" rel="external">JavaScript深入浅出</a><br><a href="http://sass-lang.com/" target="_blank" rel="external">Your laptop needs more Sass</a></p>
+        <p><a href="http://www.imooc.com/view/277" target="_blank" rel="external">JavaScript深入浅出</a><br><a href="http://www.w3school.com.cn/js/index.asp" target="_blank" rel="external">JavaScript 教程</a><br><a href="http://www.runoob.com/js/js-tutorial.html" target="_blank" rel="external">JavaScript 教程</a></p>
 
       
     </div>
@@ -324,7 +324,7 @@
         <p><span>本文标题:</span><a href="/2016/07/23/x16/">JavaScript深入理解-1</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
         <p><span>发布时间:</span>2016-07-23, 22:48:16</p>
-        <p><span>最后更新:</span>2016-07-25, 14:44:13</p>
+        <p><span>最后更新:</span>2016-07-26, 23:30:17</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/07/23/x16/" title="JavaScript深入理解-1">http://yoursite.com/2016/07/23/x16/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/07/23/x16/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -443,7 +443,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/24/x17/">JavaScript匿名函数及其闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x16/">JavaScript深入理解-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x15/">Yeoman介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x14/">Bower介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x13/">Gulp介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x12/">Grunt介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x11/">ReactJS组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x10/">AngularJS入门和进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x9/">SVN的介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/x8/">sass-scss的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/16/x7/">玩转Bootstrap(JS插件篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/09/x6/">玩转Bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x5/">Github静态页面创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x4/">Github入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x3/">Git的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x2/">Windows下使用hexo在github上创建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/03/x1/">Yelee主题说明</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/26/x18/">Ajax基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/24/x17/">JavaScript匿名函数及其闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x16/">JavaScript深入理解-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x15/">Yeoman介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x14/">Bower介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x13/">Gulp介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x12/">Grunt介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x11/">ReactJS组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x10/">AngularJS入门和进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x9/">SVN的介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/x8/">sass-scss的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/16/x7/">玩转Bootstrap(JS插件篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/09/x6/">玩转Bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x5/">Github静态页面创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x4/">Github入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x3/">Git的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x2/">Windows下使用hexo在github上创建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/03/x1/">Yelee主题说明</a></li></ul>
 
 
 
