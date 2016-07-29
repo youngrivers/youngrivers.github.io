@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[JavaScript的回调函数和各种主流开发模式]]></title>
+      <url>http://yoursite.com/2016/07/29/x20/</url>
+      <content type="html"><![CDATA[<p><a href="http://www.w3school.com.cn/jquery/index.asp" target="_blank" rel="external">jQuery 教程</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[jQuery基础]]></title>
       <url>http://yoursite.com/2016/07/27/x19/</url>
       <content type="html"><![CDATA[<p><a href="http://www.w3school.com.cn/jquery/index.asp" target="_blank" rel="external">jQuery 教程</a></p>
