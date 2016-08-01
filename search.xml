@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[Node.js基础]]></title>
+      <url>http://yoursite.com/2016/08/01/x19/</url>
+      <content type="html"><![CDATA[<p><a href="http://www.w3school.com.cn/jquery/index.asp" target="_blank" rel="external">jQuery 教程</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[JavaScript的回调函数和各种主流开发模式]]></title>
       <url>http://yoursite.com/2016/07/29/x20/</url>
       <content type="html"><![CDATA[<p><a href="http://www.w3school.com.cn/jquery/index.asp" target="_blank" rel="external">jQuery 教程</a></p>
@@ -11,9 +18,18 @@
     </entry>
     
     <entry>
-      <title><![CDATA[jQuery基础]]></title>
-      <url>http://yoursite.com/2016/07/27/x19/</url>
-      <content type="html"><![CDATA[<p><a href="http://www.w3school.com.cn/jquery/index.asp" target="_blank" rel="external">jQuery 教程</a></p>
+      <title></title>
+      <url>http://yoursite.com/2016/07/27/jQuery%E5%9F%BA%E7%A1%80/</url>
+      <content type="html"><![CDATA[<hr>
+<p>title: jQuery基础<br>date: 2016年7月27日15:54:46<br>update: 2016年7月28日21:30:00<br>permalink: x19<br>description: “AJAX 是一种用于创建快速动态网页的技术。</p>
+<pre><code>通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。&quot;
+</code></pre><p>tags:</p>
+<ul>
+<li>jQuery<br>categories:</li>
+<li>笔记</li>
+</ul>
+<hr>
+<p><a href="http://www.w3school.com.cn/jquery/index.asp" target="_blank" rel="external">jQuery 教程</a></p>
 ]]></content>
     </entry>
     
