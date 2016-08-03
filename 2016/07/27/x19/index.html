@@ -15,19 +15,28 @@
 
 
 
-<meta name="description" content="AJAX 是一种用于创建快速动态网页的技术。
-通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。">
+<meta name="description" content="jQuery这么流行，肯定是因为它解决了一些很重要的问题。实际上，jQuery能帮我们干这些事情：
+消除浏览器差异：你不需要自己写冗长的代码来针对不同的浏览器来绑定事件，编写AJAX等代码；
+简洁的操作DOM的方法：写$(&apos;#test&apos;)肯定比document.getElementById(&apos;test&apos;)来得简洁；
+轻松实现动画、修改CSS等各种操作。
+jQuery的理念“Write Less,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery基础">
 <meta property="og:url" content="http://yoursite.com/2016/07/27/x19/index.html">
 <meta property="og:site_name" content="Youngrivers Blog">
-<meta property="og:description" content="AJAX 是一种用于创建快速动态网页的技术。
-通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。">
-<meta property="og:updated_time" content="2016-08-01T15:43:43.248Z">
+<meta property="og:description" content="jQuery这么流行，肯定是因为它解决了一些很重要的问题。实际上，jQuery能帮我们干这些事情：
+消除浏览器差异：你不需要自己写冗长的代码来针对不同的浏览器来绑定事件，编写AJAX等代码；
+简洁的操作DOM的方法：写$(&apos;#test&apos;)肯定比document.getElementById(&apos;test&apos;)来得简洁；
+轻松实现动画、修改CSS等各种操作。
+jQuery的理念“Write Less,">
+<meta property="og:updated_time" content="2016-08-02T21:06:31.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery基础">
-<meta name="twitter:description" content="AJAX 是一种用于创建快速动态网页的技术。
-通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。">
+<meta name="twitter:description" content="jQuery这么流行，肯定是因为它解决了一些很重要的问题。实际上，jQuery能帮我们干这些事情：
+消除浏览器差异：你不需要自己写冗长的代码来针对不同的浏览器来绑定事件，编写AJAX等代码；
+简洁的操作DOM的方法：写$(&apos;#test&apos;)肯定比document.getElementById(&apos;test&apos;)来得简洁；
+轻松实现动画、修改CSS等各种操作。
+jQuery的理念“Write Less,">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -315,7 +324,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="http://www.w3school.com.cn/jquery/index.asp" target="_blank" rel="external">jQuery 教程</a></p>
+        <h2 id="jQuery-选择器"><a href="#jQuery-选择器" class="headerlink" title="jQuery 选择器"></a>jQuery 选择器</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"*"</span>)<span class="comment">//选取所有元素</span></div><div class="line">$(<span class="keyword">this</span>)<span class="comment">//选取当前 HTML 元素</span></div><div class="line">$(<span class="string">"p"</span>)<span class="comment">//所有 &lt;p&gt; 元素</span></div><div class="line">$(<span class="string">"p.intro"</span>)<span class="comment">//选取 class 为 intro 的 &lt;p&gt; 元素</span></div><div class="line">$(<span class="string">"p:first"</span>)<span class="comment">//第一个 &lt;p&gt; 元素</span></div><div class="line">$(<span class="string">"tr:odd"</span>)<span class="comment">//所有奇数 &lt;tr&gt; 元素</span></div><div class="line">$(<span class="string">"p:hidden"</span>)<span class="comment">//所有隐藏的 &lt;p&gt; 元素</span></div><div class="line">$(<span class="string">"ul li:eq(3)"</span>)<span class="comment">//列表中的第四个元素（index 从 0 开始）</span></div><div class="line">$(<span class="string">"ul li:lt(3)"</span>)<span class="comment">//列出 index 小于 3 的元素</span></div><div class="line">$(<span class="string">"[href]"</span>)<span class="comment">//所有带有 href 属性的元素</span></div><div class="line">$(<span class="string">"a[target!='_blank']"</span>)<span class="comment">//选取所有 target 属性值不等于 "_blank" 的 &lt;a&gt; 元素</span></div><div class="line">$(<span class="string">":button"</span>)<span class="comment">//选取所有 type="button" 的 &lt;input&gt; 元素 和 &lt;button&gt; 元素</span></div></pre></td></tr></table></figure>
+<h2 id="jQuery-事件"><a href="#jQuery-事件" class="headerlink" title="jQuery 事件"></a>jQuery 事件</h2><blockquote>
+<p>在元素上移动鼠标。<br>选取单选按钮<br>点击元素</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>)//	将函数绑定到文档的就绪事件（当文档完成加载时）</span></div><div class="line"><span class="title">$</span>(<span class="params">selector</span>).<span class="title">click</span>(<span class="params">function</span>)//	触发或将函数绑定到被选元素的点击事件</div><div class="line"><span class="title">$</span>(<span class="params">selector</span>).<span class="title">dblclick</span>(<span class="params">function</span>)//	触发或将函数绑定到被选元素的双击事件</div><div class="line"><span class="title">$</span>(<span class="params">selector</span>).<span class="title">focus</span>(<span class="params">function</span>)//	触发或将函数绑定到被选元素的获得焦点事件</div><div class="line"><span class="title">$</span>(<span class="params">selector</span>).<span class="title">mouseover</span>(<span class="params">function</span>)//	触发或将函数绑定到被选元素的鼠标悬停事件</div></pre></td></tr></table></figure>
+<h2 id="jQuery-效果函数"><a href="#jQuery-效果函数" class="headerlink" title="jQuery 效果函数"></a>jQuery 效果函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">animate()<span class="comment">//	对被选元素应用“自定义”的动画</span></div><div class="line">hide()<span class="comment">//	隐藏被选的元素</span></div><div class="line">show()<span class="comment">//	显示被选的元素</span></div><div class="line">fadeIn()<span class="comment">//	逐渐改变被选元素的不透明度，从隐藏到可见</span></div><div class="line">fadeOut()<span class="comment">//	逐渐改变被选元素的不透明度，从可见到隐藏</span></div></pre></td></tr></table></figure>
+<h2 id="jQuery-文档操作方法"><a href="#jQuery-文档操作方法" class="headerlink" title="jQuery 文档操作方法"></a>jQuery 文档操作方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">addClass()<span class="comment">//	向匹配的元素添加指定的类名。</span></div><div class="line">after()<span class="comment">//	在匹配的元素之后插入内容。</span></div><div class="line">append()<span class="comment">//	向匹配元素集合中的每个元素结尾插入由参数指定的内容。</span></div><div class="line">appendTo()<span class="comment">//	向目标结尾插入匹配元素集合中的每个元素。</span></div><div class="line">attr()<span class="comment">//	设置或返回匹配元素的属性和值。</span></div><div class="line">before()<span class="comment">//	在每个匹配的元素之前插入内容。</span></div><div class="line">clone()<span class="comment">//	创建匹配元素集合的副本。</span></div><div class="line">detach()<span class="comment">//	从 DOM 中移除匹配元素集合。</span></div><div class="line">empty()<span class="comment">//	删除匹配的元素集合中所有的子节点。</span></div></pre></td></tr></table></figure>
+<h2 id="jQuery-遍历方法"><a href="#jQuery-遍历方法" class="headerlink" title="jQuery 遍历方法"></a>jQuery 遍历方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.find()<span class="comment">//	获得当前匹配元素集合中每个元素的后代，由选择器进行筛选。</span></div><div class="line">.first()<span class="comment">//	将匹配元素集合缩减为集合中的第一个元素。</span></div><div class="line">.has()<span class="comment">//	将匹配元素集合缩减为包含特定元素的后代的集合。</span></div><div class="line">.is()<span class="comment">//	根据选择器检查当前匹配元素集合，如果存在至少一个匹配元素，则返回 true。</span></div><div class="line">.last()<span class="comment">//	将匹配元素集合缩减为集合中的最后一个元素。</span></div><div class="line">.map()<span class="comment">//	把当前匹配集合中的每个元素传递给函数，产生包含返回值的新 jQuery 对象。</span></div><div class="line">.next()<span class="comment">//	获得匹配元素集合中每个元素紧邻的同辈元素。</span></div><div class="line">.nextAll()<span class="comment">//	获得匹配元素集合中每个元素之后的所有同辈元素，由选择器进行筛选（可选）。</span></div><div class="line">.nextUntil()<span class="comment">//	获得每个元素之后所有的同辈元素，直到遇到匹配选择器的元素为止。</span></div><div class="line">.not()<span class="comment">//	从匹配元素集合中删除元素。</span></div><div class="line">.offsetParent()<span class="comment">//	获得用于定位的第一个父元素。</span></div><div class="line">.parent()<span class="comment">//	获得当前匹配元素集合中每个元素的父元素，由选择器筛选（可选）。</span></div><div class="line">.parents()<span class="comment">//	获得当前匹配元素集合中每个元素的祖先元素，由选择器筛选（可选）。</span></div></pre></td></tr></table></figure>
+<p><a href="http://www.w3school.com.cn/jquery/index.asp" target="_blank" rel="external">jQuery 教程</a><br><a href="http://www.runoob.com/jquery/jquery-tutorial.html" target="_blank" rel="external">jQuery</a><br><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499993118b8173572625b4afe93a8b19dd707ea1d000" target="_blank" rel="external">jQuery</a><br><a href="http://www.imooc.com/view/418" target="_blank" rel="external">jQuery基础</a></p>
 
       
     </div>
@@ -327,7 +344,7 @@
         <p><span>本文标题:</span><a href="/2016/07/27/x19/">jQuery基础</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
         <p><span>发布时间:</span>2016-07-27, 15:53:22</p>
-        <p><span>最后更新:</span>2016-08-01, 23:43:43</p>
+        <p><span>最后更新:</span>2016-08-03, 05:06:31</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/07/27/x19/" title="jQuery基础">http://yoursite.com/2016/07/27/x19/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/07/27/x19/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -362,7 +379,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery-选择器"><span class="toc-number">1.</span> <span class="toc-text">jQuery 选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery-事件"><span class="toc-number">2.</span> <span class="toc-text">jQuery 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery-效果函数"><span class="toc-number">3.</span> <span class="toc-text">jQuery 效果函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery-文档操作方法"><span class="toc-number">4.</span> <span class="toc-text">jQuery 文档操作方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery-遍历方法"><span class="toc-number">5.</span> <span class="toc-text">jQuery 遍历方法</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn,

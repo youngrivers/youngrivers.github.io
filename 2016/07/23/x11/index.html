@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/23/x11/index.html">
 <meta property="og:site_name" content="Youngrivers Blog">
 <meta property="og:description" content="React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。做出来以后，发现这套东西很好用，就在2013年5月开源了。 衍生的 React Native 项目，目标更是宏伟，希望用写 Web App 的方式去写 Native App。如果能够实现，整个互联网行业都会被颠覆，因为同一组">
-<meta property="og:updated_time" content="2016-07-24T17:50:57.441Z">
+<meta property="og:updated_time" content="2016-08-02T21:28:48.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactJS组件">
 <meta name="twitter:description" content="React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。做出来以后，发现这套东西很好用，就在2013年5月开源了。 衍生的 React Native 项目，目标更是宏伟，希望用写 Web App 的方式去写 Native App。如果能够实现，整个互联网行业都会被颠覆，因为同一组">
@@ -312,7 +312,18 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://facebook.github.io/react/downloads.html" target="_blank" rel="external">react</a><br><a href="http://reactjs.cn/" target="_blank" rel="external">reactjs</a><br><a href="http://www.imooc.com/view/504" target="_blank" rel="external">React入门</a><br><a href="http://www.imooc.com/view/507" target="_blank" rel="external">React实战</a><br><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">React 入门实例教程</a></p>
+        <h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello React!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"build/react.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"build/react-dom.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span>&gt;</span><span class="javascript"></span></div><div class="line">      ReactDOM.render(</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>,</div><div class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>)</div><div class="line">      );</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在 JavaScript 代码里写着 XML 格式的代码称为 JSX；为了把 JSX 转成标准的 JavaScript，我们用 <code>&lt;script type=&quot;text/babel&quot;&gt;</code>标签，然后通过Babel转换成在浏览器中真正执行的内容。</p>
+<h3 id="分离文件"><a href="#分离文件" class="headerlink" title="分离文件"></a>分离文件</h3><p>React JSX 代码文件可以写在单独的文件里<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">React.render(</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>,</div><div class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>然后在 helloworld.html 引用它：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span> <span class="attr">src</span>=<span class="string">"src/helloworld.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="离线转换"><a href="#离线转换" class="headerlink" title="离线转换"></a>离线转换</h3><p>先安装命令行工具（依赖 npm）：<br>然后将你的 src/helloworld.js 文件转成标准的 JavaScript:<br>一旦你修改了， build/helloworld.js 文件会自动生成。</p>
+<h2 id="为什么使用-React"><a href="#为什么使用-React" class="headerlink" title="为什么使用 React?"></a>为什么使用 React?</h2><p>React 是一个 Facebook 和 Instagram 用来创建用户界面的 JavaScript 库。</p>
+<p>很多人认为 React 是 MVC 中的 V（视图）。</p>
+<p>我们创造 React 是为了解决一个问题：构建随着时间数据不断变化的大规模应用程序。为了达到这个目标，React 采用下面两个主要的思想。</p>
+<p>简单<br>仅仅只要表达出你的应用程序在任一个时间点应该长的样子，然后当底层的数据变了，React 会自动处理所有用户界面的更新。</p>
+<p>声明式 (Declarative)<br>数据变化后，React 概念上与点击“刷新”按钮类似，但仅会更新变化的部分。</p>
+<p>构建可组合的组件<br>React 都是关于构建可复用的组件。事实上，通过 React 你唯一要做的事情就是构建组件。得益于其良好的封装性，组件使代码复用、测试和关注分离（separation of concerns）更加简单。</p>
+<p><a href="https://facebook.github.io/react/downloads.html" target="_blank" rel="external">react</a><br><a href="http://reactjs.cn/" target="_blank" rel="external">reactjs</a><br><a href="http://www.imooc.com/view/504" target="_blank" rel="external">React入门</a><br><a href="http://www.imooc.com/view/507" target="_blank" rel="external">React实战</a><br><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">React 入门实例教程</a><br><a href="http://www.runoob.com/react/react-tutorial.html" target="_blank" rel="external">React 教程</a></p>
 
       
     </div>
@@ -324,7 +335,7 @@
         <p><span>本文标题:</span><a href="/2016/07/23/x11/">ReactJS组件</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
         <p><span>发布时间:</span>2016-07-23, 00:04:34</p>
-        <p><span>最后更新:</span>2016-07-25, 01:50:57</p>
+        <p><span>最后更新:</span>2016-08-03, 05:28:48</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/07/23/x11/" title="ReactJS组件">http://yoursite.com/2016/07/23/x11/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/07/23/x11/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -359,7 +370,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开始"><span class="toc-number">1.</span> <span class="toc-text">快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分离文件"><span class="toc-number">1.1.</span> <span class="toc-text">分离文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离线转换"><span class="toc-number">1.2.</span> <span class="toc-text">离线转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么使用-React"><span class="toc-number">2.</span> <span class="toc-text">为什么使用 React?</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn,
