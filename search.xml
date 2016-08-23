@@ -4,6 +4,22 @@
   
     
     <entry>
+      <title><![CDATA[javascript里的正则表达式.]]></title>
+      <url>http://yoursite.com/2016/08/23/x23/</url>
+      <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>JavaScript种正则表达式有两种定义方式，定义一个匹配类似 &lt;%XXX%&gt; 的字符串</p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&lt;%[^%&gt;]+%&gt;'</span>,<span class="string">'g'</span>);</div></pre></td></tr></table></figure>
+<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="regexp">/&lt;%[^%&gt;]%&gt;/g</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>g： global，全文搜索，默认搜索到第一个结果接停止</li>
+<li>i： ingore case，忽略大小写，默认大小写敏感</li>
+<li>m： multiple lines，多行搜索（更改^ 和$的含义，使它们分别在任意一行对待行首和行尾匹配，而不仅仅在整个字符串的开头和结尾匹配）<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2>[重要事项]正则表达式中不能出现多余空格<h3 id="元字符-14个-："><a href="#元字符-14个-：" class="headerlink" title="元字符(14个)：() [] {} \ ^ $ | ? * + ."></a>元字符(14个)：() [] {} \ ^ $ | ? * + .</h3>　　[注意]元字符必须转义,即用\ 加转义字符,用new RegExp写的正则必须双重转义<h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4>　　- .号代表除了换行符\n之外的任意字符<br>　　- \d 数字 \D 非数字<br>　　- \w 字母、数字、下划线 \W 非字母、数字、下划线<br>　　　　[注意]汉字不属于\w<br>　　- \s 空格 \S 非空格<br>　　- \b 边界符，\w的左侧或右侧不是\w，则会出现一个边界符 \B非边界符<br>　　- \1 表示和前面相同的一个字符<br>　　[tips]找出重复项最多的字符和个数<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'aaaaabbbbbdddddaaaaaaaffffffffffffffffffgggggcccccce'</span>;</div><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/(\w)\1+/g</span>;</div><div class="line"><span class="keyword">var</span> maxLength = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> maxValue = <span class="string">''</span>;</div><div class="line"><span class="keyword">var</span> result = str.replace(pattern,<span class="function"><span class="keyword">function</span>(<span class="params">match,match1,pos,originalText</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(match.length &gt; maxLength)&#123;</div><div class="line">    maxLength = match.length;</div><div class="line">    maxValue = match1;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(maxLength,maxValue);<span class="comment">//18 "f"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="http://www.cnblogs.com/dolphinX/p/3486214.html" target="_blank" rel="external">JavaScript 正则表达式上——基本语法</a><br><a href="http://www.jb51.net/article/71716.htm" target="_blank" rel="external">javascript中的正则表达式使用详解</a><br><a href="http://www.php100.com/html/it/biancheng/2015/0320/8825.html" target="_blank" rel="external">我所认识的JavaScript正则表达式</a><br><a href="http://www.imooc.com/video/8065" target="_blank" rel="external">正则表达式</a><br><a href="http://www.imooc.com/view/706" target="_blank" rel="external">JavaScript正则表达式</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Jade —— 模板引擎]]></title>
       <url>http://yoursite.com/2016/08/23/x22/</url>
       <content type="html"><![CDATA[<h2 id="开始装jade"><a href="#开始装jade" class="headerlink" title="开始装jade"></a>开始装jade</h2><p>安装npm包管理工具，在node环境下，并安装grunt开展工作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install jade -g</div></pre></td></tr></table></figure></p>

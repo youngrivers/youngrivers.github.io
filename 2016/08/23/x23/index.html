@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="浏览器不再只提供单一的数据接收和展现功能，而是提供更多的用户交互能力。浏览器端所包含的 HTML、CSS 和 JavaScript 代码也变得更加复杂。对于日益复杂的前端代码，需要有更好的流程和工具来管理开发的各个方面，包括初始的代码结构、开发流程和自动化测试等。Yeoman 是一个新兴的工具。它结合了 Yo、Grunt 和 Bower 等工具，组成了一个完整的工具集合，提供各种 Web 应用开发">
+<meta name="description" content="如何在javascript中真正使用正则表达式呢？在javascript中RegExp和String对象都有处理正则表达式的方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Yeoman介绍和应用">
-<meta property="og:url" content="http://yoursite.com/2016/07/23/x15/index.html">
+<meta property="og:title" content="javascript里的正则表达式.">
+<meta property="og:url" content="http://yoursite.com/2016/08/23/x23/index.html">
 <meta property="og:site_name" content="Youngrivers Blog">
-<meta property="og:description" content="浏览器不再只提供单一的数据接收和展现功能，而是提供更多的用户交互能力。浏览器端所包含的 HTML、CSS 和 JavaScript 代码也变得更加复杂。对于日益复杂的前端代码，需要有更好的流程和工具来管理开发的各个方面，包括初始的代码结构、开发流程和自动化测试等。Yeoman 是一个新兴的工具。它结合了 Yo、Grunt 和 Bower 等工具，组成了一个完整的工具集合，提供各种 Web 应用开发">
-<meta property="og:updated_time" content="2016-07-25T06:41:56.450Z">
+<meta property="og:description" content="如何在javascript中真正使用正则表达式呢？在javascript中RegExp和String对象都有处理正则表达式的方法。">
+<meta property="og:updated_time" content="2016-08-23T15:52:50.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yeoman介绍和应用">
-<meta name="twitter:description" content="浏览器不再只提供单一的数据接收和展现功能，而是提供更多的用户交互能力。浏览器端所包含的 HTML、CSS 和 JavaScript 代码也变得更加复杂。对于日益复杂的前端代码，需要有更好的流程和工具来管理开发的各个方面，包括初始的代码结构、开发流程和自动化测试等。Yeoman 是一个新兴的工具。它结合了 Yo、Grunt 和 Bower 等工具，组成了一个完整的工具集合，提供各种 Web 应用开发">
+<meta name="twitter:title" content="javascript里的正则表达式.">
+<meta name="twitter:description" content="如何在javascript中真正使用正则表达式呢？在javascript中RegExp和String对象都有处理正则表达式的方法。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Yeoman介绍和应用 | Youngrivers Blog</title>
+<title>javascript里的正则表达式. | Youngrivers Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-x15" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-x23" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/23/x15/" class="article-date">
-      <time datetime="2016-07-22T16:09:35.010Z" itemprop="datePublished">2016-07-23</time>
+      <a href="/2016/08/23/x23/" class="article-date">
+      <time datetime="2016-08-23T15:40:11.195Z" itemprop="datePublished">2016-08-23</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Yeoman介绍和应用
+      javascript里的正则表达式.
     </h1>
   
 
@@ -302,7 +302,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Yeoman/">Yeoman</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegExp/">RegExp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/String/">String</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -312,18 +312,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Yeoman介绍"><a href="#Yeoman介绍" class="headerlink" title="Yeoman介绍"></a>Yeoman介绍</h2><p>Yeoman是Google的团队和外部贡献者团队合作开发的，他的目标是通过Grunt（一个用于开发任务自动化的命令行工具）和Bower（一个HTML、CSS、Javascript和图片等前端资源的包管理器）的包装为开发者创建一个易用的工作流。</p>
-<p>Yeoman主要有三部分组成：yo（脚手架工具）、grunt（构建工具）、bower（包管理器）。这三个工具是分别独立开发的，但是需要配合使用，来实现我们高效的工作流模式。</p>
-<h2 id="Yeoman工具包yo命令"><a href="#Yeoman工具包yo命令" class="headerlink" title="Yeoman工具包yo命令"></a>Yeoman工具包yo命令</h2><p>yo插件都是通过npm, Node.js包管理器安装和管理的.</p>
-<h3 id="全局安装yo"><a href="#全局安装yo" class="headerlink" title="全局安装yo"></a>全局安装yo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g yo</div></pre></td></tr></table></figure>
-<p>如果你还没有安装grunt,bower，也需要一起安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g grunt-cli bower</div></pre></td></tr></table></figure></p>
-<h2 id="Yeoman工具包bower-grunt的组合用法"><a href="#Yeoman工具包bower-grunt的组合用法" class="headerlink" title="Yeoman工具包bower,grunt的组合用法"></a>Yeoman工具包bower,grunt的组合用法</h2><p>有关bower的介绍，请参考：<a href="http://blog.fens.me/nodejs-bower-intro/" target="_blank" rel="external">bower解决js的依赖管理</a><br>有关grunt的介绍，请参考：<a href="http://blog.fens.me/nodejs-grunt-intro/" target="_blank" rel="external">grunt让Nodejs规范起来</a></p>
-<h3 id="使用bower命令查看项目依赖："><a href="#使用bower命令查看项目依赖：" class="headerlink" title="使用bower命令查看项目依赖："></a>使用bower命令查看项目依赖：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~ D:\workspace\javascript\nodejs-yo&gt;bower list</div><div class="line">bower check-new     Checking <span class="keyword">for</span> new versions of the project dependencies..</div><div class="line">nodejs-yo<span class="comment">#0.0.0 D:\workspace\javascript\nodejs-yo</span></div><div class="line">├── jquery<span class="comment">#1.9.1 (latest is 2.0.3)</span></div><div class="line">├── modernizr<span class="comment">#2.6.2</span></div><div class="line">└── requirejs<span class="comment">#2.1.8</span></div></pre></td></tr></table></figure>
-<p>我们发现生成的webapp中，有4个依赖库，jquery,modernizr,requirejs。</p>
-<h3 id="使用grunt命令执行单元测试"><a href="#使用grunt命令执行单元测试" class="headerlink" title="使用grunt命令执行单元测试"></a>使用grunt命令执行单元测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">D:\workspace\javascript\nodejs-yo&gt;grunt <span class="built_in">test</span></div><div class="line">Running <span class="string">"clean:server"</span> (clean) task</div><div class="line">Cleaning <span class="string">".tmp"</span>...OK</div><div class="line">Running <span class="string">"concurrent:test"</span> (concurrent) task</div><div class="line">Running <span class="string">"copy:styles"</span> (copy) task</div><div class="line">Running <span class="string">"coffee:dist"</span> (coffee) task</div><div class="line">Running <span class="string">"autoprefixer:dist"</span> (autoprefixer) task</div><div class="line">File <span class="string">".tmp/styles/main.css"</span> created.</div><div class="line"></div><div class="line">Running <span class="string">"connect:test"</span> (connect) task</div><div class="line">Starting connect web server on localhost:9000.</div><div class="line">Running <span class="string">"mocha:all"</span> (mocha) task</div><div class="line">Testing: http://localhost:9000/index.html</div><div class="line">  1 <span class="built_in">test</span> complete (107 ms)</div><div class="line">&gt;&gt; 1 passed! (0.11s)</div><div class="line"></div><div class="line">Done, without errors.</div></pre></td></tr></table></figure>
-<h3 id="使用grunt命令启动一个node服务器"><a href="#使用grunt命令启动一个node服务器" class="headerlink" title="使用grunt命令启动一个node服务器"></a>使用grunt命令启动一个node服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ D:\workspace\javascript\nodejs-yo&gt;grunt server --force</div></pre></td></tr></table></figure>
-<h3 id="修改app-index-html代码，增加对canvas的检查。"><a href="#修改app-index-html代码，增加对canvas的检查。" class="headerlink" title="修改app/index.html代码，增加对canvas的检查。"></a>修改app/index.html代码，增加对canvas的检查。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">~ vi app/index.html</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">window.onload = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line"><span class="keyword">if</span> (canvasSupported()) &#123;</div><div class="line">alert(<span class="string">'canvas supported'</span>);</div><div class="line">&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">canvasSupported</span></span>() &#123;</div><div class="line">var canvas = document.createElement(<span class="string">'canvas'</span>);</div><div class="line"><span class="built_in">return</span> (canvas.getContext &amp;&amp; canvas.getContext(<span class="string">'2d'</span>));</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p><a href="http://yeoman.io/" target="_blank" rel="external">Yeoman</a><br><a href="http://blog.fens.me/nodejs-yeoman-intro/" target="_blank" rel="external">Yeoman自动构建js项目</a><br><a href="http://www.ibm.com/developerworks/cn/web/1402_chengfu_yeoman/" target="_blank" rel="external">Yeoman：Web 应用开发流程与工具</a><br><a href="http://www.imooc.com/view/30" target="_blank" rel="external">Grunt-beginner前端自动化工具</a></p>
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>JavaScript种正则表达式有两种定义方式，定义一个匹配类似 &lt;%XXX%&gt; 的字符串</p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&lt;%[^%&gt;]+%&gt;'</span>,<span class="string">'g'</span>);</div></pre></td></tr></table></figure>
+<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="regexp">/&lt;%[^%&gt;]%&gt;/g</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>g： global，全文搜索，默认搜索到第一个结果接停止</li>
+<li>i： ingore case，忽略大小写，默认大小写敏感</li>
+<li>m： multiple lines，多行搜索（更改^ 和$的含义，使它们分别在任意一行对待行首和行尾匹配，而不仅仅在整个字符串的开头和结尾匹配）<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2>[重要事项]正则表达式中不能出现多余空格<h3 id="元字符-14个-："><a href="#元字符-14个-：" class="headerlink" title="元字符(14个)：() [] {} \ ^ $ | ? * + ."></a>元字符(14个)：() [] {} \ ^ $ | ? * + .</h3>　　[注意]元字符必须转义,即用\ 加转义字符,用new RegExp写的正则必须双重转义<h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4>　　- .号代表除了换行符\n之外的任意字符<br>　　- \d 数字 \D 非数字<br>　　- \w 字母、数字、下划线 \W 非字母、数字、下划线<br>　　　　[注意]汉字不属于\w<br>　　- \s 空格 \S 非空格<br>　　- \b 边界符，\w的左侧或右侧不是\w，则会出现一个边界符 \B非边界符<br>　　- \1 表示和前面相同的一个字符<br>　　[tips]找出重复项最多的字符和个数<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'aaaaabbbbbdddddaaaaaaaffffffffffffffffffgggggcccccce'</span>;</div><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/(\w)\1+/g</span>;</div><div class="line"><span class="keyword">var</span> maxLength = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> maxValue = <span class="string">''</span>;</div><div class="line"><span class="keyword">var</span> result = str.replace(pattern,<span class="function"><span class="keyword">function</span>(<span class="params">match,match1,pos,originalText</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(match.length &gt; maxLength)&#123;</div><div class="line">    maxLength = match.length;</div><div class="line">    maxValue = match1;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(maxLength,maxValue);<span class="comment">//18 "f"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="http://www.cnblogs.com/dolphinX/p/3486214.html" target="_blank" rel="external">JavaScript 正则表达式上——基本语法</a><br><a href="http://www.jb51.net/article/71716.htm" target="_blank" rel="external">javascript中的正则表达式使用详解</a><br><a href="http://www.php100.com/html/it/biancheng/2015/0320/8825.html" target="_blank" rel="external">我所认识的JavaScript正则表达式</a><br><a href="http://www.imooc.com/video/8065" target="_blank" rel="external">正则表达式</a><br><a href="http://www.imooc.com/view/706" target="_blank" rel="external">JavaScript正则表达式</a></p>
 
       
     </div>
@@ -332,13 +330,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/07/23/x15/">Yeoman介绍和应用</a></p>
+        <p><span>本文标题:</span><a href="/2016/08/23/x23/">javascript里的正则表达式.</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
-        <p><span>发布时间:</span>2016-07-23, 00:09:35</p>
-        <p><span>最后更新:</span>2016-07-25, 14:41:56</p>
+        <p><span>发布时间:</span>2016-08-23, 23:40:11</p>
+        <p><span>最后更新:</span>2016-08-23, 23:52:50</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/07/23/x15/" title="Yeoman介绍和应用">http://yoursite.com/2016/07/23/x15/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/07/23/x15/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/23/x23/" title="javascript里的正则表达式.">http://yoursite.com/2016/08/23/x23/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/08/23/x23/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -350,16 +348,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/07/23/x16/">
-                    JavaScript深入理解-1
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/07/23/x14/">
-                    Bower介绍和应用
+                <a href="/2016/08/23/x22/">
+                    Jade —— 模板引擎
                 </a>
             </div>
         
@@ -370,7 +362,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Yeoman介绍"><span class="toc-number">1.</span> <span class="toc-text">Yeoman介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yeoman工具包yo命令"><span class="toc-number">2.</span> <span class="toc-text">Yeoman工具包yo命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局安装yo"><span class="toc-number">2.1.</span> <span class="toc-text">全局安装yo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yeoman工具包bower-grunt的组合用法"><span class="toc-number">3.</span> <span class="toc-text">Yeoman工具包bower,grunt的组合用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用bower命令查看项目依赖："><span class="toc-number">3.1.</span> <span class="toc-text">使用bower命令查看项目依赖：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用grunt命令执行单元测试"><span class="toc-number">3.2.</span> <span class="toc-text">使用grunt命令执行单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用grunt命令启动一个node服务器"><span class="toc-number">3.3.</span> <span class="toc-text">使用grunt命令启动一个node服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改app-index-html代码，增加对canvas的检查。"><span class="toc-number">3.4.</span> <span class="toc-text">修改app/index.html代码，增加对canvas的检查。</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数"><span class="toc-number">1.1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字面量"><span class="toc-number">1.2.</span> <span class="toc-text">字面量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#元字符-14个-："><span class="toc-number">2.1.</span> <span class="toc-text">元字符(14个)：() [] {} \ ^ $ | ? * + .</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#转义字符"><span class="toc-number">2.1.1.</span> <span class="toc-text">转义字符</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn,
@@ -401,7 +393,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Yeoman介绍和应用　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"javascript里的正则表达式.　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -417,7 +409,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/07/23/x15/" data-title="Yeoman介绍和应用" data-url="http://yoursite.com/2016/07/23/x15/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/23/x23/" data-title="javascript里的正则表达式." data-url="http://yoursite.com/2016/08/23/x23/"></div>
     <script>
         var duoshuoQuery = {short_name:"youngrivers"};
         var loadComment = function(){
@@ -440,15 +432,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/23/x16/" title="上一篇: JavaScript深入理解-1">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/07/23/x14/" title="下一篇: Bower介绍和应用">
+            <a href="/2016/08/23/x22/" title="下一篇: Jade —— 模板引擎">
                 <i class="fa fa-angle-right"></i>
             </a>
         
