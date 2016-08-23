@@ -15,12 +15,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Youngrivers Blog">
-<meta property="og:url" content="http://yoursite.com/tags/CLI/index.html">
+<meta name="description" content="通常大部分前端开发工作者一开始步入前端开发的时候，都是直接简单的写html页面然后丢给后台开发，后台开发在来嵌入模版。 对于日益庞大的前端页面来说，还是用老的字符串拼接的方法来嵌入html内容已经不适应当下的开发趋势了。 jade基于nodejs的开发环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jade —— 模板引擎">
+<meta property="og:url" content="http://yoursite.com/2016/08/23/x22/index.html">
 <meta property="og:site_name" content="Youngrivers Blog">
+<meta property="og:description" content="通常大部分前端开发工作者一开始步入前端开发的时候，都是直接简单的写html页面然后丢给后台开发，后台开发在来嵌入模版。 对于日益庞大的前端页面来说，还是用老的字符串拼接的方法来嵌入html内容已经不适应当下的开发趋势了。 jade基于nodejs的开发环境">
+<meta property="og:updated_time" content="2016-08-23T15:30:48.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Youngrivers Blog">
+<meta name="twitter:title" content="Jade —— 模板引擎">
+<meta name="twitter:description" content="通常大部分前端开发工作者一开始步入前端开发的时候，都是直接简单的写html页面然后丢给后台开发，后台开发在来嵌入模版。 对于日益庞大的前端页面来说，还是用老的字符串拼接的方法来嵌入html内容已经不适应当下的开发趋势了。 jade基于nodejs的开发环境">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -52,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Tag: CLI | Youngrivers Blog</title>
+<title>Jade —— 模板引擎 | Youngrivers Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -62,9 +66,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
-        isTag: true,
+        isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -264,60 +268,185 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-x22" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/07/23/x12/" class="archive-article-date">
-      <time datetime="2016-07-22T16:06:36.650Z" itemprop="datePublished">07-23</time>
+    <div class="article-meta">
+      <a href="/2016/08/23/x22/" class="article-date">
+      <time datetime="2016-08-23T15:18:01.794Z" itemprop="datePublished">2016-08-23</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/23/x12/">Grunt介绍和应用</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Jade —— 模板引擎
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/笔记/">笔记</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CLI/">CLI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grunt/">Grunt</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jade/">Jade</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="开始装jade"><a href="#开始装jade" class="headerlink" title="开始装jade"></a>开始装jade</h2><p>安装npm包管理工具，在node环境下，并安装grunt开展工作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install jade -g</div></pre></td></tr></table></figure></p>
+<p>编写jade文件，编译成html</p>
+<h2 id="熟悉jade规范"><a href="#熟悉jade规范" class="headerlink" title="熟悉jade规范"></a>熟悉jade规范</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">doctype html</div><div class="line">html(lang="en")</div><div class="line">  head</div><div class="line">    title= pageTitle</div><div class="line">    script(type='text/javascript').</div><div class="line">      if (foo) &#123;</div><div class="line">         bar(1 + 5)</div><div class="line">      &#125;</div><div class="line">  body</div><div class="line">    h1 Jade - node template engine</div><div class="line">    #container.col</div><div class="line">      if youAreUsingJade</div><div class="line">        p You are amazing</div><div class="line">      else</div><div class="line">        p Get on it!</div><div class="line">      p.</div><div class="line">        Jade is a terse and simple</div><div class="line">        templating language with a</div><div class="line">        strong focus on performance</div><div class="line">        and powerful features.</div></pre></td></tr></table></figure>
+<p>以上代码通过jade编译为html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Jade<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">      <span class="keyword">if</span> (foo) &#123;</div><div class="line">         bar(<span class="number">1</span> + <span class="number">5</span>)</div><div class="line">      &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Jade - node template engine<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>You are amazing<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">        Jade is a terse and simple</div><div class="line">        templating language with a</div><div class="line">        strong focus on performance</div><div class="line">        and powerful features.</div><div class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><a href="http://jade-lang.com/" target="_blank" rel="external">Jade</a><br><a href="https://segmentfault.com/a/1190000000357534" target="_blank" rel="external">Jade —— 源于 Node.js 的 HTML 模板引擎</a><br><a href="http://www.w3cplus.com/html/jade.html" target="_blank" rel="external">jade学习</a><br><a href="http://www.imooc.com/learn/259" target="_blank" rel="external">带你学习Jade模板引擎</a></p>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/08/23/x22/">Jade —— 模板引擎</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
+        <p><span>发布时间:</span>2016-08-23, 23:18:01</p>
+        <p><span>最后更新:</span>2016-08-23, 23:30:48</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/23/x22/" title="Jade —— 模板引擎">http://yoursite.com/2016/08/23/x22/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/08/23/x22/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/08/01/x21/">
+                    Node.js基础
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开始装jade"><span class="toc-number">1.</span> <span class="toc-text">开始装jade</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#熟悉jade规范"><span class="toc-number">2.</span> <span class="toc-text">熟悉jade规范</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script>
+    yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+</script>
+
+
 
     
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Jade —— 模板引擎　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/23/x22/" data-title="Jade —— 模板引擎" data-url="http://yoursite.com/2016/08/23/x22/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"youngrivers"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/08/01/x21/" title="下一篇: Node.js基础">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/23/x22/">Jade —— 模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/x21/">Node.js基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/29/x20/">JavaScript的回调函数和各种主流开发模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/27/x19/">jQuery基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/26/x18/">Ajax基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/24/x17/">JavaScript匿名函数及其闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x16/">JavaScript深入理解-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x15/">Yeoman介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x14/">Bower介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x13/">Gulp介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x12/">Grunt介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x11/">ReactJS组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x10/">AngularJS入门和进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/x9/">SVN的介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/x8/">sass-scss的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/16/x7/">玩转Bootstrap(JS插件篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/09/x6/">玩转Bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x5/">Github静态页面创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/x4/">Github入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x3/">Git的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/x2/">Windows下使用hexo在github上创建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/03/x1/">Yelee主题说明</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
