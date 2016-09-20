@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="AngularJS有着诸多特性，最为核心的是：MVVM、模块化、自动化双向数据绑定、语义化标签、依赖注入等等。">
+<meta name="description" content="如今我们经常能见到全屏网站，尤其是国外网站。这些网站用几幅很大的图片或色块做背景，再添加一些简单的内容，显得格外的高端大气上档次。如果你也希望你的网站能设计成全屏的，显得更上档次，你可以试试 fullPage.js。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AngularJS入门和进阶">
-<meta property="og:url" content="http://yoursite.com/2016/07/23/x10/index.html">
+<meta property="og:title" content="全屏滚动插件使用">
+<meta property="og:url" content="http://yoursite.com/2016/09/21/x25/index.html">
 <meta property="og:site_name" content="Youngrivers Blog">
-<meta property="og:description" content="AngularJS有着诸多特性，最为核心的是：MVVM、模块化、自动化双向数据绑定、语义化标签、依赖注入等等。">
-<meta property="og:updated_time" content="2016-07-24T17:33:01.737Z">
+<meta property="og:description" content="如今我们经常能见到全屏网站，尤其是国外网站。这些网站用几幅很大的图片或色块做背景，再添加一些简单的内容，显得格外的高端大气上档次。如果你也希望你的网站能设计成全屏的，显得更上档次，你可以试试 fullPage.js。">
+<meta property="og:updated_time" content="2016-09-20T23:51:23.262Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AngularJS入门和进阶">
-<meta name="twitter:description" content="AngularJS有着诸多特性，最为核心的是：MVVM、模块化、自动化双向数据绑定、语义化标签、依赖注入等等。">
+<meta name="twitter:title" content="全屏滚动插件使用">
+<meta name="twitter:description" content="如今我们经常能见到全屏网站，尤其是国外网站。这些网站用几幅很大的图片或色块做背景，再添加一些简单的内容，显得格外的高端大气上档次。如果你也希望你的网站能设计成全屏的，显得更上档次，你可以试试 fullPage.js。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>AngularJS入门和进阶 | Youngrivers Blog</title>
+<title>全屏滚动插件使用 | Youngrivers Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-x10" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-x25" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/23/x10/" class="article-date">
-      <time datetime="2016-07-22T16:02:46.909Z" itemprop="datePublished">2016-07-23</time>
+      <a href="/2016/09/21/x25/" class="article-date">
+      <time datetime="2016-09-20T18:39:27.304Z" itemprop="datePublished">2016-09-21</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      AngularJS入门和进阶
+      全屏滚动插件使用
     </h1>
   
 
@@ -302,7 +302,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular2/">Angular2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swiper/">Swiper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fullPage/">fullPage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pagePiling/">pagePiling</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -312,24 +312,76 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="构建此应用！"><a href="#构建此应用！" class="headerlink" title="构建此应用！"></a>构建此应用！</h2><h3 id="环境准备：-Node-js"><a href="#环境准备：-Node-js" class="headerlink" title="环境准备： Node.js"></a>环境准备： Node.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在终端窗口运行 node -v 和 npm -v ，来确认你的 node 版本为 v5.x.x ， npm 版本为 3.x.x 。 老版本会出错。</div></pre></td></tr></table></figure>
-<h3 id="创建并配置项目"><a href="#创建并配置项目" class="headerlink" title="创建并配置项目"></a>创建并配置项目</h3><h4 id="创建项目文件夹"><a href="#创建项目文件夹" class="headerlink" title="创建项目文件夹"></a>创建项目文件夹</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir angular2-quickstart</div><div class="line"><span class="built_in">cd</span>    angular2-quickstart</div></pre></td></tr></table></figure>
-<h4 id="添加包定义与配置文件"><a href="#添加包定义与配置文件" class="headerlink" title="添加包定义与配置文件"></a>添加包定义与配置文件</h4><p>往项目目录下添加下列包定义与配置文件：<br>package.json 列出了“快速起步”应用的依赖，并定义了一些有用的脚本。<br>tsconfig.json 是 TypeScript 的编译器配置文件。<br>typings.json 指定 TypeScript 定义文件。<br>systemjs.config.js 是 SystemJS 的配置文件。</p>
-<h4 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h4><p>使用 npm 命令来安装 package.json 中列出的依赖包。请在终端窗口 ( 或 Windows 的 cmd 窗口 ) 中输入下列命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在 npm install 之后， typings 目录也可能不会出现。如果是这样，请手动安装它们。</div><div class="line">npm run typings install</div></pre></td></tr></table></figure>
-<h4 id="用-npm-添加需要的库和依赖包"><a href="#用-npm-添加需要的库和依赖包" class="headerlink" title="用 npm 添加需要的库和依赖包"></a>用 npm 添加需要的库和依赖包</h4><p>Angular 应用开发者依靠 npm 包管理器来安装应用所需的库和依赖包。 Angular 开发组建议的那组初学者包是通过 dependencies 和 devDependencies 指定的。<br>这些脚本的用途如下：</p>
-<p>npm start - 同时运行编译器和一个服务器，它们都工作在“监视模式”下。</p>
-<p>npm run tsc - 运行一次 TypeScript 编译器</p>
-<p>npm run tsc:w - 在“监视模式”下运行 TypeScript 编译器，进程持续运行，等待 TypeScript 文件的变化，一旦变化，就重新编译它们。</p>
-<p>npm run lite - 运行 lite-server ——一个轻量级、静态的文件服务器，对使用路由的 Angular 应用提供了优秀的支持。</p>
-<p>npm run typings - 单独运行 typings 工具</p>
-<p>npm run postinstall - 当 npm 安装完当前包时，它会被自动调用。这里的这个脚本会安装 typings.json 中定义的 TypeScript 定义文件</p>
-<h3 id="我们的第一个-Angular-组件"><a href="#我们的第一个-Angular-组件" class="headerlink" title="我们的第一个 Angular 组件"></a>我们的第一个 Angular 组件</h3><p>创建一个文件夹，用于保存应用程序，并且添加一个超级简单的 Angular 组件。</p>
-<p>Let’s create a folder to hold our application and add a super-simple Angular component.</p>
-<p>在项目的根目录下 创建一个 app 子目录 ：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir app</div></pre></td></tr></table></figure></p>
-<p>创建组件文件 app/app.component.ts ( 在新建的这个目录中 ) ，内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import &#123; Component &#125; from &apos;@angular/core&apos;;</div><div class="line">@Component(&#123;</div><div class="line">  selector: &apos;my-app&apos;,</div><div class="line">  template: &apos;&lt;h1&gt;My First Angular 2 App&lt;/h1&gt;&apos;</div><div class="line">&#125;)</div><div class="line">export class AppComponent &#123; &#125;</div></pre></td></tr></table></figure></p>
-<p><strong>最终的项目目录结构是这样的：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">angular2-quickstart/</div><div class="line">├── app/</div><div class="line">│   ├── app.component.ts</div><div class="line">│   ├── main.ts</div><div class="line">├── node_modules .../</div><div class="line">├── typings .../</div><div class="line">├── index.html/</div><div class="line">├── package.json/</div><div class="line">├── styles.css/</div><div class="line">├── systemjs.config.js/</div><div class="line">├── tsconfig.json/</div><div class="line">├── typings.json/</div></pre></td></tr></table></figure></p>
-<p><a href="https://angularjs.org/" target="_blank" rel="external">Angular</a><br><a href="https://angular.cn/" target="_blank" rel="external">一套框架，多种平台</a><br><a href="http://angularjs.cn/" target="_blank" rel="external">AngularJS中文社区</a><br><a href="http://www.runoob.com/angularjs/angularjs-tutorial.html" target="_blank" rel="external">AngularJS 教程</a><br><a href="http://www.imooc.com/view/203" target="_blank" rel="external">阿里懒懒交流会AngularJS</a></p>
+        <h2 id="jQuery全屏滚动插件fullPage-js"><a href="#jQuery全屏滚动插件fullPage-js" class="headerlink" title="jQuery全屏滚动插件fullPage.js"></a>jQuery全屏滚动插件fullPage.js</h2><p><a href="http://www.jq22.com/yanshi5625" target="_blank" rel="external">demo</a><br>fullPage.js 是一个基于 jQuery 的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有：</p>
+<ul>
+<li>支持鼠标滚动</li>
+<li>支持前进后退和键盘控制</li>
+<li>多个回调函数</li>
+<li>支持手机、平板触摸事件</li>
+<li>支持 CSS3 动画</li>
+<li>支持窗口缩放</li>
+<li>窗口缩放时自动调整</li>
+<li>可设置滚动宽度、背景颜色、滚动速度、循环选项、回调、文本对齐方式等等</li>
+</ul>
+<h3 id="引入文件"><a href="#引入文件" class="headerlink" title="引入文件"></a>引入文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"css/jquery.fullPage.css"</span>&gt;</div><div class="line">&lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;!-- jquery.easings.min.js 用于 easing 参数，也可以使用完整的 jQuery UI 代替，如果不需要设置 easing 参数，可去掉改文件 --&gt;</div><div class="line">&lt;script src="js/jquery.easings.min.js"&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;!-- 如果 scrollOverflow 设置为 <span class="literal">true</span>，则需要引入 jquery.slimscroll.min.js，一般情况下不需要 --&gt;</div><div class="line">&lt;script src="js/jquery.slimscroll.min.js"&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;script src=<span class="string">"js/jquery.fullPage.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'#dowebok'</span>).fullpage();</div><div class="line">&#125;);</div><div class="line">&lt;div id="dowebok"&gt;</div><div class="line">    &lt;div class="section"&gt;</div><div class="line">        &lt;h3&gt;第一屏&lt;/h3&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class="section"&gt;</div><div class="line">        &lt;h3&gt;第二屏&lt;/h3&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class="section"&gt;</div><div class="line">        &lt;h3&gt;第三屏&lt;/h3&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class="section"&gt;</div><div class="line">        &lt;h3&gt;第四屏&lt;/h3&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>每个 section 代表一屏，默认显示“第一屏”，如果要指定加载页面时显示的“屏幕”，可以在对应的 section 加上 class=”active”<br>同时，可以在 section 内加入 slide，如：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div id="dowebok"&gt;</div><div class="line">    &lt;div class="section"&gt;第一屏&lt;/div&gt;</div><div class="line">    &lt;div class="section"&gt;第二屏&lt;/div&gt;</div><div class="line">    &lt;div class="section"&gt;</div><div class="line">        &lt;div class="slide"&gt;第三屏的第一屏&lt;/div&gt;</div><div class="line">        &lt;div class="slide"&gt;第三屏的第二屏&lt;/div&gt;</div><div class="line">        &lt;div class="slide"&gt;第三屏的第三屏&lt;/div&gt;</div><div class="line">        &lt;div class="slide"&gt;第三屏的第四屏&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class="section"&gt;第四屏&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'#dowebok'</span>).fullpage();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="pagePiling-js-–-jQuery全屏滚动插件"><a href="#pagePiling-js-–-jQuery全屏滚动插件" class="headerlink" title="pagePiling.js – jQuery全屏滚动插件"></a>pagePiling.js – jQuery全屏滚动插件</h2><p><a href="http://www.dowebok.com/demo/150/" target="_blank" rel="external">demo</a><br>全屏滚动插件已经介绍很多款了，如功能强大的fullPage.js、可任意定义动画的fullPage。与其他的全屏滚动插件相比，pagePiling.js 的主要特点是滚动方式，它把所有“页面”叠在一起，使用 translate3d “抽”动页面，产生了一种类似“视觉差”的效果</p>
+<h2 id="移动端切换插件-swiper"><a href="#移动端切换插件-swiper" class="headerlink" title="移动端切换插件-swiper"></a>移动端切换插件-swiper</h2><p><a href="http://www.swiper.com.cn/demo/index.html" target="_blank" rel="external">demo</a><br>swiper 是一个针对移动端的可触摸切换插件<br>调用方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mySwiper = <span class="keyword">new</span> Swiper(<span class="string">'.swiper-container'</span>,&#123;</div><div class="line">    pagination: <span class="string">'.pagination'</span>,</div><div class="line">    loop:<span class="literal">true</span>,    grabCursor: <span class="literal">true</span>,</div><div class="line">    paginationClickable: <span class="literal">true</span></div><div class="line">  &#125;)</div></pre></td></tr></table></figure></p>
+<p>Swiper 是一款免费以及轻量级的移动设备触控滑块的框架，使用硬件加速过渡（如果该设备支持的话）。主要使用与移动端的网站、网页应用程序（web apps），以及原生的应用程序（native apps）。主要是为IOS而设计的，同时，在Android、WP8系统以及现代桌面浏览器也有着良好的用户体验。</p>
+<p>特征（feature)</p>
+<p>1、1：1触控运动</p>
+<p>Swiper默认提供1:1的触控距离，当然，这个比率是可以设置的。（touchRatio）</p>
+<p>2、触控模仿</p>
+<p>这个功能对于开发桌面网站会很有用。简单来说，就是因为Swiper能够让鼠标事件表现得像触屏事件（点击以及拖曳滑块）</p>
+<p>3、水平/垂直</p>
+<p>Swiper运动主要有两种模式，horizontal(水平滑动)以及vertical（垂直运动的滑动）</p>
+<p>4、自由模式（Free Mode）</p>
+<p>这种模式下能够让slides 无需定位，就像通常的滑动条。（看下面的例子）</p>
+<p>5、旋转调整 （rotation/resize）</p>
+<p>Swiper 在移动设备旋转后能自适应尺寸。</p>
+<p>6、响应式</p>
+<p>能使用百分比的宽高定义slides,为移动端提供不同的解决方案。</p>
+<p>7、滑动阻止</p>
+<p>简单来说，就是，只能使用一种模式，水平或者垂直滑动。</p>
+<p>8、抵抗反弹（resistant bounds）</p>
+<p>Swiper能够提供一种机制，就是当滑动滑块超过最左以及最右（最上或最下）的位置时触发的一种抵御机制。</p>
+<p>9、原生要素（native momentum）</p>
+<p>有不少的原生东西提供给Swiper。</p>
+<p>10、内建分页控制</p>
+<p>Swiper能够快速生成内建的分页控制（pagination）,指定html 某一标签为pagination，Swiper就能做很多东西了。</p>
+<p>11、自动播放</p>
+<p>只用设置延迟时间，Swiper就会自动地轮播slides直到你触碰该滑块（touch）为止。</p>
+<p>12、循环模式（Loop mode）</p>
+<p>该种模式下，你能够无限滑动滑块，到最后一个之后会跳转回第一个。</p>
+<p>13、旋转模式（Carousel mode）</p>
+<p>Swiper 能够让你在slides父容器下设置你所需要展示的slides数量。</p>
+<p>14、滑动容器</p>
+<p>在该特征下能够使用Swiper在一些简单的能滑动的区域里，没有slides。在Apps里十分有用。</p>
+<p>15、嵌套Swipers</p>
+<p>能够将Swipers嵌套入各种不同的Swiper 的slide里，例如垂直的或水平的。</p>
+<p>16、任意的HTML 标签</p>
+<p>可以将任一的HTML 内容放到slide里，不止仅限于图像。</p>
+<p>17、硬件加速</p>
+<p>swiper 使用硬件加速技术（如果该移动设备支持的话）能够得到良好流畅的动画效果以及优美的外观，尤其是在IOS设备里。</p>
+<p>18、丰富的API</p>
+<p>Swiper拥有丰富的API接口。（不过关于中文文档似乎不多，没找着。）能够让开发者生成个人独有的分页器（pagination），上下滑块的按钮以及4个回调函数：onTouchStart,onTouchMove,onTouchEnd,onSlideSwitch。</p>
+<p>19、灵活的配置</p>
+<p>Swiper在初始化的时候能够接受多个参数以便让其尽可能的灵活。能够配置动画的速度（speed），模式（mode水平抑或垂直的），以及自由模式（free mode）…以及其他..</p>
+<p>20、插件API（Plugins API）</p>
+<p>Swiper从1.7版本开始就变得强大起来了，因为有更多而简单的插件API允许开发者创造属于自己的Swiper 插件或通过Swiper的核心创制hooks(挂钩)（该官网处提供了几款优秀的插件Swiper smooth progress, Swiper hash navigation,swiper scrollbar）</p>
+<p>21、良好的兼容性</p>
+<p>Swiper通用性的测试环境：移动端的Safari（iOS5下），Android 2.1+，windows Phone 8,以及最新版本的谷歌浏览器（Chrome），Safari，Firefox，IE10 以及欧朋浏览器（Opera）</p>
+<p>22、老版本IE的兼容</p>
+<p>Swiper 2.x 开始，通过DOM动画，而非css transitions 兼容IE7 以上（需要包含jQuery），因为IE7不支持css3 transitions….简单来说，支持IE7 以上版本。</p>
+<p>23、独立性</p>
+<p>Swiper不依赖像jQuery那样的js类库，因此能够让Swiper更加的小型以及快速。所以Swiper能够很安全地应用诸如jQuery、jQuery Mobile，jQTouch等等其他的js类库。</p>
+<p>24、超轻量级</p>
+<p>压缩后仅仅10KB左右。</p>
+<p>以上，就是Swiper能够做的，应用以上特征就使用原生属性方法能够快速生成令人惊叹的触控接口以及apps。</p>
+<p>这个插件用处很大，一般在做响应式web的时候也可以用到。主要用到的就是swiperleft 和swiperright两个来做效果</p>
+<p><a href="https://github.com/alvarotrigo/fullPage.js" target="_blank" rel="external">fullPage.js</a><br><a href="https://github.com/alvarotrigo/pagePiling.js" target="_blank" rel="external">pagePiling.js</a><br><a href="http://www.swiper.com.cn/" target="_blank" rel="external">swiper</a><br><a href="http://www.dowebok.com/77.html" target="_blank" rel="external">jQuery全屏滚动插件fullPage.js</a><br><a href="http://www.dowebok.com/150.html" target="_blank" rel="external">pagePiling.js – jQuery全屏滚动插件</a><br><a href="http://www.jq22.com/jquery-info573" target="_blank" rel="external">jQuery单页滚动插件pagePiling.js</a></p>
 
       
     </div>
@@ -338,13 +390,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/07/23/x10/">AngularJS入门和进阶</a></p>
+        <p><span>本文标题:</span><a href="/2016/09/21/x25/">全屏滚动插件使用</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
-        <p><span>发布时间:</span>2016-07-23, 00:02:46</p>
-        <p><span>最后更新:</span>2016-07-25, 01:33:01</p>
+        <p><span>发布时间:</span>2016-09-21, 02:39:27</p>
+        <p><span>最后更新:</span>2016-09-21, 07:51:23</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/07/23/x10/" title="AngularJS入门和进阶">http://yoursite.com/2016/07/23/x10/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/07/23/x10/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/21/x25/" title="全屏滚动插件使用">http://yoursite.com/2016/09/21/x25/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/21/x25/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -356,16 +408,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/07/23/x11/">
-                    ReactJS组件
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/07/23/x9/">
-                    SVN的介绍和应用
+                <a href="/2016/08/28/x24/">
+                    移动端web开发
                 </a>
             </div>
         
@@ -376,7 +422,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#构建此应用！"><span class="toc-number">1.</span> <span class="toc-text">构建此应用！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境准备：-Node-js"><span class="toc-number">1.1.</span> <span class="toc-text">环境准备： Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建并配置项目"><span class="toc-number">1.2.</span> <span class="toc-text">创建并配置项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建项目文件夹"><span class="toc-number">1.2.1.</span> <span class="toc-text">创建项目文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加包定义与配置文件"><span class="toc-number">1.2.2.</span> <span class="toc-text">添加包定义与配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装依赖包"><span class="toc-number">1.2.3.</span> <span class="toc-text">安装依赖包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用-npm-添加需要的库和依赖包"><span class="toc-number">1.2.4.</span> <span class="toc-text">用 npm 添加需要的库和依赖包</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#我们的第一个-Angular-组件"><span class="toc-number">1.3.</span> <span class="toc-text">我们的第一个 Angular 组件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery全屏滚动插件fullPage-js"><span class="toc-number">1.</span> <span class="toc-text">jQuery全屏滚动插件fullPage.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引入文件"><span class="toc-number">1.1.</span> <span class="toc-text">引入文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.2.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript"><span class="toc-number">1.3.</span> <span class="toc-text">JavaScript</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pagePiling-js-–-jQuery全屏滚动插件"><span class="toc-number">2.</span> <span class="toc-text">pagePiling.js – jQuery全屏滚动插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端切换插件-swiper"><span class="toc-number">3.</span> <span class="toc-text">移动端切换插件-swiper</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn,
@@ -407,7 +453,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"AngularJS入门和进阶　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"全屏滚动插件使用　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -423,7 +469,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/07/23/x10/" data-title="AngularJS入门和进阶" data-url="http://yoursite.com/2016/07/23/x10/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/21/x25/" data-title="全屏滚动插件使用" data-url="http://yoursite.com/2016/09/21/x25/"></div>
     <script>
         var duoshuoQuery = {short_name:"youngrivers"};
         var loadComment = function(){
@@ -446,15 +492,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/23/x11/" title="上一篇: ReactJS组件">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/07/23/x9/" title="下一篇: SVN的介绍和应用">
+            <a href="/2016/08/28/x24/" title="下一篇: 移动端web开发">
                 <i class="fa fa-angle-right"></i>
             </a>
         
