@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Youngrivers Blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-04-20T07:47:27.089Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Youngrivers</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webstorm2016.2简单激活</title>
+    <link href="http://yoursite.com/2017/04/20/x26/"/>
+    <id>http://yoursite.com/2017/04/20/x26/</id>
+    <published>2017-04-20T07:39:29.139Z</published>
+    <updated>2017-04-20T07:47:27.089Z</updated>
+    
+    <summary type="html">
+    
+      webstorm2016.2简单激活方法，在激活框，选择 License server，输入：http://114.215.133.70:41017（已失效）
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="webstorm" scheme="http://yoursite.com/tags/webstorm/"/>
+    
+      <category term="License server" scheme="http://yoursite.com/tags/License-server/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>全屏滚动插件使用</title>
+    <link href="http://yoursite.com/2016/09/21/x25/"/>
+    <id>http://yoursite.com/2016/09/21/x25/</id>
+    <published>2016-09-20T18:39:27.304Z</published>
+    <updated>2016-09-20T23:51:23.262Z</updated>
+    
+    <summary type="html">
+    
+      如今我们经常能见到全屏网站，尤其是国外网站。这些网站用几幅很大的图片或色块做背景，再添加一些简单的内容，显得格外的高端大气上档次。如果你也希望你的网站能设计成全屏的，显得更上档次，你可以试试 fullPage.js。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="fullPage" scheme="http://yoursite.com/tags/fullPage/"/>
+    
+      <category term="pagePiling" scheme="http://yoursite.com/tags/pagePiling/"/>
+    
+      <category term="Swiper" scheme="http://yoursite.com/tags/Swiper/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>移动端web开发</title>
+    <link href="http://yoursite.com/2016/08/28/x24/"/>
+    <id>http://yoursite.com/2016/08/28/x24/</id>
+    <published>2016-08-28T15:43:04.014Z</published>
+    <updated>2016-08-28T16:17:14.660Z</updated>
+    
+    <summary type="html">
+    
+      与台式机和笔记本相比，在硬件特性上手持设备有非常大的不同。当然通常他们的屏幕尺寸更小，另外一个特性是当用户旋转设备时，他们会在portrait和landscape模式下自动切换。旋转用户输入一般通过触屏。类似地理定位和排列方向这样在台式机上没有多大作用的API，在手机用户使用你网站的时候有了全新的体验
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="PPI" scheme="http://yoursite.com/tags/PPI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript里的正则表达式</title>
+    <link href="http://yoursite.com/2016/08/23/x23/"/>
+    <id>http://yoursite.com/2016/08/23/x23/</id>
+    <published>2016-08-23T15:40:11.195Z</published>
+    <updated>2016-08-28T15:53:06.410Z</updated>
+    
+    <summary type="html">
+    
+      如何在javascript中真正使用正则表达式呢？在javascript中RegExp和String对象都有处理正则表达式的方法。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+      <category term="RegExp" scheme="http://yoursite.com/tags/RegExp/"/>
+    
+      <category term="String" scheme="http://yoursite.com/tags/String/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jade —— 模板引擎</title>
+    <link href="http://yoursite.com/2016/08/23/x22/"/>
+    <id>http://yoursite.com/2016/08/23/x22/</id>
+    <published>2016-08-23T15:18:01.794Z</published>
+    <updated>2016-08-23T15:30:48.059Z</updated>
+    
+    <summary type="html">
+    
+      通常大部分前端开发工作者一开始步入前端开发的时候，都是直接简单的写html页面然后丢给后台开发，后台开发在来嵌入模版。 对于日益庞大的前端页面来说，还是用老的字符串拼接的方法来嵌入html内容已经不适应当下的开发趋势了。 jade基于nodejs的开发环境
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Jade" scheme="http://yoursite.com/tags/Jade/"/>
+    
+      <category term="Node.js" scheme="http://yoursite.com/tags/Node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js基础</title>
+    <link href="http://yoursite.com/2016/08/01/x21/"/>
+    <id>http://yoursite.com/2016/08/01/x21/</id>
+    <published>2016-08-01T15:39:19.970Z</published>
+    <updated>2016-08-02T20:33:52.207Z</updated>
+    
+    <summary type="html">
+    
+      最大的优势是借助JavaScript天生的事件驱动机制加V8高性能引擎，使编写高性能Web服务轻而易举。
+其次，JavaScript语言本身是完善的函数式语言，在前端开发时，开发人员往往写得比较随意，让人感觉JavaScript就是个“玩具语言”。但是，在Node环境下，通过模块化的JavaScript代码，加上函数式编程，并且无需考虑浏览器兼容性问题，直接使用最新的ECMAScript 6标准，可以完全满足工程上的需求。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Node.js" scheme="http://yoursite.com/tags/Node-js/"/>
+    
+      <category term="Node" scheme="http://yoursite.com/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript的回调函数和各种主流开发模式</title>
+    <link href="http://yoursite.com/2016/07/29/x20/"/>
+    <id>http://yoursite.com/2016/07/29/x20/</id>
+    <published>2016-07-29T15:39:13.046Z</published>
+    <updated>2016-08-03T15:37:59.591Z</updated>
+    
+    <summary type="html">
+    
+      在传统开发工程师眼里，单例就是保证一个类只有一个实例，实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。在JavaScript里，单例作为一个命名空间提供者，从全局命名空间里提供一个唯一的访问点来访问该对象。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery基础</title>
+    <link href="http://yoursite.com/2016/07/27/x19/"/>
+    <id>http://yoursite.com/2016/07/27/x19/</id>
+    <published>2016-07-27T07:53:22.265Z</published>
+    <updated>2016-08-02T21:06:31.371Z</updated>
+    
+    <summary type="html">
+    
+      jQuery这么流行，肯定是因为它解决了一些很重要的问题。实际上，jQuery能帮我们干这些事情：
+消除浏览器差异：你不需要自己写冗长的代码来针对不同的浏览器来绑定事件，编写AJAX等代码；
+简洁的操作DOM的方法：写$(&#39;#test&#39;)肯定比document.getElementById(&#39;test&#39;)来得简洁；
+轻松实现动画、修改CSS等各种操作。
+jQuery的理念“Write Less, Do More“，让你写更少的代码，完成更多的工作！
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ajax基础</title>
+    <link href="http://yoursite.com/2016/07/26/x18/"/>
+    <id>http://yoursite.com/2016/07/26/x18/</id>
+    <published>2016-07-25T17:08:35.944Z</published>
+    <updated>2016-07-26T14:34:05.665Z</updated>
+    
+    <summary type="html">
+    
+      AJAX 是一种用于创建快速动态网页的技术。
+通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Ajax" scheme="http://yoursite.com/tags/Ajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript匿名函数及其闭包</title>
+    <link href="http://yoursite.com/2016/07/24/x17/"/>
+    <id>http://yoursite.com/2016/07/24/x17/</id>
+    <published>2016-07-24T03:35:24.084Z</published>
+    <updated>2016-07-24T15:28:54.474Z</updated>
+    
+    <summary type="html">
+    
+      所有函数都能访问全局变量。 实际上，在 JavaScript 中，所有函数都能访问它们上一层的作用域。 JavaScript 支持嵌套函数。嵌套函数可以访问上一层的函数变量。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript深入理解-1</title>
+    <link href="http://yoursite.com/2016/07/23/x16/"/>
+    <id>http://yoursite.com/2016/07/23/x16/</id>
+    <published>2016-07-23T14:48:16.226Z</published>
+    <updated>2016-07-27T07:56:51.561Z</updated>
+    
+    <summary type="html">
+    
+      分析一下javascript的对象(原型)及封装继承,了解严格模式以及关键字this,prototype
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="prototype" scheme="http://yoursite.com/tags/prototype/"/>
+    
+      <category term="ECMAScript" scheme="http://yoursite.com/tags/ECMAScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Yeoman介绍和应用</title>
+    <link href="http://yoursite.com/2016/07/23/x15/"/>
+    <id>http://yoursite.com/2016/07/23/x15/</id>
+    <published>2016-07-22T16:09:35.010Z</published>
+    <updated>2016-07-25T06:41:56.450Z</updated>
+    
+    <summary type="html">
+    
+      浏览器不再只提供单一的数据接收和展现功能，而是提供更多的用户交互能力。浏览器端所包含的 HTML、CSS 和 JavaScript 代码也变得更加复杂。对于日益复杂的前端代码，需要有更好的流程和工具来管理开发的各个方面，包括初始的代码结构、开发流程和自动化测试等。Yeoman 是一个新兴的工具。它结合了 Yo、Grunt 和 Bower 等工具，组成了一个完整的工具集合，提供各种 Web 应用开发中所需的实用功能。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Yeoman" scheme="http://yoursite.com/tags/Yeoman/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bower介绍和应用</title>
+    <link href="http://yoursite.com/2016/07/23/x14/"/>
+    <id>http://yoursite.com/2016/07/23/x14/</id>
+    <published>2016-07-22T16:09:15.316Z</published>
+    <updated>2016-07-25T06:27:23.507Z</updated>
+    
+    <summary type="html">
+    
+      Bower是一个客户端技术的软件包管理器，它可用于搜索、安装和卸载如JavaScript、HTML、CSS之类的网络资源。其他一些建立在Bower基础之上的开发工具，如YeoMan和Grunt
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Bower" scheme="http://yoursite.com/tags/Bower/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gulp介绍和应用</title>
+    <link href="http://yoursite.com/2016/07/23/x13/"/>
+    <id>http://yoursite.com/2016/07/23/x13/</id>
+    <published>2016-07-22T16:07:51.873Z</published>
+    <updated>2016-07-25T06:07:40.239Z</updated>
+    
+    <summary type="html">
+    
+      Gulp是一个构建系统，它能通过自动执行常见任务，比如编译预处理CSS，压缩JavaScript和刷新浏览器，来改进网站开发的过程。通过本文，我们将知道如何使用Gulp来改变开发流程，从而使开发更加快速高效。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Gulp" scheme="http://yoursite.com/tags/Gulp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Grunt介绍和应用</title>
+    <link href="http://yoursite.com/2016/07/23/x12/"/>
+    <id>http://yoursite.com/2016/07/23/x12/</id>
+    <published>2016-07-22T16:06:36.650Z</published>
+    <updated>2016-07-25T06:17:35.220Z</updated>
+    
+    <summary type="html">
+    
+      自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。 Grunt生态系统非常庞大，并且一直在增长。由于拥有数量庞大的插件可供选择，因此，你可以利用Grunt自动完成任何事，并且花费最少的代价。如果找不到你所需要的插件，那就自己动手创造一个Grunt插件
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Grunt" scheme="http://yoursite.com/tags/Grunt/"/>
+    
+      <category term="CLI" scheme="http://yoursite.com/tags/CLI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ReactJS组件</title>
+    <link href="http://yoursite.com/2016/07/23/x11/"/>
+    <id>http://yoursite.com/2016/07/23/x11/</id>
+    <published>2016-07-22T16:04:34.507Z</published>
+    <updated>2016-08-02T21:28:48.437Z</updated>
+    
+    <summary type="html">
+    
+      React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。做出来以后，发现这套东西很好用，就在2013年5月开源了。 衍生的 React Native 项目，目标更是宏伟，希望用写 Web App 的方式去写 Native App。如果能够实现，整个互联网行业都会被颠覆，因为同一组人只需要写一次 UI ，就能同时运行在服务器、浏览器和手机
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="ReactJS" scheme="http://yoursite.com/tags/ReactJS/"/>
+    
+      <category term="React" scheme="http://yoursite.com/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AngularJS入门和进阶</title>
+    <link href="http://yoursite.com/2016/07/23/x10/"/>
+    <id>http://yoursite.com/2016/07/23/x10/</id>
+    <published>2016-07-22T16:02:46.909Z</published>
+    <updated>2016-07-24T17:33:01.737Z</updated>
+    
+    <summary type="html">
+    
+      AngularJS有着诸多特性，最为核心的是：MVVM、模块化、自动化双向数据绑定、语义化标签、依赖注入等等。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="AngularJS" scheme="http://yoursite.com/tags/AngularJS/"/>
+    
+      <category term="Angular" scheme="http://yoursite.com/tags/Angular/"/>
+    
+      <category term="Angular2" scheme="http://yoursite.com/tags/Angular2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SVN的介绍和应用</title>
+    <link href="http://yoursite.com/2016/07/23/x9/"/>
+    <id>http://yoursite.com/2016/07/23/x9/</id>
+    <published>2016-07-22T16:00:04.062Z</published>
+    <updated>2016-07-24T15:59:04.090Z</updated>
+    
+    <summary type="html">
+    
+      程序员在编写程序的过程中，每个程序员都会生成很多不同的版本，这就需要程序员有效的管理代码，在需要的时候可以迅速，准确取出相应的版本。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="SVN" scheme="http://yoursite.com/tags/SVN/"/>
+    
+      <category term="TortoiseSVN" scheme="http://yoursite.com/tags/TortoiseSVN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sass-scss的使用</title>
+    <link href="http://yoursite.com/2016/07/19/x8/"/>
+    <id>http://yoursite.com/2016/07/19/x8/</id>
+    <published>2016-07-19T15:47:16.738Z</published>
+    <updated>2016-07-24T17:32:13.469Z</updated>
+    
+    <summary type="html">
+    
+      Sass 是采用 Ruby 语言编写的一款 CSS 预处理语言，它诞生于2007年，是最大的成熟的 CSS 预处理语言。最初它是为了配合 HAML（一种缩进式 HTML 预编译器）而设计的，因此有着和 HTML 一样的缩进式风格。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="sass" scheme="http://yoursite.com/tags/sass/"/>
+    
+      <category term="scss" scheme="http://yoursite.com/tags/scss/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>玩转Bootstrap(JS插件篇)</title>
+    <link href="http://yoursite.com/2016/07/16/x7/"/>
+    <id>http://yoursite.com/2016/07/16/x7/</id>
+    <published>2016-07-15T16:23:45.667Z</published>
+    <updated>2016-07-15T16:35:43.871Z</updated>
+    
+    <summary type="html">
+    
+      jQuery 插件为 Bootstrap 的组件赋予了“生命”。可以简单地一次性引入所有插件，或者逐个引入到你的页面中。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+      <category term="Bootstrap" scheme="http://yoursite.com/tags/Bootstrap/"/>
+    
+  </entry>
+  
+</feed>
