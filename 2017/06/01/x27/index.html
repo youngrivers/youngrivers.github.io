@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="webstorm2016.2简单激活方法，在激活框，选择 License server，输入：http://114.215.133.70:41017（已失效）">
+<meta name="description" content="使用预定义对象只是面向对象语言的能力的一部分，它真正强大之处在于能够创建自己专用的类和对象。 ECMAScript 拥有很多创建对象或类的方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webstorm2016.2简单激活">
-<meta property="og:url" content="http://yoursite.com/2017/04/20/x26/index.html">
+<meta property="og:title" content="JavaScript定义对象和类的几种方式">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/x27/index.html">
 <meta property="og:site_name" content="Youngrivers Blog">
-<meta property="og:description" content="webstorm2016.2简单激活方法，在激活框，选择 License server，输入：http://114.215.133.70:41017（已失效）">
-<meta property="og:updated_time" content="2017-04-20T07:47:27.089Z">
+<meta property="og:description" content="使用预定义对象只是面向对象语言的能力的一部分，它真正强大之处在于能够创建自己专用的类和对象。 ECMAScript 拥有很多创建对象或类的方法。">
+<meta property="og:updated_time" content="2017-05-31T22:16:38.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webstorm2016.2简单激活">
-<meta name="twitter:description" content="webstorm2016.2简单激活方法，在激活框，选择 License server，输入：http://114.215.133.70:41017（已失效）">
+<meta name="twitter:title" content="JavaScript定义对象和类的几种方式">
+<meta name="twitter:description" content="使用预定义对象只是面向对象语言的能力的一部分，它真正强大之处在于能够创建自己专用的类和对象。 ECMAScript 拥有很多创建对象或类的方法。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>webstorm2016.2简单激活 | Youngrivers Blog</title>
+<title>JavaScript定义对象和类的几种方式 | Youngrivers Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-x26" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-x27" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/20/x26/" class="article-date">
-      <time datetime="2017-04-20T07:39:29.139Z" itemprop="datePublished">2017-04-20</time>
+      <a href="/2017/06/01/x27/" class="article-date">
+      <time datetime="2017-05-31T21:02:17.942Z" itemprop="datePublished">2017-06-01</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      webstorm2016.2简单激活
+      JavaScript定义对象和类的几种方式
     </h1>
   
 
@@ -302,7 +302,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/License-server/">License server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webstorm/">webstorm</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -312,9 +312,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="License-server激活"><a href="#License-server激活" class="headerlink" title="License server激活"></a>License server激活</h2><p>目前可以用以下的server地址测试：<br><a href="http://v2mc.net:1017" target="_blank" rel="external">http://v2mc.net:1017</a> (失效)</p>
-<p><a href="http://idea.iteblog.com/key.php" target="_blank" rel="external">http://idea.iteblog.com/key.php</a> (2017.3.31可用)</p>
-<p><a href="http://idea.imsxm.com/" target="_blank" rel="external">http://idea.imsxm.com/</a>  (2017.4.20可用)</p>
+        <h2 id="原始方式"><a href="#原始方式" class="headerlink" title="原始方式"></a>原始方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> aCar=<span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">aCar.color=<span class="string">"red"</span>;</div><div class="line">aCar.door=<span class="string">"8"</span>;</div><div class="line">aCar.year=<span class="string">"2016"</span>;</div><div class="line">aCar.showCar=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(aCar.door);</div><div class="line">&#125;;</div><div class="line"><span class="comment">/*var xa=new aCar();*/</span></div><div class="line">aCar.showCar();</div></pre></td></tr></table></figure>
+<p>当创建多个实例对象时，上面的aCar不能充当constructor（构造器）</p>
+<h2 id="工厂方式"><a href="#工厂方式" class="headerlink" title="工厂方式"></a>工厂方式</h2><p>通过下面的方法，我们可以很容易出的创造多个实例对象<br>为函数传递参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*function showcar() &#123;</span></div><div class="line">    console.log(this.door);</div><div class="line">&#125;*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cCar</span>(<span class="params">color, door, year</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> thisCar=<span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">    thisCar.color=color;</div><div class="line">    thisCar.door=door;</div><div class="line">    thisCar.year=year;</div><div class="line">    thisCar.showCar=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.door);</div><div class="line">    &#125;;</div><div class="line">    <span class="comment">//thisCar.showCar=showCar;</span></div><div class="line">    <span class="keyword">return</span> thisCar;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> xc=cCar(<span class="string">"blue"</span>,<span class="string">"6"</span>,<span class="string">"2017"</span>);</div><div class="line">xc.showCar();</div></pre></td></tr></table></figure></p>
+<p>采用这种方式必须创建对象的方法，每次调用cCar（），都要创建showcar()<br>所以我们可以在工厂函数外定义对象的方法，然后在工厂函数内通过属性指向该方法</p>
+<h2 id="构造函数方式"><a href="#构造函数方式" class="headerlink" title="构造函数方式"></a>构造函数方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bCar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.color=<span class="string">"blue"</span>;</div><div class="line">    <span class="keyword">this</span>.door=<span class="string">"4"</span>;</div><div class="line">    <span class="keyword">this</span>.year=<span class="string">"2017"</span>;</div><div class="line">    <span class="keyword">this</span>.miles=<span class="string">"10000"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> xb=<span class="keyword">new</span> bCar();</div><div class="line"><span class="built_in">console</span>.log(xb.door);</div></pre></td></tr></table></figure>
+<p>构造函数方式看起来很像工厂方式<br>区别：构造函数内没有创建对象，而是使用了this关键字<br>     使用new运算符时，只有使用this才能访问该对象<br>     上面2者每次调用时都会创建独立的函数，因此↓</p>
+<h2 id="原型方式"><a href="#原型方式" class="headerlink" title="原型方式"></a>原型方式</h2><p>利用对象的prototype属性,可以看成我们创建了新对象所依赖的原型<br>所有属性和方法直接赋予prototype属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dCar</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">dCar.prototype.color=<span class="string">"black"</span>;</div><div class="line">dCar.prototype.door=<span class="string">"10"</span>;</div><div class="line">dCar.prototype.year=<span class="string">"2010"</span>;</div><div class="line">dCar.prototype.showColor=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.color);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> xd=<span class="keyword">new</span> dCar();</div><div class="line">xd.showColor();<span class="comment">//black</span></div></pre></td></tr></table></figure></p>
+<p>上面的方式中，通过dCar的prototype属性添加属性去定义dCar对象的属性<br>当调用dCar（）时，原型的所有属性被立即赋予要创建的对象<br>味着所有实例存放的都是指向showColor（）的指针<br>原型方式的问题</p>
+<p>不能通过给构造函数传递参数来初始化属性的值，必须在创建对象后才能改变属性的默认值<br>必须在创建对象后才能改变属性的默认值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dCar.prototype.dd=[<span class="string">"1"</span>,<span class="string">"2"</span>];</div><div class="line">xd.dd.push(<span class="string">"3"</span>);</div><div class="line"><span class="keyword">var</span> xd1=<span class="keyword">new</span> dCar();</div><div class="line"><span class="built_in">console</span>.log(xd1.dd);<span class="comment">//["1", "2", "3"]</span></div></pre></td></tr></table></figure></p>
+<p>上面的问题是属性dd是指向[]对象的指针↓</p>
+<h2 id="混合的构造函数-原型方式"><a href="#混合的构造函数-原型方式" class="headerlink" title="混合的构造函数/原型方式"></a>混合的构造函数/原型方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">eCar</span>(<span class="params">color, door, year</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.color=color;</div><div class="line">    <span class="keyword">this</span>.door=door;</div><div class="line">    <span class="keyword">this</span>.year=year;</div><div class="line">    <span class="keyword">this</span>.dd=[<span class="string">"1"</span>,<span class="string">"2"</span>]</div><div class="line">&#125;</div><div class="line"><span class="comment">//方法用原型的方式实现</span></div><div class="line">eCar.prototype.showColor=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.color)</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> xe1=<span class="keyword">new</span> eCar(<span class="string">"red"</span>,<span class="number">4</span>,<span class="number">2011</span>),</div><div class="line">    xe2=<span class="keyword">new</span> eCar(<span class="string">"blue"</span>,<span class="number">3</span>,<span class="number">2025</span>);</div><div class="line">xe1.dd.push(<span class="string">"3"</span>);</div><div class="line"><span class="built_in">console</span>.log(xe1.dd);<span class="comment">//["1", "2", "3"]</span></div><div class="line"><span class="built_in">console</span>.log(xe2.dd);<span class="comment">//["1", "2"]</span></div></pre></td></tr></table></figure>
+<p>构造函数内创建对象的属性，外面创建对象的方法</p>
+<h2 id="动态原型方法"><a href="#动态原型方法" class="headerlink" title="动态原型方法"></a>动态原型方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">sColor,iDoors,iMpg</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.color = sColor;</div><div class="line">    <span class="keyword">this</span>.doors = iDoors;</div><div class="line">    <span class="keyword">this</span>.mpg = iMpg;</div><div class="line">    <span class="keyword">this</span>.drivers = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"Mike"</span>,<span class="string">"John"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> Car._initialized == <span class="string">"undefined"</span>) &#123;</div><div class="line">        Car.prototype.showColor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            alert(<span class="keyword">this</span>.color);</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        Car._initialized = <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>直到检查 typeof Car._initialized 是否等于 “undefined” 之前，这个构造函数都未发生变化。<br>这行代码是动态原型方法中最重要的部分。<br>如果这个值未定义，构造函数将用原型方式继续定义对象的方法，然后把 Car._initialized 设置为 true。<br>如果这个值定义了（它的值为 true 时，typeof 的值为 Boolean），那么就不再创建该方法。<br>简而言之，该方法使用标志（_initialized）来判断是否已给原型赋予了任何方法。<br>该方法只创建并赋值一次，传统的 OOP 开发者会高兴地发现，这段代码看起来更像其他语言中的类定义了。</p>
+<p><a href="http://www.w3school.com.cn/js/pro_js_object_defining.asp" target="_blank" rel="external">ECMAScript 定义类或对象</a></p>
 
       
     </div>
@@ -323,13 +335,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/20/x26/">webstorm2016.2简单激活</a></p>
+        <p><span>本文标题:</span><a href="/2017/06/01/x27/">JavaScript定义对象和类的几种方式</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
-        <p><span>发布时间:</span>2017-04-20, 15:39:29</p>
-        <p><span>最后更新:</span>2017-04-20, 15:47:27</p>
+        <p><span>发布时间:</span>2017-06-01, 05:02:17</p>
+        <p><span>最后更新:</span>2017-06-01, 06:16:38</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/20/x26/" title="webstorm2016.2简单激活">http://yoursite.com/2017/04/20/x26/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/04/20/x26/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/01/x27/" title="JavaScript定义对象和类的几种方式">http://yoursite.com/2017/06/01/x27/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/06/01/x27/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -341,16 +353,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/06/01/x27/">
-                    JavaScript定义对象和类的几种方式
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/21/x25/">
-                    全屏滚动插件使用
+                <a href="/2017/04/20/x26/">
+                    webstorm2016.2简单激活
                 </a>
             </div>
         
@@ -361,7 +367,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#License-server激活"><span class="toc-number">1.</span> <span class="toc-text">License server激活</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#原始方式"><span class="toc-number">1.</span> <span class="toc-text">原始方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工厂方式"><span class="toc-number">2.</span> <span class="toc-text">工厂方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数方式"><span class="toc-number">3.</span> <span class="toc-text">构造函数方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型方式"><span class="toc-number">4.</span> <span class="toc-text">原型方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合的构造函数-原型方式"><span class="toc-number">5.</span> <span class="toc-text">混合的构造函数/原型方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态原型方法"><span class="toc-number">6.</span> <span class="toc-text">动态原型方法</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn,
@@ -392,7 +398,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"webstorm2016.2简单激活　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"JavaScript定义对象和类的几种方式　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -408,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/04/20/x26/" data-title="webstorm2016.2简单激活" data-url="http://yoursite.com/2017/04/20/x26/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/06/01/x27/" data-title="JavaScript定义对象和类的几种方式" data-url="http://yoursite.com/2017/06/01/x27/"></div>
     <script>
         var duoshuoQuery = {short_name:"youngrivers"};
         var loadComment = function(){
@@ -431,15 +437,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/06/01/x27/" title="上一篇: JavaScript定义对象和类的几种方式">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/21/x25/" title="下一篇: 全屏滚动插件使用">
+            <a href="/2017/04/20/x26/" title="下一篇: webstorm2016.2简单激活">
                 <i class="fa fa-angle-right"></i>
             </a>
         

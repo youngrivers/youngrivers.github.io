@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-20T07:47:27.089Z</updated>
+  <updated>2017-05-31T22:16:38.782Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript定义对象和类的几种方式</title>
+    <link href="http://yoursite.com/2017/06/01/x27/"/>
+    <id>http://yoursite.com/2017/06/01/x27/</id>
+    <published>2017-05-31T21:02:17.942Z</published>
+    <updated>2017-05-31T22:16:38.782Z</updated>
+    
+    <summary type="html">
+    
+      使用预定义对象只是面向对象语言的能力的一部分，它真正强大之处在于能够创建自己专用的类和对象。 ECMAScript 拥有很多创建对象或类的方法。
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>webstorm2016.2简单激活</title>
@@ -42,7 +62,7 @@
     <link href="http://yoursite.com/2016/09/21/x25/"/>
     <id>http://yoursite.com/2016/09/21/x25/</id>
     <published>2016-09-20T18:39:27.304Z</published>
-    <updated>2016-09-20T23:51:23.262Z</updated>
+    <updated>2017-05-31T21:12:04.171Z</updated>
     
     <summary type="html">
     
@@ -53,7 +73,7 @@
       <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
       <category term="fullPage" scheme="http://yoursite.com/tags/fullPage/"/>
     
@@ -157,7 +177,7 @@
     <link href="http://yoursite.com/2016/07/29/x20/"/>
     <id>http://yoursite.com/2016/07/29/x20/</id>
     <published>2016-07-29T15:39:13.046Z</published>
-    <updated>2016-08-03T15:37:59.591Z</updated>
+    <updated>2017-05-31T21:11:33.527Z</updated>
     
     <summary type="html">
     
@@ -168,7 +188,7 @@
       <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
@@ -222,7 +242,7 @@ jQuery的理念“Write Less, Do More“，让你写更少的代码，完成更�
     <link href="http://yoursite.com/2016/07/24/x17/"/>
     <id>http://yoursite.com/2016/07/24/x17/</id>
     <published>2016-07-24T03:35:24.084Z</published>
-    <updated>2016-07-24T15:28:54.474Z</updated>
+    <updated>2017-05-31T21:11:33.486Z</updated>
     
     <summary type="html">
     
@@ -233,7 +253,7 @@ jQuery的理念“Write Less, Do More“，让你写更少的代码，完成更�
       <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
@@ -242,7 +262,7 @@ jQuery的理念“Write Less, Do More“，让你写更少的代码，完成更�
     <link href="http://yoursite.com/2016/07/23/x16/"/>
     <id>http://yoursite.com/2016/07/23/x16/</id>
     <published>2016-07-23T14:48:16.226Z</published>
-    <updated>2016-07-27T07:56:51.561Z</updated>
+    <updated>2017-05-31T21:11:33.500Z</updated>
     
     <summary type="html">
     
@@ -253,11 +273,11 @@ jQuery的理念“Write Less, Do More“，让你写更少的代码，完成更�
       <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
       <category term="prototype" scheme="http://yoursite.com/tags/prototype/"/>
     
       <category term="ECMAScript" scheme="http://yoursite.com/tags/ECMAScript/"/>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
@@ -430,28 +450,6 @@ jQuery的理念“Write Less, Do More“，让你写更少的代码，完成更�
       <category term="sass" scheme="http://yoursite.com/tags/sass/"/>
     
       <category term="scss" scheme="http://yoursite.com/tags/scss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>玩转Bootstrap(JS插件篇)</title>
-    <link href="http://yoursite.com/2016/07/16/x7/"/>
-    <id>http://yoursite.com/2016/07/16/x7/</id>
-    <published>2016-07-15T16:23:45.667Z</published>
-    <updated>2016-07-15T16:35:43.871Z</updated>
-    
-    <summary type="html">
-    
-      jQuery 插件为 Bootstrap 的组件赋予了“生命”。可以简单地一次性引入所有插件，或者逐个引入到你的页面中。
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-      <category term="Bootstrap" scheme="http://yoursite.com/tags/Bootstrap/"/>
     
   </entry>
   
