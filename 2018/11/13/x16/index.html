@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Youngrivers" />
+
+
+
+<meta name="description" content="分析一下javascript的对象(原型)及封装继承,了解严格模式以及关键字this,prototype">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript深入理解-1">
+<meta property="og:url" content="http://yoursite.com/2018/11/13/x16/index.html">
+<meta property="og:site_name" content="Youngrivers Blog">
+<meta property="og:description" content="分析一下javascript的对象(原型)及封装继承,了解严格模式以及关键字this,prototype">
+<meta property="og:updated_time" content="2017-05-31T21:11:33.501Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript深入理解-1">
+<meta name="twitter:description" content="分析一下javascript的对象(原型)及封装继承,了解严格模式以及关键字this,prototype">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Youngrivers Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>JavaScript深入理解-1 | Youngrivers Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/huluBoy.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Youngrivers</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="http://youngrivers.github.io/IFE2016TASK1/">Demo</a></li>
+                        
+                            <li><a href="https://youngrivers.github.io/myWeb/">我的简历</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="/sina weibo" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/youngrivers" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa Email" href="mailto:401712228@qq.com" title="Email"></a>
+                            
+                                <a class="fa QQ" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular2/">Angular2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bower/">Bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CLI/">CLI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/">ECMAScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grunt/">Grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jade/">Jade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/License-server/">License server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PPI/">PPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swiper/">Swiper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TortoiseSVN/">TortoiseSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yelee/">Yelee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fullPage/">fullPage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pagePiling/">pagePiling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webstorm/">webstorm</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端/持之以恒/不放弃治疗</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Youngrivers</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/huluBoy.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Youngrivers</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="http://youngrivers.github.io/IFE2016TASK1/">Demo</a></li>
+                
+                    <li><a href="https://youngrivers.github.io/myWeb/">我的简历</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="/sina weibo" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/youngrivers" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:401712228@qq.com" title="Email"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-x16" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/13/x16/" class="article-date">
+      <time datetime="2018-11-13T15:28:15.666Z" itemprop="datePublished">2018-11-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript深入理解-1
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMAScript/">ECMAScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype/">prototype</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h2><p><strong>ECMAScript 有 5 种原始类型（primitive type），即 Undefined、Null、Boolean、Number 和 String。</strong></p>
+<h3 id="typeof-运算符"><a href="#typeof-运算符" class="headerlink" title="typeof 运算符"></a>typeof 运算符</h3><p>对变量或值调用 typeof 运算符将返回下列值之一：</p>
+<blockquote>
+<p>undefined - 如果变量是 Undefined 类型的<br>boolean - 如果变量是 Boolean 类型的<br>number - 如果变量是 Number 类型的<br>string - 如果变量是 String 类型的<br>object - 如果变量是一种引用类型或 Null 类型的</p>
+</blockquote>
+<h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><p>对象是由 new 运算符加上要实例化的对象的名字创建的。例如，下面的代码创建 Object 对象的实例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div></pre></td></tr></table></figure></p>
+<p>对象类型有Funcation,Array,Date…<br><strong>尽管括号不是必需的，但是为了避免混乱，最好使用括号。</strong><br>ECMAScript 中的所有对象都由这个对象继承而来，Object 对象中的所有属性和方法都会出现在其他对象中，所以理解了 Object 对象，就可以更好地理解其他对象</p>
+<h3 id="Object-对象具有下列属性："><a href="#Object-对象具有下列属性：" class="headerlink" title="Object 对象具有下列属性："></a>Object 对象具有下列属性：</h3><p><code>constructor</code><br>对创建对象的函数的引用（指针）。对于 Object 对象，该指针指向原始的 Object() 函数。<br><code>Prototype</code><br>对该对象的对象原型的引用。对于所有的对象，它默认返回 Object 对象的一个实例。</p>
+<h3 id="Object-对象还具有几个方法："><a href="#Object-对象还具有几个方法：" class="headerlink" title="Object 对象还具有几个方法："></a>Object 对象还具有几个方法：</h3><p><code>hasOwnProperty(property)</code><br>判断对象是否有某个特定的属性。必须用字符串指定该属性。（例如，o.hasOwnProperty(“name”)）<br><code>IsPrototypeOf(object)</code><br>判断该对象是否为另一个对象的原型。<br><code>PropertyIsEnumerable</code><br>判断给定的属性是否可以用 for…in 语句进行枚举。<br><code>ToString()</code><br>返回对象的原始字符串表示。对于 Object 对象，ECMA-262 没有定义这个值，所以不同的 ECMAScript 实现具有不同的值。<br><code>ValueOf()</code><br>返回最适合该对象的原始值。对于许多对象，该方法返回的值都与 ToString() 的返回值相同。</p>
+<h3 id="Boolean-对象"><a href="#Boolean-对象" class="headerlink" title="Boolean 对象"></a>Boolean 对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oFalseObject = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</div><div class="line"><span class="keyword">var</span> bResult = oFalseObject &amp;&amp; <span class="literal">true</span>;	<span class="comment">//输出 true</span></div></pre></td></tr></table></figure>
+<p>在 Boolean 表达式中，所有对象都会被自动转换为 true，所以 oFalseObject 的值是 true。然后 true 再与 true 进行 AND 操作，结果为 true。</p>
+<h3 id="Number-对象"><a href="#Number-对象" class="headerlink" title="Number 对象"></a>Number 对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oNumberObject = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">68</span>);</div><div class="line"><span class="keyword">var</span> iNumber = oNumberObject.valueOf();</div></pre></td></tr></table></figure>
+<h4 id="toFixed-方法"><a href="#toFixed-方法" class="headerlink" title="toFixed() 方法"></a>toFixed() 方法</h4><p>toFixed() 方法返回的是具有指定位数小数的数字的字符串表示<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oNumberObject = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">68</span>);</div><div class="line">alert(oNumberObject.toFixed(<span class="number">2</span>));  <span class="comment">//输出 "68.00"</span></div></pre></td></tr></table></figure></p>
+<h4 id="toExponential-方法"><a href="#toExponential-方法" class="headerlink" title="toExponential() 方法"></a>toExponential() 方法</h4><p>与格式化数字相关的另一个方法是 toExponential()，它返回的是用科学计数法表示的数字的字符串形式。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oNumberObject = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">68</span>);</div><div class="line">alert(oNumberObject.toExponential(<span class="number">1</span>));  <span class="comment">//输出 "6.8e+1",它表示 6.8x10^1</span></div></pre></td></tr></table></figure></p>
+<h4 id="toPrecision-方法"><a href="#toPrecision-方法" class="headerlink" title="toPrecision() 方法"></a>toPrecision() 方法</h4><p>toPrecision() 方法根据最有意义的形式来返回数字的预定形式或指数形式。它有一个参数，即用于表示数的数字总数（不包括指数）。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oNumberObject = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">68</span>);</div><div class="line">alert(oNumberObject.toPrecision(<span class="number">1</span>));  <span class="comment">//输出 "7e+1",以另外的形式表示即 70</span></div><div class="line">alert(oNumberObject.toPrecision(<span class="number">2</span>));  <span class="comment">//输出 "68"</span></div><div class="line">alert(oNumberObject.toPrecision(<span class="number">3</span>));  <span class="comment">//输出 "68.0"</span></div></pre></td></tr></table></figure></p>
+<h3 id="String-对象"><a href="#String-对象" class="headerlink" title="String 对象"></a>String 对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oStringObject = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"hello world"</span>);</div><div class="line">alert(oStringObject.valueOf() == oStringObject.toString());	<span class="comment">//输出 "true"</span></div><div class="line"><span class="comment">/*length 属性*/</span></div><div class="line">alert(oStringObject.length);	<span class="comment">//输出 "11"</span></div><div class="line"><span class="comment">/*charAt() 和 charCodeAt() 方法*/</span></div><div class="line">alert(oStringObject.charAt(<span class="number">1</span>));	<span class="comment">//输出 "e"</span></div><div class="line">alert(oStringObject.charCodeAt(<span class="number">1</span>));	<span class="comment">//输出 "101"</span></div><div class="line"><span class="comment">/*concat() 方法*/</span></div><div class="line"><span class="keyword">var</span> sResult = oStringObject.concat(<span class="string">"world"</span>);</div><div class="line">alert(sResult);		<span class="comment">//输出 "hello world"</span></div><div class="line">alert(oStringObject);	<span class="comment">//输出 "hello "</span></div><div class="line"><span class="comment">/*indexOf() 和 lastIndexOf() 方法*/</span></div><div class="line">alert(oStringObject.indexOf(<span class="string">"o"</span>));		输出 <span class="string">"4"</span></div><div class="line">alert(oStringObject.lastIndexOf(<span class="string">"o"</span>));	输出 <span class="string">"7"</span></div><div class="line"><span class="comment">/*localeCompare() 方法*/</span></div><div class="line">alert(oStringObject.localeCompare(<span class="string">"brick"</span>));		<span class="comment">//输出 "1"</span></div><div class="line">alert(oStringObject.localeCompare(<span class="string">"yellow"</span>));		<span class="comment">//输出 "0"</span></div><div class="line">alert(oStringObject.localeCompare(<span class="string">"zoo"</span>));		<span class="comment">//输出 "-1"</span></div><div class="line"><span class="comment">/*slice() 和 substring()*/</span></div><div class="line">alert(oStringObject.slice(<span class="string">"3"</span>));		<span class="comment">//输出 "lo world"</span></div><div class="line">alert(oStringObject.substring(<span class="string">"3"</span>));		<span class="comment">//输出 "lo world"</span></div><div class="line">alert(oStringObject.slice(<span class="string">"3"</span>, <span class="string">"7"</span>));		<span class="comment">//输出 "lo w"</span></div><div class="line">alert(oStringObject.substring(<span class="string">"3"</span>, <span class="string">"7"</span>));	<span class="comment">//输出 "lo w"</span></div><div class="line"><span class="comment">/*toLowerCase()、toLocaleLowerCase()、toUpperCase() 和 toLocaleUpperCase()*/</span></div><div class="line">alert(oStringObject.toLocaleUpperCase());	<span class="comment">//输出 "HELLO WORLD"</span></div><div class="line">alert(oStringObject.toUpperCase());		<span class="comment">//输出 "HELLO WORLD"</span></div><div class="line">alert(oStringObject.toLocaleLowerCase());	<span class="comment">//输出 "hello world"</span></div><div class="line">alert(oStringObject.toLowerCase());		<span class="comment">//输出 "hello world"</span></div><div class="line"><span class="comment">/*instanceof 运算符*/</span></div><div class="line">alert(oStringObject <span class="keyword">instanceof</span> <span class="built_in">String</span>);	<span class="comment">//输出 "true"</span></div></pre></td></tr></table></figure>
+<h2 id="arguments-对象"><a href="#arguments-对象" class="headerlink" title="arguments 对象"></a>arguments 对象</h2><p>在函数代码中，使用特殊对象 arguments，开发者无需明确指出参数名，就能访问它们。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">howManyArgs</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  alert(<span class="built_in">arguments</span>.length);</div><div class="line">&#125;</div><div class="line"><span class="comment">//依次显示 "2"、"0" 和 "1"。</span></div><div class="line">howManyArgs(<span class="string">"string"</span>, <span class="number">45</span>);</div><div class="line">howManyArgs();</div><div class="line">howManyArgs(<span class="number">12</span>);</div></pre></td></tr></table></figure></p>
+<h2 id="Function-对象（类）"><a href="#Function-对象（类）" class="headerlink" title="Function 对象（类）"></a>Function 对象（类）</h2><p>Function 类可以表示开发者定义的任何函数。<br>用 Function 类直接创建函数的语法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> function_name = <span class="keyword">new</span> <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2, ..., argN, function_body</span>)</span></div></pre></td></tr></table></figure></p>
+<p>在上面的形式中，每个 arg 都是一个参数，最后一个参数是函数主体（要执行的代码）。这些参数必须是字符串。</p>
+<h3 id="Function-对象的-length-属性"><a href="#Function-对象的-length-属性" class="headerlink" title="Function 对象的 length 属性"></a>Function 对象的 length 属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doAdd</span>(<span class="params">iNum</span>) </span>&#123;</div><div class="line">  alert(iNum + <span class="number">10</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  alert(<span class="string">"Hi"</span>);</div><div class="line">&#125;</div><div class="line">alert(doAdd.length);	<span class="comment">//输出 "1"</span></div><div class="line">alert(sayHi.length);	<span class="comment">//输出 "0"</span></div></pre></td></tr></table></figure>
+<p>函数 doAdd() 定义了一个参数，因此它的 length 是 1；sayHi() 没有定义参数，所以 length 是 0。</p>
+<h3 id="Function-对象的方法"><a href="#Function-对象的方法" class="headerlink" title="Function 对象的方法"></a>Function 对象的方法</h3><p>Function 对象也有与所有对象共享的 valueOf() 方法和 toString() 方法。这两个方法返回的都是函数的源代码，在调试时尤其有用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doAdd</span>(<span class="params">iNum</span>) </span>&#123;</div><div class="line">  alert(iNum + <span class="number">10</span>);</div><div class="line">&#125;</div><div class="line"><span class="built_in">document</span>.write(doAdd.toString());</div></pre></td></tr></table></figure></p>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p><strong>对象</strong><br>基于代码的名词（人、地点或事物）的表示<br><strong>类</strong><br>每个对象都由类定义，可以把类看做对象的配方。类不仅要定义对象的接口（interface）（开发者访问的属性和方法），还要定义对象的内部工作（使属性和方法发挥作用的代码）。编译器和解释程序都根据类的说明构建对象。<br><strong>实例</strong><br>程序使用类创建对象时，生成的对象叫作类的实例（instance）。对类生成的对象的个数的唯一限制来自于运行代码的机器的物理内存。每个实例的行为相同，但实例处理一组独立的数据。由类创建对象实例的过程叫做实例化（instantiation）。</p>
+<h3 id="面向对象语言的要求"><a href="#面向对象语言的要求" class="headerlink" title="面向对象语言的要求"></a>面向对象语言的要求</h3><p>一种面向对象语言需要向开发者提供四种基本能力：</p>
+<blockquote>
+<p>封装 - 把相关的信息（无论数据或方法）存储在对象中的能力<br>聚集 - 把一个对象存储在另一个对象内的能力<br>继承 - 由另一个类（或多个类）得来类的属性和方法的能力<br>多态 - 编写能以多种方法运行的函数或方法的能力</p>
+</blockquote>
+<h3 id="对象的构成"><a href="#对象的构成" class="headerlink" title="对象的构成"></a>对象的构成</h3><p>在 ECMAScript 中，对象由特性（attribute）构成，特性可以是原始值，也可以是引用值。如果特性存放的是函数，它将被看作对象的方法（method），否则该特性被看作对象的属性（property）。</p>
+<h3 id="声明和实例化"><a href="#声明和实例化" class="headerlink" title="声明和实例化"></a>声明和实例化</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oObject = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"><span class="keyword">var</span> oStringObject = <span class="keyword">new</span> <span class="built_in">String</span>();</div></pre></td></tr></table></figure>
+<h3 id="对象废除"><a href="#对象废除" class="headerlink" title="对象废除"></a>对象废除</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oObject = <span class="keyword">new</span> <span class="built_in">Object</span>;</div><div class="line"><span class="comment">// do something with the object here</span></div><div class="line">oObject = <span class="literal">null</span>;</div></pre></td></tr></table></figure>
+<h2 id="关键字-this"><a href="#关键字-this" class="headerlink" title="关键字 this"></a>关键字 this</h2><h3 id="this-的功能"><a href="#this-的功能" class="headerlink" title="this 的功能"></a>this 的功能</h3><p>关键字 this 总是指向调用该方法的对象</p>
+<h3 id="使用-this-的原因"><a href="#使用-this-的原因" class="headerlink" title="使用 this 的原因"></a>使用 this 的原因</h3><p>为什么使用 this 呢？因为在实例化对象时，总是不能确定开发者会使用什么样的变量名。使用 this，即可在任何多个地方重用同一个函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showColor</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  alert(<span class="keyword">this</span>.color);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> oCar1 = <span class="keyword">new</span> <span class="built_in">Object</span>;</div><div class="line">oCar1.color = <span class="string">"red"</span>;</div><div class="line">oCar1.showColor = showColor;</div><div class="line"><span class="keyword">var</span> oCar2 = <span class="keyword">new</span> <span class="built_in">Object</span>;</div><div class="line">oCar2.color = <span class="string">"blue"</span>;</div><div class="line">oCar2.showColor = showColor;</div><div class="line">oCar1.showColor();		<span class="comment">//输出 "red"</span></div><div class="line">oCar2.showColor();		<span class="comment">//输出 "blue"</span></div></pre></td></tr></table></figure></p>
+<p>在上面的代码中，首先用 this 定义函数 showColor()，然后创建两个对象（oCar1 和 oCar2），一个对象的 color 属性被设置为 “red”，另一个对象的 color 属性被设置为 “blue”。两个对象都被赋予了属性 showColor，指向原始的 showColor () 函数（注意这里不存在命名问题，因为一个是全局函数，而另一个是对象的属性）。调用每个对象的 showColor()，oCar1 输出是 “red”，而 oCar2 的输出是 “blue”。这是因为调用 oCar1.showColor() 时，函数中的 this 关键字等于 oCar1。调用 oCar2.showColor() 时，函数中的 this 关键字等于 oCar2。<br><strong>注意，引用对象的属性时，必须使用 this 关键</strong><br>如果不用对象或 this 关键字引用变量，ECMAScript 就会把它看作局部变量或全局变量。然后该函数将查找名为 color 的局部或全局变量，但是不会找到。结果如何呢？该函数将在警告中显示 “null”。</p>
+<h2 id="定义类或对象"><a href="#定义类或对象" class="headerlink" title="定义类或对象"></a>定义类或对象</h2><p>使用预定义对象只是面向对象语言的能力的一部分，它真正强大之处在于能够创建自己专用的类和对象。</p>
+<h3 id="工厂方式"><a href="#工厂方式" class="headerlink" title="工厂方式"></a>工厂方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> oTempCar = <span class="keyword">new</span> <span class="built_in">Object</span>;</div><div class="line">  oTempCar.color = <span class="string">"blue"</span>;</div><div class="line">  oTempCar.doors = <span class="number">4</span>;</div><div class="line">  oTempCar.mpg = <span class="number">25</span>;</div><div class="line">  oTempCar.showColor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.color);</div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> oTempCar;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> oCar1 = createCar();</div><div class="line"><span class="keyword">var</span> oCar2 = createCar();</div></pre></td></tr></table></figure>
+<p>在这里，第一个例子中的所有代码都包含在 createCar() 函数中。此外，还有一行额外的代码，返回 car 对象（oTempCar）作为函数值。调用此函数，将创建新对象，并赋予它所有必要的属性，复制出一个我们在前面说明过的 car 对象。因此，通过这种方法，我们可以很容易地创建 car 对象的两个版本（oCar1 和 oCar2），它们的属性完全一样。</p>
+<h4 id="为函数传递参数"><a href="#为函数传递参数" class="headerlink" title="为函数传递参数"></a>为函数传递参数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCar</span>(<span class="params">sColor,iDoors,iMpg</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> oTempCar = <span class="keyword">new</span> <span class="built_in">Object</span>;</div><div class="line">  oTempCar.color = sColor;</div><div class="line">  oTempCar.doors = iDoors;</div><div class="line">  oTempCar.mpg = iMpg;</div><div class="line">  oTempCar.showColor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.color);</div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> oTempCar;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> oCar1 = createCar(<span class="string">"red"</span>,<span class="number">4</span>,<span class="number">23</span>);</div><div class="line"><span class="keyword">var</span> oCar2 = createCar(<span class="string">"blue"</span>,<span class="number">3</span>,<span class="number">25</span>);</div><div class="line">oCar1.showColor();		<span class="comment">//输出 "red"</span></div></pre></td></tr></table></figure>
+<h4 id="在工厂函数外定义对象的方法"><a href="#在工厂函数外定义对象的方法" class="headerlink" title="在工厂函数外定义对象的方法"></a>在工厂函数外定义对象的方法</h4><p>前面的例子中，每次调用函数 createCar()，都要创建新函数 showColor()，意味着每个对象都有自己的 showColor() 版本。而事实上，每个对象都共享同一个函数。<br>有些开发者在工厂函数外定义对象的方法，然后通过属性指向该方法，从而避免这个问题：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showColor</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  alert(<span class="keyword">this</span>.color);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCar</span>(<span class="params">sColor,iDoors,iMpg</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> oTempCar = <span class="keyword">new</span> <span class="built_in">Object</span>;</div><div class="line">  oTempCar.color = sColor;</div><div class="line">  oTempCar.doors = iDoors;</div><div class="line">  oTempCar.mpg = iMpg;</div><div class="line">  oTempCar.showColor = showColor;</div><div class="line">  <span class="keyword">return</span> oTempCar;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> oCar1 = createCar(<span class="string">"red"</span>,<span class="number">4</span>,<span class="number">23</span>);</div><div class="line"><span class="keyword">var</span> oCar2 = createCar(<span class="string">"blue"</span>,<span class="number">3</span>,<span class="number">25</span>);</div><div class="line">oCar1.showColor();		<span class="comment">//输出 "red"</span></div><div class="line">oCar2.showColor();		<span class="comment">//输出 "blue"</span></div></pre></td></tr></table></figure></p>
+<p>在上面这段重写的代码中，在函数 createCar() 之前定义了函数 showColor()。在 createCar() 内部，赋予对象一个指向已经存在的 showColor() 函数的指针。从功能上讲，这样解决了重复创建函数对象的问题；但是从语义上讲，该函数不太像是对象的方法。</p>
+<h3 id="构造函数方式"><a href="#构造函数方式" class="headerlink" title="构造函数方式"></a>构造函数方式</h3><p>创建构造函数就像创建工厂函数一样容易。第一步选择类名，即构造函数的名字。根据惯例，这个名字的首字母大写，以使它与首字母通常是小写的变量名分开。除了这点不同，构造函数看起来很像工厂函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">sColor,iDoors,iMpg</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.color = sColor;</div><div class="line">  <span class="keyword">this</span>.doors = iDoors;</div><div class="line">  <span class="keyword">this</span>.mpg = iMpg;</div><div class="line">  <span class="keyword">this</span>.showColor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.color);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> oCar1 = <span class="keyword">new</span> Car(<span class="string">"red"</span>,<span class="number">4</span>,<span class="number">23</span>);</div><div class="line"><span class="keyword">var</span> oCar2 = <span class="keyword">new</span> Car(<span class="string">"blue"</span>,<span class="number">3</span>,<span class="number">25</span>);</div></pre></td></tr></table></figure></p>
+<p>下面为您解释上面的代码与工厂方式的差别。首先在构造函数内没有创建对象，而是使用 this 关键字。使用 new 运算符构造函数时，在执行第一行代码前先创建一个对象，只有用 this 才能访问该对象。然后可以直接赋予 this 属性，默认情况下是构造函数的返回值（不必明确使用 return 运算符）。</p>
+<h3 id="原型方式"><a href="#原型方式" class="headerlink" title="原型方式"></a>原型方式</h3><p>该方式利用了对象的 prototype 属性，可以把它看成创建新对象所依赖的原型。<br>这里，首先用空构造函数来设置类名。然后所有的属性和方法都被直接赋予 prototype 属性。我们重写了前面的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>) </span>&#123;</div><div class="line">&#125;</div><div class="line">Car.prototype.color = <span class="string">"blue"</span>;</div><div class="line">Car.prototype.doors = <span class="number">4</span>;</div><div class="line">Car.prototype.mpg = <span class="number">25</span>;</div><div class="line">Car.prototype.showColor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  alert(<span class="keyword">this</span>.color);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> oCar1 = <span class="keyword">new</span> Car();</div><div class="line"><span class="keyword">var</span> oCar2 = <span class="keyword">new</span> Car();</div></pre></td></tr></table></figure></p>
+<p>在这段代码中，首先定义构造函数（Car），其中无任何代码。接下来的几行代码，通过给 Car 的 prototype 属性添加属性去定义 Car 对象的属性。调用 new Car() 时，原型的所有属性都被立即赋予要创建的对象，意味着所有 Car 实例存放的都是指向 showColor() 函数的指针。从语义上讲，所有属性看起来都属于一个对象，因此解决了前面两种方式存在的问题。<br><strong>目前使用最广泛的是混合的构造函数/原型方式。</strong></p>
+<h3 id="混合的构造函数-原型方式"><a href="#混合的构造函数-原型方式" class="headerlink" title="混合的构造函数/原型方式"></a>混合的构造函数/原型方式</h3><p>联合使用构造函数和原型方式，就可像用其他程序设计语言一样创建对象。这种概念非常简单，即用构造函数定义对象的所有非函数属性，用原型方式定义对象的函数属性（方法）。结果是，所有函数都只创建一次，而每个对象都具有自己的对象属性实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">sColor,iDoors,iMpg</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.color = sColor;</div><div class="line">  <span class="keyword">this</span>.doors = iDoors;</div><div class="line">  <span class="keyword">this</span>.mpg = iMpg;</div><div class="line">  <span class="keyword">this</span>.drivers = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"Mike"</span>,<span class="string">"John"</span>);</div><div class="line">&#125;</div><div class="line">Car.prototype.showColor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  alert(<span class="keyword">this</span>.color);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> oCar1 = <span class="keyword">new</span> Car(<span class="string">"red"</span>,<span class="number">4</span>,<span class="number">23</span>);</div><div class="line"><span class="keyword">var</span> oCar2 = <span class="keyword">new</span> Car(<span class="string">"blue"</span>,<span class="number">3</span>,<span class="number">25</span>);</div><div class="line">oCar1.drivers.push(<span class="string">"Bill"</span>);</div><div class="line">alert(oCar1.drivers);	<span class="comment">//输出 "Mike,John,Bill"</span></div><div class="line">alert(oCar2.drivers);	<span class="comment">//输出 "Mike,John"</span></div></pre></td></tr></table></figure></p>
+<h2 id="原型链（prototype-chaining）"><a href="#原型链（prototype-chaining）" class="headerlink" title="原型链（prototype chaining）"></a>原型链（prototype chaining）</h2><p>继承这种形式在 ECMAScript 中原本是用于原型链的。上一章介绍了定义类的原型方式。原型链扩展了这种方式，以一种有趣的方式实现继承机制。<br>在上一章学过，prototype 对象是个模板，要实例化的对象都以这个模板为基础。总而言之，prototype 对象的任何属性和方法都被传递给那个类的所有实例。原型链利用这种功能来实现继承机制。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClassA</span>(<span class="params"></span>) </span>&#123;</div><div class="line">&#125;</div><div class="line">ClassA.prototype.color = <span class="string">"blue"</span>;</div><div class="line">ClassA.prototype.sayColor = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.color);</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClassB</span>(<span class="params"></span>) </span>&#123;</div><div class="line">&#125;</div><div class="line">ClassB.prototype = <span class="keyword">new</span> ClassA();</div></pre></td></tr></table></figure></p>
+<p><a href="http://www.imooc.com/view/277" target="_blank" rel="external">JavaScript深入浅出</a><br><a href="http://www.w3school.com.cn/js/index.asp" target="_blank" rel="external">JavaScript 教程</a><br><a href="http://www.runoob.com/js/js-tutorial.html" target="_blank" rel="external">JavaScript 教程</a><br><a href="https://www.douban.com/note/293217333/" target="_blank" rel="external">理解prototype(原型)</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/11/13/x16/">JavaScript深入理解-1</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
+        <p><span>发布时间:</span>2018-11-13, 23:28:15</p>
+        <p><span>最后更新:</span>2017-06-01, 05:11:33</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/11/13/x16/" title="JavaScript深入理解-1">http://yoursite.com/2018/11/13/x16/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/11/13/x16/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/11/13/x20/">
+                    JavaScript的回调函数和各种主流开发模式
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/11/13/x27/">
+                    JavaScript定义对象和类的几种方式
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#原始类型"><span class="toc-number">1.</span> <span class="toc-text">原始类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#typeof-运算符"><span class="toc-number">1.1.</span> <span class="toc-text">typeof 运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object对象"><span class="toc-number">2.</span> <span class="toc-text">Object对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-对象具有下列属性："><span class="toc-number">2.1.</span> <span class="toc-text">Object 对象具有下列属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-对象还具有几个方法："><span class="toc-number">2.2.</span> <span class="toc-text">Object 对象还具有几个方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boolean-对象"><span class="toc-number">2.3.</span> <span class="toc-text">Boolean 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Number-对象"><span class="toc-number">2.4.</span> <span class="toc-text">Number 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#toFixed-方法"><span class="toc-number">2.4.1.</span> <span class="toc-text">toFixed() 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#toExponential-方法"><span class="toc-number">2.4.2.</span> <span class="toc-text">toExponential() 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#toPrecision-方法"><span class="toc-number">2.4.3.</span> <span class="toc-text">toPrecision() 方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-对象"><span class="toc-number">2.5.</span> <span class="toc-text">String 对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arguments-对象"><span class="toc-number">3.</span> <span class="toc-text">arguments 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Function-对象（类）"><span class="toc-number">4.</span> <span class="toc-text">Function 对象（类）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-对象的-length-属性"><span class="toc-number">4.1.</span> <span class="toc-text">Function 对象的 length 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-对象的方法"><span class="toc-number">4.2.</span> <span class="toc-text">Function 对象的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象"><span class="toc-number">5.</span> <span class="toc-text">面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#面向对象语言的要求"><span class="toc-number">5.1.</span> <span class="toc-text">面向对象语言的要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的构成"><span class="toc-number">5.2.</span> <span class="toc-text">对象的构成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#声明和实例化"><span class="toc-number">5.3.</span> <span class="toc-text">声明和实例化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象废除"><span class="toc-number">5.4.</span> <span class="toc-text">对象废除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键字-this"><span class="toc-number">6.</span> <span class="toc-text">关键字 this</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#this-的功能"><span class="toc-number">6.1.</span> <span class="toc-text">this 的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-this-的原因"><span class="toc-number">6.2.</span> <span class="toc-text">使用 this 的原因</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义类或对象"><span class="toc-number">7.</span> <span class="toc-text">定义类或对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂方式"><span class="toc-number">7.1.</span> <span class="toc-text">工厂方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为函数传递参数"><span class="toc-number">7.1.1.</span> <span class="toc-text">为函数传递参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在工厂函数外定义对象的方法"><span class="toc-number">7.1.2.</span> <span class="toc-text">在工厂函数外定义对象的方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数方式"><span class="toc-number">7.2.</span> <span class="toc-text">构造函数方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型方式"><span class="toc-number">7.3.</span> <span class="toc-text">原型方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混合的构造函数-原型方式"><span class="toc-number">7.4.</span> <span class="toc-text">混合的构造函数/原型方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链（prototype-chaining）"><span class="toc-number">8.</span> <span class="toc-text">原型链（prototype chaining）</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script>
+    yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+</script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"JavaScript深入理解-1　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/11/13/x16/" data-title="JavaScript深入理解-1" data-url="http://yoursite.com/2018/11/13/x16/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"youngrivers"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/11/13/x20/" title="上一篇: JavaScript的回调函数和各种主流开发模式">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/11/13/x27/" title="下一篇: JavaScript定义对象和类的几种方式">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x28/">vue开发之vue-cli3</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x24/">移动端web开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x7/">玩转Bootstrap(JS插件篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x6/">玩转Bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x25/">全屏滚动插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x15/">Yeoman介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x2/">Windows下使用hexo在github上创建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x26/">webstorm2016.2简单激活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x9/">SVN的介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x8/">sass-scss的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x11/">ReactJS组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x21/">Node.js基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x19/">jQuery基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x23/">javascript里的正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x20/">JavaScript的回调函数和各种主流开发模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x16/">JavaScript深入理解-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x27/">JavaScript定义对象和类的几种方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x17/">JavaScript匿名函数及其闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x22/">Jade —— 模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x13/">Gulp介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x12/">Grunt介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x5/">Github静态页面创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x3/">Git的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x4/">Github入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x14/">Bower介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x10/">AngularJS入门和进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x18/">Ajax基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/x1/">Yelee主题说明</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 Youngrivers
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

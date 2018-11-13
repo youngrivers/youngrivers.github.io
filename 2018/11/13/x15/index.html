@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Youngrivers" />
+
+
+
+<meta name="description" content="浏览器不再只提供单一的数据接收和展现功能，而是提供更多的用户交互能力。浏览器端所包含的 HTML、CSS 和 JavaScript 代码也变得更加复杂。对于日益复杂的前端代码，需要有更好的流程和工具来管理开发的各个方面，包括初始的代码结构、开发流程和自动化测试等。Yeoman 是一个新兴的工具。它结合了 Yo、Grunt 和 Bower 等工具，组成了一个完整的工具集合，提供各种 Web 应用开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yeoman介绍和应用">
+<meta property="og:url" content="http://yoursite.com/2018/11/13/x15/index.html">
+<meta property="og:site_name" content="Youngrivers Blog">
+<meta property="og:description" content="浏览器不再只提供单一的数据接收和展现功能，而是提供更多的用户交互能力。浏览器端所包含的 HTML、CSS 和 JavaScript 代码也变得更加复杂。对于日益复杂的前端代码，需要有更好的流程和工具来管理开发的各个方面，包括初始的代码结构、开发流程和自动化测试等。Yeoman 是一个新兴的工具。它结合了 Yo、Grunt 和 Bower 等工具，组成了一个完整的工具集合，提供各种 Web 应用开发">
+<meta property="og:updated_time" content="2016-07-25T06:41:56.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Yeoman介绍和应用">
+<meta name="twitter:description" content="浏览器不再只提供单一的数据接收和展现功能，而是提供更多的用户交互能力。浏览器端所包含的 HTML、CSS 和 JavaScript 代码也变得更加复杂。对于日益复杂的前端代码，需要有更好的流程和工具来管理开发的各个方面，包括初始的代码结构、开发流程和自动化测试等。Yeoman 是一个新兴的工具。它结合了 Yo、Grunt 和 Bower 等工具，组成了一个完整的工具集合，提供各种 Web 应用开发">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Youngrivers Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Yeoman介绍和应用 | Youngrivers Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/huluBoy.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Youngrivers</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="http://youngrivers.github.io/IFE2016TASK1/">Demo</a></li>
+                        
+                            <li><a href="https://youngrivers.github.io/myWeb/">我的简历</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="/sina weibo" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/youngrivers" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa Email" href="mailto:401712228@qq.com" title="Email"></a>
+                            
+                                <a class="fa QQ" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular2/">Angular2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bower/">Bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CLI/">CLI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/">ECMAScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grunt/">Grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jade/">Jade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/License-server/">License server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PPI/">PPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swiper/">Swiper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TortoiseSVN/">TortoiseSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yelee/">Yelee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fullPage/">fullPage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pagePiling/">pagePiling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webstorm/">webstorm</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端/持之以恒/不放弃治疗</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Youngrivers</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/huluBoy.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Youngrivers</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="http://youngrivers.github.io/IFE2016TASK1/">Demo</a></li>
+                
+                    <li><a href="https://youngrivers.github.io/myWeb/">我的简历</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="/sina weibo" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/youngrivers" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:401712228@qq.com" title="Email"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-x15" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/13/x15/" class="article-date">
+      <time datetime="2018-11-13T15:28:15.702Z" itemprop="datePublished">2018-11-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Yeoman介绍和应用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Yeoman/">Yeoman</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Yeoman介绍"><a href="#Yeoman介绍" class="headerlink" title="Yeoman介绍"></a>Yeoman介绍</h2><p>Yeoman是Google的团队和外部贡献者团队合作开发的，他的目标是通过Grunt（一个用于开发任务自动化的命令行工具）和Bower（一个HTML、CSS、Javascript和图片等前端资源的包管理器）的包装为开发者创建一个易用的工作流。</p>
+<p>Yeoman主要有三部分组成：yo（脚手架工具）、grunt（构建工具）、bower（包管理器）。这三个工具是分别独立开发的，但是需要配合使用，来实现我们高效的工作流模式。</p>
+<h2 id="Yeoman工具包yo命令"><a href="#Yeoman工具包yo命令" class="headerlink" title="Yeoman工具包yo命令"></a>Yeoman工具包yo命令</h2><p>yo插件都是通过npm, Node.js包管理器安装和管理的.</p>
+<h3 id="全局安装yo"><a href="#全局安装yo" class="headerlink" title="全局安装yo"></a>全局安装yo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g yo</div></pre></td></tr></table></figure>
+<p>如果你还没有安装grunt,bower，也需要一起安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g grunt-cli bower</div></pre></td></tr></table></figure></p>
+<h2 id="Yeoman工具包bower-grunt的组合用法"><a href="#Yeoman工具包bower-grunt的组合用法" class="headerlink" title="Yeoman工具包bower,grunt的组合用法"></a>Yeoman工具包bower,grunt的组合用法</h2><p>有关bower的介绍，请参考：<a href="http://blog.fens.me/nodejs-bower-intro/" target="_blank" rel="external">bower解决js的依赖管理</a><br>有关grunt的介绍，请参考：<a href="http://blog.fens.me/nodejs-grunt-intro/" target="_blank" rel="external">grunt让Nodejs规范起来</a></p>
+<h3 id="使用bower命令查看项目依赖："><a href="#使用bower命令查看项目依赖：" class="headerlink" title="使用bower命令查看项目依赖："></a>使用bower命令查看项目依赖：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~ D:\workspace\javascript\nodejs-yo&gt;bower list</div><div class="line">bower check-new     Checking <span class="keyword">for</span> new versions of the project dependencies..</div><div class="line">nodejs-yo<span class="comment">#0.0.0 D:\workspace\javascript\nodejs-yo</span></div><div class="line">├── jquery<span class="comment">#1.9.1 (latest is 2.0.3)</span></div><div class="line">├── modernizr<span class="comment">#2.6.2</span></div><div class="line">└── requirejs<span class="comment">#2.1.8</span></div></pre></td></tr></table></figure>
+<p>我们发现生成的webapp中，有4个依赖库，jquery,modernizr,requirejs。</p>
+<h3 id="使用grunt命令执行单元测试"><a href="#使用grunt命令执行单元测试" class="headerlink" title="使用grunt命令执行单元测试"></a>使用grunt命令执行单元测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">D:\workspace\javascript\nodejs-yo&gt;grunt <span class="built_in">test</span></div><div class="line">Running <span class="string">"clean:server"</span> (clean) task</div><div class="line">Cleaning <span class="string">".tmp"</span>...OK</div><div class="line">Running <span class="string">"concurrent:test"</span> (concurrent) task</div><div class="line">Running <span class="string">"copy:styles"</span> (copy) task</div><div class="line">Running <span class="string">"coffee:dist"</span> (coffee) task</div><div class="line">Running <span class="string">"autoprefixer:dist"</span> (autoprefixer) task</div><div class="line">File <span class="string">".tmp/styles/main.css"</span> created.</div><div class="line"></div><div class="line">Running <span class="string">"connect:test"</span> (connect) task</div><div class="line">Starting connect web server on localhost:9000.</div><div class="line">Running <span class="string">"mocha:all"</span> (mocha) task</div><div class="line">Testing: http://localhost:9000/index.html</div><div class="line">  1 <span class="built_in">test</span> complete (107 ms)</div><div class="line">&gt;&gt; 1 passed! (0.11s)</div><div class="line"></div><div class="line">Done, without errors.</div></pre></td></tr></table></figure>
+<h3 id="使用grunt命令启动一个node服务器"><a href="#使用grunt命令启动一个node服务器" class="headerlink" title="使用grunt命令启动一个node服务器"></a>使用grunt命令启动一个node服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ D:\workspace\javascript\nodejs-yo&gt;grunt server --force</div></pre></td></tr></table></figure>
+<h3 id="修改app-index-html代码，增加对canvas的检查。"><a href="#修改app-index-html代码，增加对canvas的检查。" class="headerlink" title="修改app/index.html代码，增加对canvas的检查。"></a>修改app/index.html代码，增加对canvas的检查。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">~ vi app/index.html</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">window.onload = <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line"><span class="keyword">if</span> (canvasSupported()) &#123;</div><div class="line">alert(<span class="string">'canvas supported'</span>);</div><div class="line">&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">canvasSupported</span></span>() &#123;</div><div class="line">var canvas = document.createElement(<span class="string">'canvas'</span>);</div><div class="line"><span class="built_in">return</span> (canvas.getContext &amp;&amp; canvas.getContext(<span class="string">'2d'</span>));</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p><a href="http://yeoman.io/" target="_blank" rel="external">Yeoman</a><br><a href="http://blog.fens.me/nodejs-yeoman-intro/" target="_blank" rel="external">Yeoman自动构建js项目</a><br><a href="http://www.ibm.com/developerworks/cn/web/1402_chengfu_yeoman/" target="_blank" rel="external">Yeoman：Web 应用开发流程与工具</a><br><a href="http://www.imooc.com/view/30" target="_blank" rel="external">Grunt-beginner前端自动化工具</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/11/13/x15/">Yeoman介绍和应用</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
+        <p><span>发布时间:</span>2018-11-13, 23:28:15</p>
+        <p><span>最后更新:</span>2016-07-25, 14:41:56</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/11/13/x15/" title="Yeoman介绍和应用">http://yoursite.com/2018/11/13/x15/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/11/13/x15/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/11/13/x25/">
+                    全屏滚动插件使用
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/11/13/x2/">
+                    Windows下使用hexo在github上创建博客
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Yeoman介绍"><span class="toc-number">1.</span> <span class="toc-text">Yeoman介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yeoman工具包yo命令"><span class="toc-number">2.</span> <span class="toc-text">Yeoman工具包yo命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局安装yo"><span class="toc-number">2.1.</span> <span class="toc-text">全局安装yo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yeoman工具包bower-grunt的组合用法"><span class="toc-number">3.</span> <span class="toc-text">Yeoman工具包bower,grunt的组合用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用bower命令查看项目依赖："><span class="toc-number">3.1.</span> <span class="toc-text">使用bower命令查看项目依赖：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用grunt命令执行单元测试"><span class="toc-number">3.2.</span> <span class="toc-text">使用grunt命令执行单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用grunt命令启动一个node服务器"><span class="toc-number">3.3.</span> <span class="toc-text">使用grunt命令启动一个node服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改app-index-html代码，增加对canvas的检查。"><span class="toc-number">3.4.</span> <span class="toc-text">修改app/index.html代码，增加对canvas的检查。</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script>
+    yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+</script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Yeoman介绍和应用　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/11/13/x15/" data-title="Yeoman介绍和应用" data-url="http://yoursite.com/2018/11/13/x15/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"youngrivers"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/11/13/x25/" title="上一篇: 全屏滚动插件使用">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/11/13/x2/" title="下一篇: Windows下使用hexo在github上创建博客">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x28/">vue开发之vue-cli3</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x24/">移动端web开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x7/">玩转Bootstrap(JS插件篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x6/">玩转Bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x25/">全屏滚动插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x15/">Yeoman介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x2/">Windows下使用hexo在github上创建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x26/">webstorm2016.2简单激活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x9/">SVN的介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x8/">sass-scss的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x11/">ReactJS组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x21/">Node.js基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x19/">jQuery基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x23/">javascript里的正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x20/">JavaScript的回调函数和各种主流开发模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x16/">JavaScript深入理解-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x27/">JavaScript定义对象和类的几种方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x17/">JavaScript匿名函数及其闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x22/">Jade —— 模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x13/">Gulp介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x12/">Grunt介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x5/">Github静态页面创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x3/">Git的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x4/">Github入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x14/">Bower介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x10/">AngularJS入门和进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x18/">Ajax基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/x1/">Yelee主题说明</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 Youngrivers
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

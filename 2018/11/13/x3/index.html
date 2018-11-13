@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Youngrivers" />
+
+
+
+<meta name="description" content="Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git的安装及使用技巧">
+<meta property="og:url" content="http://yoursite.com/2018/11/13/x3/index.html">
+<meta property="og:site_name" content="Youngrivers Blog">
+<meta property="og:description" content="Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。">
+<meta property="og:updated_time" content="2016-07-26T15:19:44.829Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git的安装及使用技巧">
+<meta name="twitter:description" content="Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Youngrivers Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Git的安装及使用技巧 | Youngrivers Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/huluBoy.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Youngrivers</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="http://youngrivers.github.io/IFE2016TASK1/">Demo</a></li>
+                        
+                            <li><a href="https://youngrivers.github.io/myWeb/">我的简历</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="/sina weibo" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/youngrivers" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa Email" href="mailto:401712228@qq.com" title="Email"></a>
+                            
+                                <a class="fa QQ" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular2/">Angular2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bower/">Bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CLI/">CLI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/">ECMAScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grunt/">Grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jade/">Jade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/License-server/">License server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PPI/">PPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swiper/">Swiper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TortoiseSVN/">TortoiseSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yelee/">Yelee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fullPage/">fullPage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pagePiling/">pagePiling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webstorm/">webstorm</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端/持之以恒/不放弃治疗</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Youngrivers</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/huluBoy.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Youngrivers</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="http://youngrivers.github.io/IFE2016TASK1/">Demo</a></li>
+                
+                    <li><a href="https://youngrivers.github.io/myWeb/">我的简历</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="/sina weibo" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/youngrivers" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:401712228@qq.com" title="Email"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-x3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/13/x3/" class="article-date">
+      <time datetime="2018-11-13T15:28:15.638Z" itemprop="datePublished">2018-11-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git的安装及使用技巧
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/秘籍/">秘籍</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="SVN与Git的最主要的区别"><a href="#SVN与Git的最主要的区别" class="headerlink" title="SVN与Git的最主要的区别"></a>SVN与Git的最主要的区别</h2><p>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。</p>
+<p>Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。</p>
+<h2 id="Git搭建和使用"><a href="#Git搭建和使用" class="headerlink" title="Git搭建和使用"></a>Git搭建和使用</h2><h3 id="Git服务端"><a href="#Git服务端" class="headerlink" title="Git服务端"></a>Git服务端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#安装git</span></div><div class="line">sudo apt-get install git</div><div class="line">yum install git</div><div class="line"></div><div class="line"><span class="comment">#创建一个git用户，用来运行git服务</span></div><div class="line">sudo adduser git</div><div class="line"></div><div class="line"><span class="comment">#创建证书使用公钥免密码登录(可选)</span></div><div class="line">ssh-keygen -t rsa</div><div class="line">vi ~/.ssh/authorized_keys</div><div class="line"></div><div class="line"><span class="comment">#初始化Git仓库</span></div><div class="line">sudo git init --bare sample.git</div><div class="line">sudo chown -R git:git sample.git</div><div class="line"></div><div class="line"><span class="comment">#禁用shell登录</span></div><div class="line">vi /etc/passwd</div><div class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</div><div class="line"></div><div class="line"><span class="comment">#在客户端上克隆远程仓库</span></div><div class="line">git <span class="built_in">clone</span> git@server:/srv/sample.git</div></pre></td></tr></table></figure>
+<p>管理公钥推荐使用Gitosis<br>Gitosis - <a href="https://github.com/res0nat0r/gitosis" target="_blank" rel="external">GitHub - res0nat0r/gitosis: Manage git repositories, provide access to them over SSH, with tight access control and not needing shell accounts.</a><br>Gitosis配置手记 - <a href="http://debugo.com/gitosis/" target="_blank" rel="external">http://debugo.com/gitosis/</a><br>管理权限推荐使用Gitolite<br>Gitolite - <a href="https://github.com/sitaramc/gitolite" target="_blank" rel="external">GitHub - sitaramc/gitolite: Hosting git repositories – Gitolite allows you to setup git hosting on a central server, with very fine-grained access control and many (many!) more powerful features</a></p>
+<h3 id="Git客服端"><a href="#Git客服端" class="headerlink" title="Git客服端"></a>Git客服端</h3><blockquote>
+<p>Git客户端可以按个人习惯来选择，遵守团队协作中的Git规范标准才是更重要的</p>
+</blockquote>
+<p><a href="https://git-scm.com/" target="_blank" rel="external">Git</a><br><a href="https://tortoisegit.org/" target="_blank" rel="external">TortoiseGit</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#以最基本的Git命令行为例，先下载Git</span></div><div class="line">https://git-scm.com/download/</div><div class="line"></div><div class="line"><span class="comment">#配置git提交用户名和邮箱，定义别名方便区分</span></div><div class="line">git config --global user.name <span class="string">"你的姓名"</span></div><div class="line">git config --global user.email <span class="string">"you@example.com"</span></div><div class="line"></div><div class="line"><span class="comment">#克隆仓库</span></div><div class="line">git <span class="built_in">clone</span> <span class="built_in">cap</span>@172.28.70.243:/<span class="built_in">cap</span>/cap.git</div><div class="line"></div><div class="line">$ git <span class="built_in">clone</span> <span class="built_in">cap</span>@172.28.70.243:/<span class="built_in">cap</span>/cap.git</div><div class="line">Cloning into <span class="string">'cap'</span>...</div><div class="line">warning: You appear to have cloned an empty repository.</div><div class="line">Checking connectivity... done.</div><div class="line"></div><div class="line"><span class="comment">#测试推送</span></div><div class="line">touch README</div><div class="line">git add README</div><div class="line">git commit -m <span class="string">"add readme"</span></div><div class="line">git push origin master</div><div class="line"></div><div class="line">Counting objects: 3, done.</div><div class="line">Writing objects: 100% (3/3), 199 bytes | 0 bytes/s, done.</div><div class="line">Total 3 (delta 0), reused 0 (delta 0)</div><div class="line">To <span class="built_in">cap</span>@172.28.70.243:/<span class="built_in">cap</span>/cap.git</div><div class="line">* [new branch] master -&gt; master</div></pre></td></tr></table></figure>
+<h2 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h2><p><strong>符号约定</strong></p>
+<ul>
+<li><code>&lt;xxx&gt;</code> 自定义内容</li>
+<li><code>[xxx]</code> 可选内容</li>
+<li><code>[&lt;xxx&gt;]</code>自定义可选内容</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#初始设置</span></div><div class="line">git config --global user.name <span class="string">"&lt;用户名&gt;"</span> <span class="comment">#设置用户名</span></div><div class="line">git config --global user.email <span class="string">"&lt;电子邮件&gt;"</span> <span class="comment">#设置电子邮件</span></div><div class="line"></div><div class="line"><span class="comment">#本地操作</span></div><div class="line">git add [-i] <span class="comment">#保存更新，-i为逐个确认。</span></div><div class="line">git status <span class="comment">#检查更新。</span></div><div class="line">git commit [<span class="_">-a</span>] -m <span class="string">"&lt;更新说明&gt;"</span> <span class="comment">#提交更新，-a为包含内容修改和增删，-m为说明信息，也可以使用 -am。</span></div><div class="line"></div><div class="line"><span class="comment">#远端操作</span></div><div class="line">git <span class="built_in">clone</span> &lt;git地址&gt; <span class="comment">#克隆到本地。</span></div><div class="line">git fetch <span class="comment">#远端抓取。</span></div><div class="line">git merge <span class="comment">#与本地当前分支合并。</span></div><div class="line">git pull [&lt;远端别名&gt;] [&lt;远端branch&gt;] <span class="comment">#抓取并合并,相当于第2、3步</span></div><div class="line">git push [<span class="_">-f</span>] [&lt;远端别名&gt;] [&lt;远端branch&gt;] <span class="comment">#推送到远端，-f为强制覆盖</span></div><div class="line">git remote add &lt;别名&gt; &lt;git地址&gt; <span class="comment">#设置远端别名</span></div><div class="line">git remote [-v] <span class="comment">#列出远端，-v为详细信息</span></div><div class="line">git remote show &lt;远端别名&gt; <span class="comment">#查看远端信息</span></div><div class="line">git remote rename &lt;远端别名&gt; &lt;新远端别名&gt; <span class="comment">#重命名远端</span></div><div class="line">git remote rm &lt;远端别名&gt; <span class="comment">#删除远端</span></div><div class="line">git remote update [&lt;远端别名&gt;] <span class="comment">#更新分支列表</span></div><div class="line"></div><div class="line"><span class="comment">#分支相关</span></div><div class="line">git branch [-r] [<span class="_">-a</span>] <span class="comment">#列出分支，-r远端 ,-a全部</span></div><div class="line">git branch &lt;分支名&gt; <span class="comment">#新建分支</span></div><div class="line">git branch -b &lt;分支名&gt; <span class="comment">#新建并切换分支</span></div><div class="line">git branch <span class="_">-d</span> &lt;分支名&gt; <span class="comment">#删除分支</span></div><div class="line">git checkout &lt;分支名&gt; <span class="comment">#切换到分支</span></div><div class="line">git checkout -b &lt;本地branch&gt; [-t &lt;远端别名&gt;/&lt;远端分支&gt;] <span class="comment">#-b新建本地分支并切换到分支, -t绑定远端分支</span></div><div class="line">git merge &lt;分支名&gt; <span class="comment">#合并某分支到当前分支</span></div></pre></td></tr></table></figure>
+<p>Git常用命令 - <a href="http://gityuan.com/2015/06/27/git-notes/" target="_blank" rel="external">http://gityuan.com/2015/06/27/git-notes/</a></p>
+<ul>
+<li>workspace: 本地的工作目录。（记作A）</li>
+<li>index：缓存区域，临时保存本地改动。（记作B）</li>
+<li>local repository: 本地仓库，只想最后一次提交HEAD。（记作C）</li>
+<li>remote repository：远程仓库。（记作D）</li>
+</ul>
+<blockquote>
+<p>以下所有的命令的功能说明，都采用上述的标记的A、B、C、D的方式来阐述。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#初始化</span></div><div class="line">git init //创建</div><div class="line">git <span class="built_in">clone</span> /path/to/repository //检出</div><div class="line">git config --global user.email <span class="string">"you@example.com"</span> //配置email</div><div class="line">git config --global user.name <span class="string">"Name"</span> //配置用户名</div><div class="line"><span class="comment">#操作</span></div><div class="line">git add &lt;file&gt; // 文件添加，A → B</div><div class="line">git add . // 所有文件添加，A → B</div><div class="line">git commit -m <span class="string">"代码提交信息"</span> //文件提交，B → C</div><div class="line">git commit --amend //与上次commit合并, *B → C</div><div class="line">git push origin master //推送至master分支, C → D</div><div class="line">git pull //更新本地仓库至最新改动， D → A</div><div class="line">git fetch //抓取远程仓库更新， D → C</div><div class="line">git <span class="built_in">log</span> //查看提交记录</div><div class="line">git status //查看修改状态</div><div class="line">git diff//查看详细修改内容</div><div class="line">git show//显示某次提交的内容</div><div class="line"><span class="comment">#撤销操作</span></div><div class="line">git reset &lt;file&gt;//某个文件索引会回滚到最后一次提交， C → B</div><div class="line">git reset//索引会回滚到最后一次提交， C → B</div><div class="line">git reset --hard // 索引会回滚到最后一次提交， C → B → A</div><div class="line">git checkout // 从index复制到workspace， B → A</div><div class="line">git checkout -- files // 文件从index复制到workspace， B → A</div><div class="line">git checkout HEAD -- files // 文件从<span class="built_in">local</span> repository复制到workspace， C → A</div><div class="line"><span class="comment">#分支相关</span></div><div class="line">git checkout -b branch_name //创建名叫“branch_name”的分支，并切换过去</div><div class="line">git checkout master //切换回主分支</div><div class="line">git branch <span class="_">-d</span> branch_name // 删除名叫“branch_name”的分支</div><div class="line">git push origin branch_name //推送分支到远端仓库</div><div class="line">git merge branch_name // 合并分支branch_name到当前分支(如master)</div><div class="line">git rebase //衍合，线性化的自动， D → A</div><div class="line"><span class="comment">#冲突处理</span></div><div class="line">git diff //对比workspace与index</div><div class="line">git diff HEAD //对于workspace与最后一次commit</div><div class="line">git diff &lt;<span class="built_in">source</span>_branch&gt; &lt;target_branch&gt; //对比差异</div><div class="line">git add &lt;filename&gt; //修改完冲突，需要add以标记合并成功</div><div class="line"><span class="comment">#其他</span></div><div class="line">gitk //开灯图形化git</div><div class="line">git config color.ui <span class="literal">true</span> //彩色的 git 输出</div><div class="line">git config format.pretty oneline //显示历史记录时，每个提交的信息只显示一行</div><div class="line">git add -i //交互式添加文件到暂存区</div></pre></td></tr></table></figure>
+<h2 id="Git使用规范"><a href="#Git使用规范" class="headerlink" title="Git使用规范"></a>Git使用规范</h2><p>Git 使用规范流程 - Git 使用规范流程<br>团队中的 Git 实践 - <a href="https://ourai.ws/posts/working-with-git-in-team/" target="_blank" rel="external">https://ourai.ws/posts/working-with-git-in-team/</a><br>构家网 git 团队协作使用规范 v2 - <a href="http://wenku.baidu.com/view/e1430d1b7f1922791788e81e" target="_blank" rel="external">http://wenku.baidu.com/view/e1430d1b7f1922791788e81e</a></p>
+<blockquote>
+<p>Git使用规范提醒</p>
+</blockquote>
+<ul>
+<li>使用Git过程中，必须通过创建分支进行开发，坚决禁止在主干分支上直接开发。review的同事有责任检查其他同事是否遵循分支规范。</li>
+<li>在Git中，默认是不会提交空目录的，如果想提交某个空目录到版本库中，需要在该目录下新建一个 .gitignore 的空白文件，就可以提交了</li>
+<li>把外部文件纳入到自己的 Git 分支来的时候一定要记得是先比对，确认所有修改都是自己修改的，然后再纳入。不然，容易出现代码回溯</li>
+<li>多人协作时，不要各自在自己的 Git 分支开发，然后发文件合并。正确的方法应该是开一个远程分支，然后一起在远程分支里协作。不然，容易出现代码回溯（即别人的代码被覆盖的情况）</li>
+<li>每个人提交代码是一定要 git diff 看提交的东西是不是都是自己修改的。如果有不是自己修改的内容，很可能就是代码回溯</li>
+<li>review 代码的时候如果看到有被删除掉的代码，一定要确实是否是写代码的同事自己删除的。如果不是，很可能就是代码回溯</li>
+</ul>
+<h2 id="Git扩展阅读"><a href="#Git扩展阅读" class="headerlink" title="Git扩展阅读"></a>Git扩展阅读</h2><p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a><br><a href="https://www.zhihu.com/question/20401926/answer/97256184" target="_blank" rel="external">知乎的回答</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/11/13/x3/">Git的安装及使用技巧</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
+        <p><span>发布时间:</span>2018-11-13, 23:28:15</p>
+        <p><span>最后更新:</span>2016-07-26, 23:19:44</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/11/13/x3/" title="Git的安装及使用技巧">http://yoursite.com/2018/11/13/x3/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/11/13/x3/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/11/13/x5/">
+                    Github静态页面创建
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/11/13/x4/">
+                    Github入门
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SVN与Git的最主要的区别"><span class="toc-number">1.</span> <span class="toc-text">SVN与Git的最主要的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git搭建和使用"><span class="toc-number">2.</span> <span class="toc-text">Git搭建和使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git服务端"><span class="toc-number">2.1.</span> <span class="toc-text">Git服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git客服端"><span class="toc-number">2.2.</span> <span class="toc-text">Git客服端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git常用命令"><span class="toc-number">3.</span> <span class="toc-text">Git常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git使用规范"><span class="toc-number">4.</span> <span class="toc-text">Git使用规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git扩展阅读"><span class="toc-number">5.</span> <span class="toc-text">Git扩展阅读</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script>
+    yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+</script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Git的安装及使用技巧　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/11/13/x3/" data-title="Git的安装及使用技巧" data-url="http://yoursite.com/2018/11/13/x3/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"youngrivers"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/11/13/x5/" title="上一篇: Github静态页面创建">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/11/13/x4/" title="下一篇: Github入门">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x28/">vue开发之vue-cli3</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x24/">移动端web开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x7/">玩转Bootstrap(JS插件篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x6/">玩转Bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x25/">全屏滚动插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x15/">Yeoman介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x2/">Windows下使用hexo在github上创建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x26/">webstorm2016.2简单激活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x9/">SVN的介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x8/">sass-scss的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x11/">ReactJS组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x21/">Node.js基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x19/">jQuery基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x23/">javascript里的正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x20/">JavaScript的回调函数和各种主流开发模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x16/">JavaScript深入理解-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x27/">JavaScript定义对象和类的几种方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x17/">JavaScript匿名函数及其闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x22/">Jade —— 模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x13/">Gulp介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x12/">Grunt介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x5/">Github静态页面创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x3/">Git的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x4/">Github入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x14/">Bower介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x10/">AngularJS入门和进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x18/">Ajax基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/x1/">Yelee主题说明</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 Youngrivers
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

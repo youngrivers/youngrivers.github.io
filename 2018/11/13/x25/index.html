@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Youngrivers" />
+
+
+
+<meta name="description" content="如今我们经常能见到全屏网站，尤其是国外网站。这些网站用几幅很大的图片或色块做背景，再添加一些简单的内容，显得格外的高端大气上档次。如果你也希望你的网站能设计成全屏的，显得更上档次，你可以试试 fullPage.js。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全屏滚动插件使用">
+<meta property="og:url" content="http://yoursite.com/2018/11/13/x25/index.html">
+<meta property="og:site_name" content="Youngrivers Blog">
+<meta property="og:description" content="如今我们经常能见到全屏网站，尤其是国外网站。这些网站用几幅很大的图片或色块做背景，再添加一些简单的内容，显得格外的高端大气上档次。如果你也希望你的网站能设计成全屏的，显得更上档次，你可以试试 fullPage.js。">
+<meta property="og:updated_time" content="2017-05-31T21:12:04.171Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="全屏滚动插件使用">
+<meta name="twitter:description" content="如今我们经常能见到全屏网站，尤其是国外网站。这些网站用几幅很大的图片或色块做背景，再添加一些简单的内容，显得格外的高端大气上档次。如果你也希望你的网站能设计成全屏的，显得更上档次，你可以试试 fullPage.js。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Youngrivers Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>全屏滚动插件使用 | Youngrivers Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/huluBoy.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Youngrivers</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="http://youngrivers.github.io/IFE2016TASK1/">Demo</a></li>
+                        
+                            <li><a href="https://youngrivers.github.io/myWeb/">我的简历</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="/sina weibo" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/youngrivers" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa Email" href="mailto:401712228@qq.com" title="Email"></a>
+                            
+                                <a class="fa QQ" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular2/">Angular2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bower/">Bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CLI/">CLI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/">ECMAScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grunt/">Grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jade/">Jade</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/License-server/">License server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PPI/">PPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegExp/">RegExp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swiper/">Swiper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TortoiseSVN/">TortoiseSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yelee/">Yelee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yeoman/">Yeoman</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fullPage/">fullPage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gh-pages/">gh-pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pagePiling/">pagePiling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prototype/">prototype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/">sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scss/">scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webstorm/">webstorm</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端/持之以恒/不放弃治疗</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Youngrivers</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/huluBoy.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Youngrivers</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="http://youngrivers.github.io/IFE2016TASK1/">Demo</a></li>
+                
+                    <li><a href="https://youngrivers.github.io/myWeb/">我的简历</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="/sina weibo" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/youngrivers" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:401712228@qq.com" title="Email"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="tencent://message/?uin=401712228&Site" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-x25" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/13/x25/" class="article-date">
+      <time datetime="2018-11-13T15:28:15.705Z" itemprop="datePublished">2018-11-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      全屏滚动插件使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swiper/">Swiper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fullPage/">fullPage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pagePiling/">pagePiling</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="jQuery全屏滚动插件fullPage-js"><a href="#jQuery全屏滚动插件fullPage-js" class="headerlink" title="jQuery全屏滚动插件fullPage.js"></a>jQuery全屏滚动插件fullPage.js</h2><p><a href="http://www.jq22.com/yanshi5625" target="_blank" rel="external">demo</a><br>fullPage.js 是一个基于 jQuery 的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有：</p>
+<ul>
+<li>支持鼠标滚动</li>
+<li>支持前进后退和键盘控制</li>
+<li>多个回调函数</li>
+<li>支持手机、平板触摸事件</li>
+<li>支持 CSS3 动画</li>
+<li>支持窗口缩放</li>
+<li>窗口缩放时自动调整</li>
+<li>可设置滚动宽度、背景颜色、滚动速度、循环选项、回调、文本对齐方式等等</li>
+</ul>
+<h3 id="引入文件"><a href="#引入文件" class="headerlink" title="引入文件"></a>引入文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"css/jquery.fullPage.css"</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"></div><div class="line">&lt;!-- jquery.easings.min.js 用于 easing 参数，也可以使用完整的 jQuery UI 代替，如果不需要设置 easing 参数，可去掉改文件 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.easings.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"></div><div class="line">&lt;!-- 如果 scrollOverflow 设置为 <span class="literal">true</span>，则需要引入 jquery.slimscroll.min.js，一般情况下不需要 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.slimscroll.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"></div><div class="line">&lt;script src=<span class="string">"js/jquery.fullPage.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'#dowebok'</span>).fullpage();</div><div class="line">&#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dowebok"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>第一屏<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>第二屏<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>第三屏<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>第四屏<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>每个 section 代表一屏，默认显示“第一屏”，如果要指定加载页面时显示的“屏幕”，可以在对应的 section 加上 class=”active”<br>同时，可以在 section 内加入 slide，如：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div id="dowebok"&gt;</div><div class="line">    &lt;div class="section"&gt;第一屏&lt;/div&gt;</div><div class="line">    &lt;div class="section"&gt;第二屏&lt;/div&gt;</div><div class="line">    &lt;div class="section"&gt;</div><div class="line">        &lt;div class="slide"&gt;第三屏的第一屏&lt;/div&gt;</div><div class="line">        &lt;div class="slide"&gt;第三屏的第二屏&lt;/div&gt;</div><div class="line">        &lt;div class="slide"&gt;第三屏的第三屏&lt;/div&gt;</div><div class="line">        &lt;div class="slide"&gt;第三屏的第四屏&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class="section"&gt;第四屏&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">'#dowebok'</span>).fullpage();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="pagePiling-js-–-jQuery全屏滚动插件"><a href="#pagePiling-js-–-jQuery全屏滚动插件" class="headerlink" title="pagePiling.js – jQuery全屏滚动插件"></a>pagePiling.js – jQuery全屏滚动插件</h2><p><a href="http://www.dowebok.com/demo/150/" target="_blank" rel="external">demo</a><br>全屏滚动插件已经介绍很多款了，如功能强大的fullPage.js、可任意定义动画的fullPage。与其他的全屏滚动插件相比，pagePiling.js 的主要特点是滚动方式，它把所有“页面”叠在一起，使用 translate3d “抽”动页面，产生了一种类似“视觉差”的效果</p>
+<h2 id="移动端切换插件-swiper"><a href="#移动端切换插件-swiper" class="headerlink" title="移动端切换插件-swiper"></a>移动端切换插件-swiper</h2><p><a href="http://www.swiper.com.cn/demo/index.html" target="_blank" rel="external">demo</a><br>swiper 是一个针对移动端的可触摸切换插件<br>调用方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mySwiper = <span class="keyword">new</span> Swiper(<span class="string">'.swiper-container'</span>,&#123;</div><div class="line">    pagination: <span class="string">'.pagination'</span>,</div><div class="line">    loop:<span class="literal">true</span>,    grabCursor: <span class="literal">true</span>,</div><div class="line">    paginationClickable: <span class="literal">true</span></div><div class="line">  &#125;)</div></pre></td></tr></table></figure></p>
+<p>Swiper 是一款免费以及轻量级的移动设备触控滑块的框架，使用硬件加速过渡（如果该设备支持的话）。主要使用与移动端的网站、网页应用程序（web apps），以及原生的应用程序（native apps）。主要是为IOS而设计的，同时，在Android、WP8系统以及现代桌面浏览器也有着良好的用户体验。</p>
+<p>特征（feature)</p>
+<p>1、1：1触控运动</p>
+<p>Swiper默认提供1:1的触控距离，当然，这个比率是可以设置的。（touchRatio）</p>
+<p>2、触控模仿</p>
+<p>这个功能对于开发桌面网站会很有用。简单来说，就是因为Swiper能够让鼠标事件表现得像触屏事件（点击以及拖曳滑块）</p>
+<p>3、水平/垂直</p>
+<p>Swiper运动主要有两种模式，horizontal(水平滑动)以及vertical（垂直运动的滑动）</p>
+<p>4、自由模式（Free Mode）</p>
+<p>这种模式下能够让slides 无需定位，就像通常的滑动条。（看下面的例子）</p>
+<p>5、旋转调整 （rotation/resize）</p>
+<p>Swiper 在移动设备旋转后能自适应尺寸。</p>
+<p>6、响应式</p>
+<p>能使用百分比的宽高定义slides,为移动端提供不同的解决方案。</p>
+<p>7、滑动阻止</p>
+<p>简单来说，就是，只能使用一种模式，水平或者垂直滑动。</p>
+<p>8、抵抗反弹（resistant bounds）</p>
+<p>Swiper能够提供一种机制，就是当滑动滑块超过最左以及最右（最上或最下）的位置时触发的一种抵御机制。</p>
+<p>9、原生要素（native momentum）</p>
+<p>有不少的原生东西提供给Swiper。</p>
+<p>10、内建分页控制</p>
+<p>Swiper能够快速生成内建的分页控制（pagination）,指定html 某一标签为pagination，Swiper就能做很多东西了。</p>
+<p>11、自动播放</p>
+<p>只用设置延迟时间，Swiper就会自动地轮播slides直到你触碰该滑块（touch）为止。</p>
+<p>12、循环模式（Loop mode）</p>
+<p>该种模式下，你能够无限滑动滑块，到最后一个之后会跳转回第一个。</p>
+<p>13、旋转模式（Carousel mode）</p>
+<p>Swiper 能够让你在slides父容器下设置你所需要展示的slides数量。</p>
+<p>14、滑动容器</p>
+<p>在该特征下能够使用Swiper在一些简单的能滑动的区域里，没有slides。在Apps里十分有用。</p>
+<p>15、嵌套Swipers</p>
+<p>能够将Swipers嵌套入各种不同的Swiper 的slide里，例如垂直的或水平的。</p>
+<p>16、任意的HTML 标签</p>
+<p>可以将任一的HTML 内容放到slide里，不止仅限于图像。</p>
+<p>17、硬件加速</p>
+<p>swiper 使用硬件加速技术（如果该移动设备支持的话）能够得到良好流畅的动画效果以及优美的外观，尤其是在IOS设备里。</p>
+<p>18、丰富的API</p>
+<p>Swiper拥有丰富的API接口。（不过关于中文文档似乎不多，没找着。）能够让开发者生成个人独有的分页器（pagination），上下滑块的按钮以及4个回调函数：onTouchStart,onTouchMove,onTouchEnd,onSlideSwitch。</p>
+<p>19、灵活的配置</p>
+<p>Swiper在初始化的时候能够接受多个参数以便让其尽可能的灵活。能够配置动画的速度（speed），模式（mode水平抑或垂直的），以及自由模式（free mode）…以及其他..</p>
+<p>20、插件API（Plugins API）</p>
+<p>Swiper从1.7版本开始就变得强大起来了，因为有更多而简单的插件API允许开发者创造属于自己的Swiper 插件或通过Swiper的核心创制hooks(挂钩)（该官网处提供了几款优秀的插件Swiper smooth progress, Swiper hash navigation,swiper scrollbar）</p>
+<p>21、良好的兼容性</p>
+<p>Swiper通用性的测试环境：移动端的Safari（iOS5下），Android 2.1+，windows Phone 8,以及最新版本的谷歌浏览器（Chrome），Safari，Firefox，IE10 以及欧朋浏览器（Opera）</p>
+<p>22、老版本IE的兼容</p>
+<p>Swiper 2.x 开始，通过DOM动画，而非css transitions 兼容IE7 以上（需要包含jQuery），因为IE7不支持css3 transitions….简单来说，支持IE7 以上版本。</p>
+<p>23、独立性</p>
+<p>Swiper不依赖像jQuery那样的js类库，因此能够让Swiper更加的小型以及快速。所以Swiper能够很安全地应用诸如jQuery、jQuery Mobile，jQTouch等等其他的js类库。</p>
+<p>24、超轻量级</p>
+<p>压缩后仅仅10KB左右。</p>
+<p>以上，就是Swiper能够做的，应用以上特征就使用原生属性方法能够快速生成令人惊叹的触控接口以及apps。</p>
+<p>这个插件用处很大，一般在做响应式web的时候也可以用到。主要用到的就是swiperleft 和swiperright两个来做效果</p>
+<p><a href="https://github.com/alvarotrigo/fullPage.js" target="_blank" rel="external">fullPage.js</a><br><a href="https://github.com/alvarotrigo/pagePiling.js" target="_blank" rel="external">pagePiling.js</a><br><a href="http://www.swiper.com.cn/" target="_blank" rel="external">swiper</a><br><a href="http://www.dowebok.com/77.html" target="_blank" rel="external">jQuery全屏滚动插件fullPage.js</a><br><a href="http://www.dowebok.com/150.html" target="_blank" rel="external">pagePiling.js – jQuery全屏滚动插件</a><br><a href="http://www.jq22.com/jquery-info573" target="_blank" rel="external">jQuery单页滚动插件pagePiling.js</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/11/13/x25/">全屏滚动插件使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Youngrivers</a></p>
+        <p><span>发布时间:</span>2018-11-13, 23:28:15</p>
+        <p><span>最后更新:</span>2017-06-01, 05:12:04</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/11/13/x25/" title="全屏滚动插件使用">http://yoursite.com/2018/11/13/x25/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/11/13/x25/　　作者: Youngrivers" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/11/13/x6/">
+                    玩转Bootstrap
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/11/13/x15/">
+                    Yeoman介绍和应用
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery全屏滚动插件fullPage-js"><span class="toc-number">1.</span> <span class="toc-text">jQuery全屏滚动插件fullPage.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引入文件"><span class="toc-number">1.1.</span> <span class="toc-text">引入文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.2.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript"><span class="toc-number">1.3.</span> <span class="toc-text">JavaScript</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pagePiling-js-–-jQuery全屏滚动插件"><span class="toc-number">2.</span> <span class="toc-text">pagePiling.js – jQuery全屏滚动插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端切换插件-swiper"><span class="toc-number">3.</span> <span class="toc-text">移动端切换插件-swiper</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script>
+    yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+</script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"全屏滚动插件使用　| Youngrivers Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/11/13/x25/" data-title="全屏滚动插件使用" data-url="http://yoursite.com/2018/11/13/x25/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"youngrivers"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/11/13/x6/" title="上一篇: 玩转Bootstrap">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/11/13/x15/" title="下一篇: Yeoman介绍和应用">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x28/">vue开发之vue-cli3</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x24/">移动端web开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x7/">玩转Bootstrap(JS插件篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x6/">玩转Bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x25/">全屏滚动插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x15/">Yeoman介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x2/">Windows下使用hexo在github上创建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x26/">webstorm2016.2简单激活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x9/">SVN的介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x8/">sass-scss的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x11/">ReactJS组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x21/">Node.js基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x19/">jQuery基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x23/">javascript里的正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x20/">JavaScript的回调函数和各种主流开发模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x16/">JavaScript深入理解-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x27/">JavaScript定义对象和类的几种方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x17/">JavaScript匿名函数及其闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x22/">Jade —— 模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x13/">Gulp介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x12/">Grunt介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x5/">Github静态页面创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x3/">Git的安装及使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x4/">Github入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x14/">Bower介绍和应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x10/">AngularJS入门和进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/13/x18/">Ajax基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/11/x1/">Yelee主题说明</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 Youngrivers
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
