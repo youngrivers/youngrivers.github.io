@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-13T15:46:34.955Z</updated>
+  <updated>2018-11-13T16:37:02.511Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ssh配置</title>
+    <link href="http://yoursite.com/2018/11/14/x29/"/>
+    <id>http://yoursite.com/2018/11/14/x29/</id>
+    <published>2018-11-13T16:28:59.726Z</published>
+    <updated>2018-11-13T16:37:02.511Z</updated>
+    
+    <summary type="html">
+    
+      ssh key有问题，连接不上服务器
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="ssh" scheme="http://yoursite.com/tags/ssh/"/>
+    
+  </entry>
   
   <entry>
     <title>vue开发之vue-cli3</title>
@@ -433,26 +455,6 @@ jQuery的理念“Write Less, Do More“，让你写更少的代码，完成更�
       <category term="Jade" scheme="http://yoursite.com/tags/Jade/"/>
     
       <category term="Node.js" scheme="http://yoursite.com/tags/Node-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Gulp介绍和应用</title>
-    <link href="http://yoursite.com/2018/11/13/x13/"/>
-    <id>http://yoursite.com/2018/11/13/x13/</id>
-    <published>2018-11-13T15:28:15.647Z</published>
-    <updated>2016-07-25T06:07:40.239Z</updated>
-    
-    <summary type="html">
-    
-      Gulp是一个构建系统，它能通过自动执行常见任务，比如编译预处理CSS，压缩JavaScript和刷新浏览器，来改进网站开发的过程。通过本文，我们将知道如何使用Gulp来改变开发流程，从而使开发更加快速高效。
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Gulp" scheme="http://yoursite.com/tags/Gulp/"/>
     
   </entry>
   

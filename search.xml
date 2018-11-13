@@ -4,6 +4,22 @@
   
     
     <entry>
+      <title><![CDATA[ssh配置]]></title>
+      <url>http://yoursite.com/2018/11/14/x29/</url>
+      <content type="html"><![CDATA[<h2 id="1-设置"><a href="#1-设置" class="headerlink" title="1.设置"></a>1.设置</h2><blockquote>
+<p>重新在git设置一下身份的名字和邮箱<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;yourname&quot;</div><div class="line">git config --global user.email“your@email.com&quot;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="2-删除-ssh文件夹（直接搜索该文件夹）下的known-hosts-手动删除即可，不需要git）-在用户路径"><a href="#2-删除-ssh文件夹（直接搜索该文件夹）下的known-hosts-手动删除即可，不需要git）-在用户路径" class="headerlink" title="2.删除.ssh文件夹（直接搜索该文件夹）下的known_hosts(手动删除即可，不需要git）(在用户路径)"></a>2.删除.ssh文件夹（直接搜索该文件夹）下的known_hosts(手动删除即可，不需要git）(在用户路径)</h2><h2 id="3-git输入命令"><a href="#3-git输入命令" class="headerlink" title="3.git输入命令"></a>3.git输入命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;your@email.com&quot;（请填你设置的邮箱地址）</div><div class="line">//接着出现</div><div class="line">Generating public/private rsa key pair.</div><div class="line"></div><div class="line">Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):</div></pre></td></tr></table></figure>
+<blockquote>
+<p>请直接按下回车,然后系统会自动在.ssh文件夹下生成两个文件，id_rsa和id_rsa.pub，用记事本打开id_rsa.pub,将全部的内容复制</p>
+<h2 id="4-进入设置"><a href="#4-进入设置" class="headerlink" title="4.进入设置"></a>4.进入设置</h2><p>打开<a href="https://github.com/，登陆你的账户,进入ssh设置,在key中将刚刚复制的粘贴进去,点击add" target="_blank" rel="external">https://github.com/，登陆你的账户,进入ssh设置,在key中将刚刚复制的粘贴进去,点击add</a> ssh key，</p>
+</blockquote>
+<h2 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/jingtingfengguo/article/details/51892864" target="_blank" rel="external">Please make sure you have the correct access rights and the repository exists</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[vue开发之vue-cli3]]></title>
       <url>http://yoursite.com/2018/11/13/x28/</url>
       <content type="html"><![CDATA[<h2 id="1-使用"><a href="#1-使用" class="headerlink" title="1.使用"></a>1.使用</h2><blockquote>
